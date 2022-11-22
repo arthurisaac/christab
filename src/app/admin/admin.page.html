@@ -1,0 +1,167 @@
+<ion-header>
+  <ion-toolbar>
+
+    <div class="header">
+      <ion-buttons slot="start">
+        <ion-menu-button> </ion-menu-button>
+        <ion-icon class="buttonAdd" name="add-outline" (click)="add()"></ion-icon>
+      </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img src="assets/icons/christab2_neutre.svg"> <br>
+
+  <div *ngFor="let ut of utilisateurs; let i = index">
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col> <strong>Nom</strong> </ion-col>
+          <ion-col> <strong>Prénom</strong> </ion-col>
+          <ion-col> <strong>Email</strong> </ion-col>
+          <ion-col> <strong>Téléphone</strong> </ion-col>
+          <ion-col> <strong>Type fonction</strong> </ion-col>
+          <ion-col> <strong>Roles</strong> </ion-col>
+          <ion-col> <strong>Actions</strong> </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item  *ngFor="let u of ut">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div>{{u.nom}} </div>
+          </ion-col>
+          <ion-col>
+            <div>{{u.prenom}}</div>
+          </ion-col>
+          <ion-col>
+            <div>{{u.email}}</div>
+          </ion-col>
+          <ion-col>
+            <div>{{u.tel}}</div>
+          </ion-col>
+          <ion-col>
+            <div>
+              <ion-select name="idTypeFonction" [(ngModel)]="u.idTypeFonction"  disabled>
+                <ion-select-option *ngFor="let t of typeFonctions" value="t.idTypeFonction">
+                  {{t.libelleTypeFonction}}
+                </ion-select-option>
+              </ion-select>
+            </div>
+          </ion-col>
+          <ion-col *ngIf="users">
+            <div>
+              <ion-select name="roles" [(ngModel)]="this.users.roles"  disabled>
+                <ion-select-option *ngFor="let us of users" value="us.idAppUser">
+                  {{us.roles}}
+                </ion-select-option>
+              </ion-select>
+            </div>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="edit(u)"> <ion-icon name="pencil-outline"></ion-icon> </ion-button>
+            <ion-button (click)="disable(u)"> <ion-icon name="trash-outline"></ion-icon> </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </div>
+  <div *ngIf="mode === 2 || mode === 3">
+    <form #f ="ngForm" (ngSubmit)="save()" class="form-area">
+      <div class="group" >
+        <ion-label class="entete">NOM</ion-label>
+        <ion-input type="text" placeholder="SAWADOGO" name="nom" [(ngModel)]="this.utilisateur.nom" required class="champ"></ion-input>
+      </div>
+      <div class="group">
+        <ion-label class="entete">PRENOMS</ion-label>
+        <ion-input type="text" placeholder="Ines" name="prenom" [(ngModel)]="this.utilisateur.prenom" required class="champ" ></ion-input>
+      </div>
+      <div class="group">
+        <ion-label class="entete">EMAIL</ion-label>
+        <ion-input type="email" placeholder="inessawadogo@" name="email" [(ngModel)]="this.utilisateur.email" required
+                   pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" class="champ"></ion-input>
+        <div style="color: red; padding-top: 0.2rem" *ngIf="show">{{errorEmail}}</div>
+      </div>
+      <div class="group">
+        <ion-label class="entete">NUMERO DE TELEPHONE</ion-label>
+        <ion-input type="tel" placeholder="72564539" name="tel" [(ngModel)]="this.utilisateur.tel" required class="champ"></ion-input>
+      </div>
+      <div class="group">
+        <ion-label class="entete">MOT DE PASSE</ion-label>
+        <ion-input type="password" placeholder="......" name="password" [(ngModel)]="this.user.password" required class="champ"></ion-input>
+      </div>
+      <div class="group">
+        <ion-label class="entete">CONFIRMER MOT DE PASSE</ion-label>
+        <ion-input type="password" placeholder="Confirmer mot de passe" name="pwdConfirm" [(ngModel)]="user.passwordConfirmed" required class="champ"></ion-input>
+        <div class="item-text-wrap" style="color: red; padding-top: 0.2rem" *ngIf="show">{{errorPwdConf}}</div>
+      </div>
+      <div class="group">
+        <ion-label class="entete">CONDUCTEUR/PASSAGER</ion-label>
+        <ion-select class="champ2" name="idTypeFonction" [(ngModel)]="this.utilisateur.idTypeFonction" (ionChange)="selectFonction($event)" required>
+          <ion-select-option  class="champ2" *ngFor="let t of typeFonctions" value="{{t.idTypeFonction}}">{{t.libelleTypeFonction}}</ion-select-option>
+        </ion-select>
+      </div>
+      <div class="group">
+        <ion-label class="entete">PHOTO</ion-label>
+        <ion-input type="file" (change)="upload($event)" placeholder="photo" name="photo" [(ngModel)]="this.utilisateur.photo" class="champ1"></ion-input>
+      </div>
+      <div class="group">
+        <ion-label class="entete">CNIB</ion-label>
+        <ion-input type="file" (change)="upload($event)" name="cnib" [(ngModel)]="this.utilisateur.cnib" class="champ1"></ion-input>
+      </div>
+
+      <!-- ********************************* Enregistrement des reférences de l'engin si c'est un conducteur ****************************** -->
+      <div padding *ngIf="showEngin">
+        <div class="group">
+          <ion-label class="entete">TYPE ENGIN</ion-label>
+          <ion-select  class="champ2">
+            <ion-radio class="champ2" value="Auto" (ionFocus)="selectR($event)">AUTO</ion-radio>
+            <ion-radio class="champ2" value="Moto" (ionFocus)="selectR($event)">MOTO</ion-radio>
+          </ion-select>
+        </div>
+        <div class="group">
+          <ion-label class="entete" > MARQUE </ion-label>
+          <ion-input type="text" placeholder="Toyota" name="marqueEngin" [(ngModel)]="this.engin.marque" required class="champ"></ion-input>
+        </div>
+        <div class="group">
+          <ion-label class="entete"> MODELE </ion-label>
+          <ion-input type="text" placeholder="Auris" name="modeleEngin" [(ngModel)]="this.engin.modele" required class="champ"></ion-input>
+        </div>
+        <div class="group">
+          <ion-label class="entete"> DESCRIPTION </ion-label>
+          <ion-input type="text" placeholder="description" name="description" [(ngModel)]="this.engin.description" class="champ"></ion-input>
+        </div>
+        <div class="group">
+          <ion-label class="entete"> PHOTO ENGIN </ion-label>
+          <ion-input type="file" (change)="upload($event)" name="photoEngin" [(ngModel)]="this.engin.photoEngin" class="champ1"></ion-input>
+        </div>
+        <div class="group">
+          <ion-label class="entete"> NOMBRE DE PLACE </ion-label>
+          <ion-input type="number" placeholder="3" name="nbrePlace" [(ngModel)]="this.engin.nbrePlace" required class="champ"></ion-input>
+        </div>
+        <div class="group">
+          <ion-label class="entete"> ANNEE DU MODELE </ion-label>
+          <ion-input type="number" placeholder="2015" name="anneeModele" [(ngModel)]="this.engin.anneeModele" required class="champ"></ion-input>
+        </div>
+        <div class="group">
+          <ion-label class="entete">CARTE GRISE </ion-label>
+          <ion-input type="file" (change)="upload($event)" name="carteGrise" [(ngModel)]="this.engin.carteGrise" class="champ1"></ion-input>
+        </div>
+      </div>
+      <!-- ********************************** Fin *************************** -->
+
+      <section padding style="text-align: center">
+        <ion-button *ngIf="mode === 2 || mode === 3" shape="round" fill="outline" type="button" (click)="back()"> Retour </ion-button> <!--<ion-icon name="arrow-back-outline"></ion-icon> </ion-button>-->
+        <ion-button *ngIf="mode === 2" shape="round" fill="outline" type="submit" [disabled]="!f.valid"> Save </ion-button>
+        <ion-button *ngIf="mode === 3" shape="round" fill="outline" type="button" [disabled]="!f.valid" (click)="update()"> Edit </ion-button>
+      </section>
+
+    </form>
+  </div>
+
+</ion-content>

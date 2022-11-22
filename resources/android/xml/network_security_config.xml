@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+    <!-- <domain-config cleartextTrafficPermitted="false"> -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">localhost</domain>
+        <domain includeSubdomains="true">192.168.43.241</domain>
+        <domain includeSubdomains="true">192.168.1.72</domain>
+        <domain includeSubdomains="true">https://christab.net/</domain>
+        <domain includeSubdomains="true">https://christab.net/christaB_fichiers/</domain>
+        <domain includeSubdomains="true">https://christabsec.herokuapp.com/</domain>
+        <domain includeSubdomains="true">https://christabres.herokuapp.com/</domain>
+        <domain includeSubdomains="true">https://christabpaie.herokuapp.com/</domain>
+        <domain includeSubdomains="true">https://christab-300818.ew.r.appspot.com/</domain>
+        <domain includeSubdomains="true">https://christabres.ew.r.appspot.com/</domain>
+        <domain includeSubdomains="true">https://christabpaie.ew.r.appspot.com/</domain>
+        <domain includeSubdomains="true">https://christabsearch.ew.r.appspot.com/</domain>
+        <domain includeSubdomains="true">https://christabavis.ew.r.appspot.com/</domain>
+    </domain-config>
+</network-security-config>

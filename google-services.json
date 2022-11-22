@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "728954725867",
+    "firebase_url": "https://daring-spirit-291815.firebaseio.com",
+    "project_id": "daring-spirit-291815",
+    "storage_bucket": "daring-spirit-291815.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728954725867:android:d1a07ea8c8471674f065ae",
+        "android_client_info": {
+          "package_name": "com.bafatech.christaB"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "728954725867-3v2si7se8o4i4gpave099k6k789rrcs5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0vGQ3F35THabfS17YO-xx__u9HcMzFZ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "728954725867-3v2si7se8o4i4gpave099k6k789rrcs5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

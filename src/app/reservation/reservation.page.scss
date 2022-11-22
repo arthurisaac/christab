@@ -1,0 +1,666 @@
+/*ion-content, ion-header,ion-item,ion-label,ion-title,strong,ion-note{
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  src: url('~src/assets/fonts/_H_HelveticaNeueInterface.ttf');
+}*/
+.carte{
+  width: 100%;
+  height: 50%;
+  border: 1px solid chartreuse;
+}
+.users{
+  width: 30px;
+}
+.n3{
+  font-size: 35px;
+  position: absolute;
+  margin-left: 20px;
+  margin-top: -30px;
+  color: blue;
+}
+.usersPlace{
+  display: flex;
+  align-items: center;
+  padding-left: 30%;
+}
+.clock{
+  width: 24px;
+  height: 24px;
+}
+.element3{
+  border-left: 0.5px solid darkgray;
+  border-right: 0.5px solid darkgray;
+}
+.titre1{
+  background-color: #DADADA;
+}
+.depart{
+  color: darkgray;
+  margin-left: 10px;
+}
+.trajet{
+  height: 150px;
+  width: 10%;
+  margin-left: 5px;
+}
+.heureD{
+  width:40px;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 2px;
+  color:darkblue;
+}
+.heureA{
+  margin-top:110px;
+
+  height: 30px;
+  margin-left: -45px;
+  color:darkblue;
+}
+.element2{
+  display: flex;
+  padding: 5px;
+}
+.d{
+  color: green;
+}
+.a{
+  color: red;
+}
+.Dtext{
+  font-size: 20px;
+}
+.Atext{
+  font-size: 20px;
+}
+.arriveeO{
+  margin-top: 25px;
+  margin-left: 9px;
+}
+.departB{
+  margin-top: 15px;
+  margin-left: 9px;
+}
+ion-avatar{
+  width: 80px;
+  height: 80px;
+}
+.infoConducteur{
+  display: flex;
+}
+.info1{
+  display: flex;
+  margin-right: 15px;
+}
+.info2{
+  display: flex;
+}
+.phone{
+  width: 10px;
+  height: 40px;
+  margin-right: 5px;
+
+}
+.message{
+  width: 20px;
+  height: 40px;
+  margin-right: 5px;
+}
+.check{
+  width: 20px;
+}
+.etoileA{
+  color: #ffca22;
+  width: 12px;
+}
+.etoileD{
+  color: darkgrey;
+  width: 12px;
+}
+.avis6{
+  margin-top: 20px;
+}
+.iconeSize{
+  width: 30px;
+  height:30px;
+}
+.marge{
+  margin-right: 5px;
+}
+.margeInterne{
+  text-align: center;
+}
+.espace{
+  padding: auto;
+  margin: 5px;
+}
+
+.elementApresCarte{
+  display: flex;
+  justify-content: space-between;
+}
+.cntrer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.cntrerV{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+}
+.imgFilter{
+  width: 40px;
+  height: 35px;
+}
+
+#enTeteReservation{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.carte{
+  width: 100%;
+  height: 50%;
+  border: 1px solid chartreuse;
+}
+
+.userss{
+  width: 30px;
+  height: 30px;
+
+  margin-left: -20px;
+}
+.centrageH{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CFA{
+  color: red;
+}
+
+.n33{
+  font-size: 35px;
+  margin-left: 7px;
+  color: blue;
+}
+.plce{
+  margin-top: -15px;
+}
+
+.usersPlace{
+  display: flex;
+  align-items: center;
+  padding-left: 30%;
+}
+.clock2{
+  width: 24px;
+  height: 24px;
+}
+.element3{
+  width: 24%;
+  border-left: 0.5px solid darkgray;
+  border-right: 0.5px solid darkgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Lettre1{
+  background-color: #DADADA;
+}
+.dpart1{
+  color: darkgray;
+  margin-left: 10px;
+  font-size: small;
+}
+
+
+.trajet2{
+  height: 150px;
+  width: 10%;
+  margin-left: 5px;
+}
+.heureD{
+  width:40px;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 2px;
+  color:darkblue;
+}
+.heureA{
+  margin-top:110px;
+
+  height: 30px;
+  margin-left: -45px;
+  color:darkblue;
+}
+.element2{
+  display: flex;
+  padding: 5px;
+}
+.d{
+  color: green;
+}
+.a{
+  color: red;
+}
+.Dtext{
+  font-size: 20px;
+}
+.Atext{
+  font-size: 20px;
+}
+.arriveeO{
+  margin-top: 20px;
+  margin-left: 9px;
+  line-height: 19px;
+}
+.departB{
+  margin-top: 15px;
+  margin-left: 9px;
+  line-height: 19px;
+}
+.espace{
+  padding: 10px;
+  margin-left: 30px;
+  line-height: 12px;
+
+}
+.ion-avatr{
+  width: 70px;
+  height: 70px;
+  margin-top: -20px;
+}
+
+
+.infoConducteur{
+  display: flex;
+}
+.info1{
+  display: flex;
+  margin-right: 15px;
+}
+.info2{
+  display: flex;
+}
+.phone{
+  width: 10px;
+  height: 40px;
+  margin-right: 5px;
+
+}
+.message{
+  width: 20px;
+  height: 40px;
+  margin-right: 5px;
+}
+.check{
+  width: 20px;
+}
+.etoileA{
+  color: #ffca22;
+  width: 12px;
+}
+.etoileD{
+  color: darkgrey;
+  width: 12px;
+}
+.avis6{
+  margin-top: 20px;
+}
+.iconeSize1{
+  width: 25px;
+  height:25px;
+  margin-right: 10px;
+}
+.voirT{
+  margin-left: 10px;
+}
+#contTR{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.listTR{
+  height: 25px;
+  width: 25px;
+}
+
+.arrow_upTR{
+  margin-left: -10px;
+  margin-top: 10px;
+}
+#id2TR{
+  display: flex;
+}
+.menuTR{
+  width: 100px;
+  height: auto;
+}
+#id3TR{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: grey;
+}
+.notificationTR{
+  width: 350px;
+  height:auto;
+}
+.imgTR{
+  height: 35px;
+  width: 35px;
+  margin-right: 10px;
+}
+#infoSuplementaireTR{
+  display: flex;
+  justify-content: center;
+  margin-left: -15px;
+}
+
+.ion-avatarTR{
+  margin-top: -120px;
+  margin-left: 10px;
+}
+
+
+.departTR{
+  position: absolute;
+  display: inline-block;
+  font-size: smaller;
+  margin-left:35px ;
+  margin-top: -60px;
+}
+.nombreTR{
+  position: absolute;
+  margin-top: -65px;
+  margin-left: 205px;
+  font-size: 25px;
+  color: #46b0e0;
+}
+.dateTR{
+  font-size: smaller;
+  position: absolute;
+  margin-left: 35px;
+  margin-top: -2px;
+  color: #0e1ee0;
+
+}
+.arriverTR{
+  font-size: smaller;
+  position: absolute;
+  display: inline-block;
+  margin-left:35px ;
+  margin-top: -33px;
+}
+.prixTR{
+  position: absolute;
+  color: red;
+  margin-left: 175px;
+  margin-top: -5px;
+}
+.nameTR{
+  margin-left: 15px;
+}
+
+// css du composant information-du-conducteur
+
+.imgIC{
+  height: 20px;
+  width: 20px;
+  color: dodgerblue;
+}
+#conteneur1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 23px;
+}#conteneur2{
+   padding-top: 20px;
+   padding-bottom: 10px;
+ }
+#conteneur3{
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+}
+.displayFlex2{
+  display: flex;
+}
+
+.displayFlex{
+  display: flex;
+  margin-bottom: 7px;
+}
+
+.centrer{
+  display: flex;
+  justify-content: center;
+}
+#conteneur4{
+  display: flex;
+  margin-right: 20px ;
+}
+#conteneur5{
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px ;
+  justify-content: space-between;
+}
+
+#conteneur45{
+  display: flex;
+  justify-content: space-between;
+
+}
+.displayFlexE{
+  display: flex;
+  margin-bottom: 29px;
+  justify-content: space-between;
+  width: 170px;
+}
+.displayFlexET{
+  display: flex;
+  justify-content: space-between;
+  color: #3a7be0;
+}
+.totaDis:nth-child(6){
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid blue;
+}
+
+.separateur{
+  border-left: 0.5px solid #3a7be0;
+}
+.lab{
+  font-size: 20px;
+  margin-left: 2px;
+}
+.marginTop{
+  margin-right: 8px;
+}
+.etoileC{
+  color: #ffca22;
+}
+.etoilC{
+  color: rgba(91,88,88,0.26);
+}
+.label{
+  font-size: small;
+}
+#titre{
+  display: flex;
+  flex-direction: column ;
+  align-items: center;
+}
+.back{
+  width: 90px;
+}
+
+.ion-avatarIC{
+  width: 100px;
+  height: 100px;
+}
+
+
+.imgFilterFT{
+  width: 40px;
+  height: 20px;
+  margin-top: -90px;
+
+}
+
+#entete_conteneurFT{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.imgCbFT{
+  width: 95px;
+  height: 95px;
+}
+
+.trajetFT{
+  height:200px;
+  width: 45px;
+}
+#heure_depart_arriver1FT{
+  display: flex;
+  flex-direction: column;
+}
+#conteneurFT{
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+.heureFT {
+  color: blue;
+}
+.heureDepartFT{
+  margin-top: 20px;
+  width: 145px;
+}
+.heureArriverFT{
+  margin-top: 110px;
+  width: 145px;
+}
+.ligneHeigthFT{
+  line-height: 15px;
+  margin-top: 40px;
+  margin-left: 5px;
+}
+.departFT{
+  color: green;
+}
+.arriverFT{
+  color: red;
+}
+.ion-labelFTN{
+  font-size: small;
+}
+.ion-labelFT{
+}
+.ligneHeigthMarginFT{
+  line-height: 15px;
+  margin-top: 85px;
+  margin-left: 5px;
+}
+.contFTN{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+.contFT{
+  display: flex;
+  justify-content: space-between;
+}
+.separateur1FT{
+  margin-top: 20px;
+  border-bottom: 0.5px solid grey;
+  margin-bottom: 50px;
+}
+.separateur2FT{
+  margin-top: 10px;
+  border-bottom: 0.5px solid grey;
+  margin-bottom: 10px;
+  margin-left: 30%;
+  margin-right: -50%;
+}
+.backFTN{
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: whitesmoke;
+  height: 160px;
+  width: 100%;
+}
+.backFT{
+  background-color: whitesmoke;
+  padding-top: 11px;
+  width: 100%;
+  border-top: 1px solid blue;
+  border-bottom: 1px solid blue;
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+.footFT{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.elementFT:nth-child(2){
+  margin-left: 5px;
+}
+.separateur3FT{
+  margin-top: 30px;
+  border-bottom: 0.5px solid grey;
+  margin-bottom: 20px;
+
+}
+
+ion-checkbox{
+  --border-radius: 25px;
+}
+
+.checkedbox{
+  position: relative;
+  top: -40%;
+  right: -45%;
+}
+.checkedbox1{
+  position: relative;
+  top:-70%;
+  right:-45%;
+}
+.demandeBordureGris{
+  border-radius: 7px;
+  border: 0.1px solid lightgray;
+}
+
+.demandeBordure{
+  border-color: orangered;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 7px;
+
+}
+
+
+.imgCbFT{
+  width: 95px;
+  height: 95px;
+}
+

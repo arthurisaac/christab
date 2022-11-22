@@ -1,0 +1,214 @@
+
+
+.divideRech{
+  margin-top:10px;
+  display: flex;
+  justify-content: center;
+}
+.divideRechSuiv{
+  width: 150px;
+  height: 70px;
+}
+.navigation1{
+  margin-right :-10px;
+}
+.imgFilter{
+  width: 25px;
+  height: 25px;
+}
+.radio1{
+  margin-left: -14px;
+  weight: 19px;
+  height: 19px;
+}
+.r{
+  weight: 20px;
+  height: 20px;
+  margin-left: -14px;
+
+}
+.s{
+  font-size: small;
+  margin-left: -8px;
+}
+.s1{
+  font-size: smaller;
+  margin-left: -9px;
+}
+.circle{
+  weight: 25px;
+  height: 25px;
+  margin-left: -25px;
+}
+.aligner{
+  display: flex;
+  justify-content: space-between;
+}
+.positionMoto{
+  margin-top: 48px;
+  margin-left: -24px;
+}
+.positionAuto{
+  margin-top: 48px;
+  margin-left: -24px;
+}
+.carPosition1{
+}
+.backcolor{
+  background-color:#DADADA;
+  color :black;
+  opacity: 0.5;
+}
+.small{
+  font-size: 11px;
+  margin-left: 10px;
+}
+.clr{
+}
+
+.ion-icon1{
+
+  height: 40px;
+  weight: 50px;
+
+}
+.ion-icon2{
+  color: red;
+  height: 40px;
+  weight: 50px;
+}
+.iconeSize{
+  width: 24px;
+  height:24px;
+  margin-left: -7px;
+}
+.marge{
+  margin-right: -4px;
+}
+.titre1{
+  background-color: #DADADA;
+}
+.depart{
+  color: darkgray;
+  margin-left: 10px;
+}
+.car{
+  margin-left: 20px;
+}
+.moto{
+  margin-left: 20px;
+}
+.voirPlus{
+  font-size: 10px;
+}
+.position{
+  margin-right:-10px;
+}
+.conteneurRC{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 20px;
+}
+
+/***** Ajout personnel *******/
+
+.btnCritere{
+  background: darkgrey;
+}
+
+/// Pour les bagages ////
+.tooltip {
+  position: relative;
+  display: inline-block;
+  opacity: 0.6!important;
+
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 110px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 80%;
+  margin-left: -60px;
+  font-size: small;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+
+}
+.tooltiptext{
+  bottom: 100%!important;
+}
+
+.leftbag{
+  margin-left:5%
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+
+/// Pour autre criteres ////
+
+.tooltip .tooltiptexta {
+  visibility: hidden;
+  width: 110px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 80%;
+  margin-left: -60px;
+  font-size: small;
+}
+
+.tooltip .tooltiptexta::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+
+}
+.tooltiptexta{
+  bottom: 100%!important;
+}
+
+
+.tooltip:hover .tooltiptexta {
+  visibility: visible;
+}
+
+
+//margin to 15%
+.mt-15{
+  margin-top: 15%;
+}
+.ml-15{
+  margin-left: 15%;
+}
+

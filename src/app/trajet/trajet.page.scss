@@ -1,0 +1,204 @@
+
+.separteur1{
+  border-bottom: 1px solid grey;
+  margin-top: 9px;
+  margin-bottom: 9px;
+}
+.historique{
+  margin-bottom: 50px;
+}
+.conteneur2{
+  display: flex;
+}
+.colorHeure{
+  color: blue;
+  font-size: small;
+}
+.conteneur3{
+  display: flex;
+  justify-content: space-between;
+}
+.elment1{
+  align-self: flex-end;
+}
+.elment{
+  margin-left: 50px;
+}
+.TrajetsEnCoursHistorique{
+  color: #0e1ee0;
+  font-size: large;
+  word-spacing: 5px;
+}
+.smal{
+  font-size: small;
+  text-transform: capitalize;
+}
+.imgCb{
+  width: 90px;
+  height: 90px;
+}
+.centrer{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+.accueil{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.trajetEnCours{
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.conteneur1{
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.conteneur1Element2{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.imgCb{
+  width: 90px;
+  height: 90px;
+}
+#center{
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+#center1{
+  display: flex;
+}
+#cntr{
+  display: flex;
+  align-items: flex-start;
+}
+.position{
+  margin-top: 100px;
+}
+ion-textarea{
+  border: 1px solid grey;
+  height: 200px;
+}
+ion-checkbox{
+  margin-left: 20px;
+  margin-top: 50px;
+}
+.demandeRem{
+  margin-top: 40px;
+  border: 1px solid black;
+}
+.remboursement{
+  margin-top: -10px;
+}
+.imgFilter{
+  width: 35px;
+  height: 35px;
+  margin-top: 10px;
+}
+.etoileC{
+  color: #ffca22;
+}
+.etoilC{
+  color: rgba(91,88,88,0.26);
+}
+.displayFlexE{
+  display: flex;
+  margin-bottom: 29px;
+  justify-content: space-between;
+  width: 170px;
+}
+.center1{
+  display: flex;
+}
+.center{
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+// details du trajet
+.imgFilter{
+  width: 50px;
+  height: 35px;
+  margin-top: 10px;
+}
+
+#center{
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+#center1{
+  display: flex;
+}
+#cntr{
+  display: flex;
+  align-items: flex-start;
+}
+.carte{
+  height: 35%;
+  border: 1px solid red;
+}
+.trajet{
+  height:200px;
+  width: 90px;
+}
+#heure_depart_arriver1{
+  display: flex;
+  flex-direction: column;
+}
+#conteneur{
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.heure {
+  color: blue;
+}
+.heureDepart{
+  margin-top: 20px;
+  width: 145px;
+}
+.heureArriver{
+  margin-top: 110px;
+  width: 145px;
+}
+.ligneHeigth{
+  line-height: 15px;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+.ligneHeigthMargin{
+  line-height: 15px;
+  margin-top: 60px;
+  margin-left: 5px;
+}
+.depart{
+  color: green;
+}
+.arriver{
+  color: red;
+}
+.separateur{
+  border-bottom: 0.5px solid grey;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+ion-avatar{
+  margin-left: 20px;
+}

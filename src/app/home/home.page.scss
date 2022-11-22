@@ -1,0 +1,100 @@
+/*********************************************************Interface HOME********************************************************************/
+
+////////////////////////////////////Background//////////////////////////////////////////////
+ion-content {
+  --background: #fff url('../../assets/icones/Groupf 2.png') no-repeat center/cover fixed;
+}
+
+//////////************************Affichage par défaut****************************///////////
+img{
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container p {
+  font-family: HelveticaNeueLt;
+  font-size: medium;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-top: 97px;
+  line-height: 30px;
+  color: white;
+}
+
+section{
+  width: 100%;
+  margin-top: 70px;
+  display: inline-flex;
+  justify-content: center;
+}
+
+ion-button{
+  --color: white;
+  --border-color: white;
+  font-family: HelveticaNeueLt;
+  font-size: small;
+  letter-spacing: 1px;
+  width: 35%;
+  text-transform: capitalize;
+}
+
+
+//////////*****Affichage au niveau des écrans ayant comme largeur minimale 768px et largeur maximale 1024px******///////////
+@media screen and (min-width:768px) and (max-width:1024px){
+  img{
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+
+  #container {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  #container p {
+    font-family: HelveticaNeueLt;
+    font-size: xx-large;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-top: 150px;
+    line-height: 64px;
+    color: white;
+  }
+
+  section{
+    width: 100%;
+    margin-top: 162px;
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  ion-button{
+    --color: white;
+    --border-color: white;
+    font-family: HelveticaNeueLt;
+    font-size: x-large;
+    letter-spacing: 2px;
+    width: 30%;
+    height: 64px;
+    text-transform: capitalize;
+  }
+}
+
+
+
+

@@ -1,0 +1,615 @@
+
+ion-header, ion-toolbar{
+  --background: #3483ff;
+}
+
+/*************Affichage par défaut***************************/
+
+//En commun 1re et 2e interface
+.groupButtons{
+  display: inline-flex;
+  color: white;
+  margin-top: 10px;
+}
+
+ion-buttons{
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+ion-title{
+  font-size: large;
+  letter-spacing: 1px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+  font-family: HelveticaNeueLt;
+  font-weight: bold;
+  line-height: 40px;
+}
+
+.img{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8px;
+  display: block;
+  width: 28%;
+  height: auto;
+}
+
+//En commun 3e et 4e interfaces
+.groupButtons2{
+  display: inline-flex;
+  color: white;
+  margin-top: 10px;
+}
+
+ion-buttons{
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.img2{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8px;
+  display: block;
+  width: 30%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.positionImage{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 22%;
+  height: auto;
+  padding-top: 5px;
+  margin-top: 50px;
+  border-radius: 10px;
+}
+
+//1re interface
+h5{
+  font-family: HelveticaNeueLt;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  margin-top: 50px;
+  line-height: 30px;
+}
+
+h6{
+  font-size: medium;
+  text-align: center;
+  font-family: HelveticaNeueLt;
+  line-height: 12px;
+  margin-top: 25px;
+}
+
+.groupImages{
+  display: inline-flex;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 20px;
+}
+
+.group1{
+  border: 0.5px groove;
+  width: 110px;
+  height: auto;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+
+}
+
+ion-checkbox{
+  --background-checked: red;
+  --border-color:red;
+  --border-color-checked: red;
+  --border-radius: 25px;
+  --checkmark-color: white;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+
+}
+
+.positionImage1{
+  width: auto;
+  height: 40px;
+}
+
+.group2{
+  border: 0.5px groove;
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.positionImage2{
+  width: 60px;
+  height: auto;
+}
+
+.h5{
+  font-family: HelveticaNeueLt;
+  font-size: small;
+  letter-spacing: 1px;
+  color: #3483ff;
+  margin-left: 5px;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.exemple{
+  font-size: small;
+  margin-left: 10px;
+  line-height: 1px;
+  font-family: HelveticaNeueLt;
+}
+
+.divInput{
+  border-bottom: 1px solid black;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 15px;
+}
+
+.input{
+  font-size: medium;
+  color: black;
+  font-family: HelveticaNeueLt;
+  height: 25px;
+}
+
+.validationPaiement{
+  display: inline-flex;
+  margin-top: 35px;
+  justify-content: center;
+}
+
+.refImagePaiement{
+  display: block;
+  width: 30%;
+  height: auto;
+}
+
+//2e interface
+h1{
+  font-family: HelveticaNeueLt;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  margin-top: 50px;
+  line-height: 30px;
+}
+
+p{
+  font-size: medium;
+  font-family: HelveticaNeueLt;
+  margin-left: 12px;
+  margin-top: 25px;
+}
+h4{
+  color:  #3483ff;
+  font-size: medium;
+  font-family: HelveticaNeueLt;
+  margin-left: 12px;
+}
+
+.div{
+  border-bottom: 1px solid black;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 0px;
+}
+
+.input{
+  font-size: medium;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-family: HelveticaNeueLt;
+  height: 25px;
+}
+
+.validation{
+  display: inline-flex;
+  margin-top: 35px;
+  justify-content: center;
+}
+
+.refImage{
+  display: block;
+  width: 30%;
+  height: auto;
+}
+
+//3e interface
+h3{
+  font-family: HelveticaNeueLt;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+  word-spacing: 2px;
+  margin-top: 35px;
+}
+
+.p1{
+  font-size: medium;
+  font-family: HelveticaNeueLt;
+  text-align: center;
+}
+
+.validationEnCours{
+  display: inline-flex;
+  margin-top: 35px;
+  justify-content: center;
+}
+
+.refImageEnCours{
+  display: block;
+  width: 30%;
+  height: auto;
+}
+
+//4e interface
+.h4{
+  text-align: center;
+  font-family: HelveticaNeueLt;
+  font-size: large;
+  font-weight: bold;
+  word-spacing: 2px;
+  margin-top: 35px;
+}
+
+.p2{
+  text-align: center;
+  font-family: HelveticaNeueLt;
+  font-size: medium;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.validationEchouee{
+  display: inline-flex;
+  margin-top: 35px;
+  justify-content: center;
+}
+
+.refImageEchec{
+  display: block;
+  width: 30%;
+  height: auto;
+}
+
+/****************Affichage au niveau des écrans ayant comme largeur minimale 768px et largeur maximale 1024px*****************************/
+@media screen and (min-width:768px) and (max-width:1024px){
+
+  //En commun 1re et 2e interfaces
+  .groupButtons{
+    display: inline-flex;
+    color: white;
+    margin-top: 10px;
+  }
+
+  ion-buttons{
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+
+  ion-title{
+    font-size: xx-large;
+    letter-spacing: 3px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    font-family: HelveticaNeueLt;
+    font-weight: bold;
+    line-height: 40px;
+  }
+
+  .img{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    display: block;
+    width: 22%;
+    height: auto;
+  }
+
+
+  //En commun 3e et 4e interfaces
+  .groupButtons2{
+    display: inline-flex;
+    color: white;
+    margin-top: 10px;
+  }
+
+  ion-buttons{
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+
+  .img2{
+    margin-left: 350px;
+    margin-right: 350px;
+    margin-top: 8px;
+    display: block;
+    width: 28%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .positionImage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    height: auto;
+    padding-top: 5px;
+    margin-top: 80px;
+    border-radius: 10px;
+  }
+
+
+  //1re interface
+  h5{
+    font-family: HelveticaNeueLt;
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: center;
+    letter-spacing: 3px;
+    word-spacing: 2px;
+    margin-top: 90px;
+    line-height: 30px;
+  }
+
+  h6{
+    font-size: x-large;
+    text-align: center;
+    font-family: HelveticaNeueLt;
+    line-height: 12px;
+    margin-top: 50px;
+  }
+
+  ion-grid{
+    margin-right: 250px;
+    margin-left: 300px;
+  }
+
+  .groupImages{
+    display: inline-flex;
+    margin-left: 45px;
+    margin-right: 45px;
+    margin-top: 80px;
+  }
+
+  .group1{
+    border: 1.5px groove;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+
+  }
+
+  ion-checkbox{
+    --background-checked: red;
+    --border-color:red;
+    --border-color-checked: red;
+    --border-radius: 25px;
+    --checkmark-color: white;
+    position: absolute;
+    top: -8px;
+    right: -10px;
+
+  }
+
+  .positionImage1{
+    width: auto;
+    height: 90px;
+    margin-top: 17px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .group2{
+    border: 1.5px groove;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .positionImage2{
+    width: 99px;
+    height: 70px;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .h5{
+    font-family: HelveticaNeueLt;
+    font-size: x-large;
+    letter-spacing: 1px;
+    color: #3483ff;
+    margin-left: 5px;
+    margin-right: auto;
+    margin-top: 50px;
+  }
+
+  .exemple{
+    font-size: large;
+    margin-left: 50px;
+    line-height: 38px;
+    font-family: HelveticaNeueLt;
+  }
+
+  .divInput{
+    border-bottom: 2px solid black;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 15px;
+  }
+
+  .input{
+    font-size: x-large;
+    color: black;
+    font-family: HelveticaNeueLt;
+    height: 50px;
+  }
+
+  .validationPaiement{
+    display: inline-flex;
+    margin-top: 70px;
+    justify-content: center;
+  }
+
+  .refImagePaiement{
+    display: block;
+    width: 25%;
+    height: auto;
+  }
+
+  //2e interface
+  h1{
+    font-family: HelveticaNeueLt;
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: center;
+    letter-spacing: 3px;
+    word-spacing: 2px;
+    margin-top: 75px;
+    line-height: 30px;
+  }
+
+  p{
+    font-size: xx-large;
+    font-family: HelveticaNeueLt;
+    margin-left: 22px;
+    margin-top: 50px;
+    line-height: 50px;
+  }
+
+  h4{
+    color:  #3483ff;
+    font-size: xx-large;
+    font-family: HelveticaNeueLt;
+    margin-left: 22px;
+    margin-top: 50px;
+  }
+
+  .div{
+    border-bottom: 2px solid black;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 0px;
+  }
+
+  .input{
+    font-size: xx-large;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: HelveticaNeueLt;
+    height: 50px;
+  }
+
+  .validation{
+    display: inline-flex;
+    margin-top: 70px;
+    justify-content: center;
+  }
+
+  .refImage{
+    display: block;
+    width: 25%;
+    height: auto;
+  }
+
+  //3e interface
+  h3{
+    font-family: HelveticaNeueLt;
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: center;
+    letter-spacing: 3px;
+    word-spacing: 2px;
+    margin-top: 50px;
+    line-height: 50px;
+  }
+
+  .p1{
+    font-size: xx-large;
+    font-family: HelveticaNeueLt;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 40px;
+    text-align: center;
+    line-height: 60px;
+  }
+
+  .validationEnCours{
+    margin-top: 70px;
+
+  }
+
+  .refImageEnCours{
+    display: block;
+    margin-left: 384px;
+    margin-right: 384px;
+    width: 25%;
+    height: auto;
+    padding-top: 5px;
+    margin-top: 50px;
+  }
+
+
+  //4e interface
+  .h4{
+    text-align: center;
+    font-family: HelveticaNeueLt;
+    font-size: xx-large;
+    font-weight: bold;
+    letter-spacing: 3px;
+    word-spacing: 2px;
+    margin-top: 50px;
+  }
+
+  .p2{
+    text-align: center;
+    font-family: HelveticaNeueLt;
+    font-size: xx-large;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 40px;
+    line-height: 60px;
+  }
+
+  .validationEchouee{
+    margin-top: 70px;
+  }
+
+  .refImageEchec{
+    display: block;
+    margin-left: 384px;
+    margin-right: 384px;
+    width: 25%;
+    height: auto;
+    padding-top: 5px;
+    margin-top: 50px;
+  }
+}

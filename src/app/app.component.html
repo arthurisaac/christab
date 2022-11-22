@@ -1,0 +1,26 @@
+<ion-app>
+    <ion-menu menuId="first" contentId="main" *ngIf="isAuthenticated() && !tokenIsExpired()">
+        <ion-header>
+            <ion-toolbar color="primary">
+                <ion-title>Réglages</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-menu-toggle auto-hide="true">
+                    <ion-item *ngIf="isAuthenticated()" [routerLink]="['/utilisateur', 'H']"> Gérer mon profil
+                    </ion-item>
+                    <ion-item *ngIf="isAuthenticated()" (click)="goGererMesTrajet()"> Gérer mes trajets</ion-item>
+                    <ion-item *ngIf="isAuthenticated()" [routerLink]="['/facturation']"> Facturation</ion-item>
+                    <ion-item *ngIf="isAuthenticated()" [routerLink]="['/avis']"> Avis</ion-item>
+                    <ion-item *ngIf="isAuthenticated()" (click)="checkSMSPermission()"> Alerte</ion-item>
+                    <ion-item *ngIf="isAuthenticated()" [routerLink]="['/faq']">FAQ & Conditions d'utilisation
+                    </ion-item>
+                    <ion-item *ngIf="isAuthenticated()" (click)="logOut()" class="log_out">Se déconnecter</ion-item>
+                </ion-menu-toggle>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main"></ion-router-outlet>
+
+</ion-app>

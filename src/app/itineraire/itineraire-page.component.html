@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-toolbar class="pb-3">
+        <div class="groupButtons">
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title> Bienvenue sur ChristaB</ion-title>
+        </div>
+        <div class="text-center w-full">
+            <div style="width:150px" class="mx-auto text-white">
+                <hr class="mx-auto bg-white mt-hr"/>
+            </div>
+        </div>
+        <div style="text-align: center; color: white" class="p-0 m-0">
+            <ion-label *ngIf="mode === 1"> Quel type de trajet souhaitez-vous consulter?</ion-label>
+            <ion-label *ngIf="mode === 2"> Quel type de trajet souhaitez-vous effectuer?</ion-label>
+            <ion-label *ngIf="mode === 3"> Quel type de trajet souhaitez-vous ajouter?</ion-label>
+            <ion-label *ngIf="mode === 4"> Quel type de trajet souhaitez-vous réserver?</ion-label>
+            <ion-buttons *ngIf="mod" (click)="prec()">
+                <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+            </ion-buttons>
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content style="text-align: center" padding>
+    <div class="choix" *ngIf="mode === 1 || mode === 3 || mode === 4">
+        <div class="group1">
+            <img *ngIf="mode === 1" src="assets/icons/urbain.png" [routerLink]="['/engin', 'U', 'c']"
+                 class="positionimg">
+            <img *ngIf="mode === 3" src="assets/icons/urbain.png" [routerLink]="['/engin', 'U', 'a']"
+                 class="positionimg">
+            <img *ngIf="mode === 4" src="assets/icons/urbain.png" [routerLink]="['/engin', 'U', 'p']"
+                 class="positionimg">
+        </div> &nbsp;
+        <div class="group3">
+            <ion-text class="text">Ou</ion-text>
+        </div> &nbsp;
+        <div class="group2">
+            <img *ngIf="mode === 1" src="assets/icons/voyage.png" [routerLink]="['/engin', 'V', 'c']"
+                 class="positionimg">
+            <img *ngIf="mode === 3" src="assets/icons/voyage.png" [routerLink]="['/engin', 'V', 'a']"
+                 class="positionimg">
+            <img *ngIf="mode === 4" src="assets/icons/voyage.png" [routerLink]="['/engin', 'V', 'p']"
+                 class="positionimg"><br>
+        </div>
+    </div>
+    <div class="choix" *ngIf="mode === 2">
+        <div class="group1">
+            <img src="assets/icons/urbain.png" [routerLink]="['/engin', 'U']" class="positionimg">
+        </div> &nbsp;
+        <div class="group3">
+            <ion-text class="text">Ou</ion-text>
+        </div> &nbsp;
+        <div class="group2">
+            <img src="assets/icons/voyage.png" [routerLink]="['/engin', 'V']" class="positionimg"> <br>
+        </div>
+    </div>
+</ion-content>

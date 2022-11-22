@@ -1,0 +1,194 @@
+<ion-header>
+  <ion-toolbar color="primary" class="pt-3">
+    <ion-buttons class="leftButton"  slot="start" *ngIf="mode === 1" (click)="backGererProfil()">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons class="leftButton" slot="start" *ngIf="mode === 2" (click)="backPaiement()">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons class="leftButton" slot="start" *ngIf="mode === 4" (click)="backPaiementI()">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+
+    <div   class="facturation">
+      <ion-title > Paiement</ion-title>
+
+      <div class="imgLogo mx-auto">
+        <ion-img class="imgCb" src="/assets/Icones/christab2_neutre.png"></ion-img>
+      </div>
+    </div>
+    <ion-buttons slot="end" (click)="logOut()">
+      <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!--=============================== Contenu =========================-->
+<ion-content class="mb-5">
+
+  <div *ngIf="mode === 1 || mode === 3" style="margin-top: 50px;display: flex;align-items: center;flex-direction: column;"class="container">
+
+    <div class="mx-auto">
+      <ion-label>
+        <strong>
+          <strong *ngIf="mode === 1">
+            Renouvellement annuel des frais d'adhésion
+          </strong>
+          <strong *ngIf="mode === 3">
+            Paiement annuel des frais d'adhésion
+          </strong>
+        </strong>
+      </ion-label>
+    </div>
+
+    <ion-item-divider class=""></ion-item-divider>
+
+
+
+    <ion-item-divider class="mb-5 container-fluid" color="light">
+      <div class="container-fluid mt-3 mx-auto mb-3 ">
+        <ion-radio-group (ionChange)="selectType($event)" class="container-fluid mx-auto d-flex" >
+
+          <ion-label class="">Auto</ion-label>
+          <ion-radio slot="end" value="1" class="radio-size "  ></ion-radio>
+
+          <ion-label class="">Moto</ion-label>
+          <ion-radio slot="end" value="2" class="radio-size "></ion-radio>
+
+          <ion-label class="ml-2">Les deux</ion-label>
+          <ion-radio slot="end" value="3" class="radio-size1 mr-3"></ion-radio>
+        </ion-radio-group>
+      </div>
+    </ion-item-divider>
+
+
+    <div style="display: flex;justify-content: space-between;margin-bottom: 30px;">
+
+      <div  [ngClass]="{'demandeBordure': checkO, 'demandeBordureGris': !checkO}"  style=" width: 100px;height:70px;display: flex;justify-content: center;padding-top: 10px;margin-right: 20px;">
+                <span  class="badge pull-right checkedbox">
+                    <ion-checkbox color="danger" value="1" (ionChange)="getOrange($event)" [disabled]="checkedO"></ion-checkbox>
+                </span>
+
+        <div style="width: 40px;height:10px;position: absolute;">
+          <img src="/assets/nouvellesIcones/Money_Logo_Portrait_Black_RGB.png">
+        </div>
+      </div>
+
+
+      <div  [ngClass]="{'demandeBordure': checkM, 'demandeBordureGris': !checkM}" style="width: 100px;height:70px;display: flex;justify-content: center;padding-top: 20px;">
+                <span   class="badge pull-right checkedbox1">
+                    <ion-checkbox color="danger" value="2" (ionChange)="getMobicash($event)" [disabled]="checkedM"></ion-checkbox>
+                </span>
+        <div style="width: 70px;height:15px;position: absolute;">
+          <img src="/assets/nouvellesIcones/mobicash.png">
+        </div>
+      </div>
+
+    </div>
+
+
+    <div style="line-height: 15px;" class="container-fluid">
+      <div>
+        <ion-label style="font-size: smaller;" color="primary">VOTRE NUMERO DE TELEPHONE MOBILE MONEY
+        </ion-label>
+      </div>
+      <div>
+        <ion-note>Exemple: 76680456</ion-note>
+      </div>
+      <ion-input style="margin-left: -13px;border-bottom: 1px solid grey;" placeholder=" 76680456" type="tel" [disabled]="!checkO && !checkM" (input)="getNumberOrange($event)" [(ngModel)]="paiement.numeroClient"></ion-input>
+    </div>
+    <div *ngIf="!showBtn" style="color: red">{{errorCustomer}}</div>
+    <div style="margin-top: 70px;" class="mx-auto">
+      <ion-buttons>
+        <ion-button *ngIf="mode === 1" [disabled]="!showBtn" (click)="nextPaiement()">
+          <ion-img style="width: 150px;height: 32px;" src="/assets/nouvellesIcones/Group.png"></ion-img>
+        </ion-button>
+        <ion-button *ngIf="mode === 3" [disabled]="!showBtn" (click)="nextPaiementI()">
+          <ion-img style="width: 150px;height: 32px;" src="/assets/nouvellesIcones/Group.png"></ion-img>
+        </ion-button>
+      </ion-buttons>
+    </div>
+  </div>
+
+  <!--===================== Interface validation paiement ===========-->
+
+  <div class="container mb-3" *ngIf="mode === 2 || mode === 4">
+    <div style="text-align: center;margin-top: 50px;margin-bottom: 30px;">
+      <ion-label>
+        <strong>
+          Validation du paiement
+        </strong>
+      </ion-label>
+    </div>
+    <div>
+      <ion-label>
+        <strong>
+          Il y a deux (02) etapes:
+        </strong>
+      </ion-label>
+    </div>
+
+    <div style="margin-top: 20px;margin-bottom: 20px;">
+      <ion-label color="primary">
+        <strong>
+          Etape 1: Generation du OTP avec le montant: {{prix}} FCFA
+        </strong>
+      </ion-label>
+    </div>
+    <div>
+      <ion-label style="font-size: small;">Depuis votre numero de telephone <strong>{{paiement.numeroClient}}</strong>,<br>
+        saisissez: <strong>*144*4*6*{{paiement.montantPaiement}}# </strong>et Lancer l'appel.
+      </ion-label>
+    </div>
+    <div style="margin-top: 20px;margin-bottom: 20px;">
+      <ion-label color="primary">
+        <strong>
+          Etape 2: Saisie du OTP
+        </strong>
+      </ion-label>
+    </div>
+    <div style="margin-top: 20px;margin-bottom: 20px;">
+      <ion-label style="font-size: small;">Orange Money envoie un SMS sur le  <strong>{{paiement.numeroClient}}</strong><br>
+        contenant un <strong>CODE </strong>Saisissez ce <strong>CODE</strong><br>
+        dans le champ de saisi ci-dessous.
+      </ion-label>
+    </div>
+  </div>
+  <div *ngIf="mode === 2 || mode === 4">
+    <div class="container" style="line-height: 5px;">
+      <ion-label color="primary">
+        OTP
+      </ion-label>
+      <ion-input style="border-bottom: 1px solid black;" type="number" (input)="getOtp($event)" [(ngModel)]="paiement.codeOtp"></ion-input>
+    </div>
+    <div *ngIf="showBtn" style="color: red">{{errorOtp}}</div>
+  </div>
+  <div *ngIf="mode === 2 || mode === 4" style="display: flex;justify-content: center;margin-top: 30px;" class="mb-5">
+    <div>
+      <ion-buttons>
+        <ion-button *ngIf="mode === 2"  [disabled]="showBtn" (click)="save()"><ion-img  style="width: 150px;height: 32px;" src="/assets/nouvellesIcones/Groudzp.png"></ion-img></ion-button>
+        <ion-button *ngIf="mode === 4" [disabled]="showBtn" (click)="inscrire()"><ion-img  style="width: 150px;height: 32px;" src="/assets/nouvellesIcones/Groudzp.png"></ion-img></ion-button>
+      </ion-buttons>
+    </div>
+  </div>
+
+  <div *ngIf="mode === 21">
+    <div class="container">
+      <ion-img style="height: 600px;" src="/assets/nouvellesIcones/moov_africa_bf.jpg"></ion-img>
+    </div>
+    <div style="text-align:center;">
+
+      <ion-label style="font-weight: bold">Après avoir reçu un message de la part de MOOV MONEY, veuillez vérifier la transaction
+        en suivant les instructions puis confirmez directement sur votre téléphone avant de cliquer sur valider</ion-label>
+      <div>
+        <ion-buttons style="display: inline;">
+          <ion-button (click)="finaliserMoovTransaction()">
+            <ion-img style="width: 150px;height: 32px;" src="/assets/nouvellesIcones/Groudzp.png"></ion-img>
+          </ion-button>
+        </ion-buttons>
+      </div>
+    </div>
+  </div>
+
+
+</ion-content>

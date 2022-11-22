@@ -1,0 +1,27 @@
+.imgCb{
+  width: 90px;
+  height: 90px;
+}
+.imgFilter{
+  width: 30px;
+  height: 30px;
+}
+.accueil{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.etoileC{
+  color: #ffca22;
+}
+etoilCF{
+  color: grey;
+}
+.etoilC{
+  color: rgba(91,88,88,0.26);
+}
+ion-textarea{
+  border: 1px solid grey;
+  height: 200px;
+}

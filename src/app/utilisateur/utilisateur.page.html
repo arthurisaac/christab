@@ -1,0 +1,849 @@
+<!-- *************************************************** Partie enregistrement ***************************************-->
+
+<ion-content *ngIf="mode === 2" class="firstScreen">
+
+    <!--================== Interface UTILISATEUR =================-->
+    <img src="assets/icons/christab2_neutre.svg" class="firstScreen"> <br>
+    <div class="form-area">
+        <form #f="ngForm" (ngSubmit)="save()">
+            <div class="group">
+                <ion-label>NOM</ion-label>
+                <ion-input type="text" name="nom" [(ngModel)]="utilisateur.nom" required></ion-input>
+            </div>
+            <div class="group">
+                <ion-label>PRENOMS</ion-label>
+                <ion-input type="text" name="prenom" [(ngModel)]="utilisateur.prenom" required></ion-input>
+            </div>
+            <div class="group">
+                <ion-label>EMAIL</ion-label>
+                <ion-input type="email" name="email" [(ngModel)]="utilisateur.email" (input)="checkEmail($event)"
+                           required></ion-input>
+            </div>
+            <div style="color: red;" *ngIf="showButton">{{errorEmail}}</div>
+            <div class="group">
+                <ion-label>NUMERO DE TELEPHONE</ion-label>
+                <ion-input type="tel" name="tel" [(ngModel)]="utilisateur.tel" required></ion-input>
+            </div>
+            <div class="group">
+                <ion-label>NUMERO D'URGENCE</ion-label>
+                <ion-input type="tel" name="tel" [(ngModel)]="utilisateur.telSos" (input)="checkTel($event)"
+                           required></ion-input>
+            </div>
+            <div style="color: red;" *ngIf="showButton">{{errorTelSos}}</div>
+            <div class="group">
+                <ion-label>MOT DE PASSE</ion-label>
+                <ion-input type="password" name="password" [(ngModel)]="user.password" (input)="checkPassword($event)"
+                           required></ion-input>
+            </div>
+            <div style="color: red;" *ngIf="showButton">{{errorPassword}}</div>
+            <div class="group">
+                <ion-label>CONFIRMATION DU MOT DE PASSE</ion-label>
+                <ion-input type="password" name="pwdConfirmed" [(ngModel)]="user.passwordConfirmed"
+                           (input)="checkPasswordConfirmed($event)" required></ion-input>
+            </div>
+            <div style="color: red;" *ngIf="showButton">{{errorPwdConf}}</div>
+            <section class="firstScreen">
+                <button type="button"
+                        class="firstScreen btn btn-outline-white border border-white border-5 rounded-pill text-white  "
+                        (click)="goHome()">Retour
+                </button>&nbsp; &nbsp; &nbsp;
+                <button type="button"
+                        class=" firstScreen btn btn-outline-white border border-white border-5 rounded-pill text-white  "
+                        (click)="nextCnib()">Suivant
+                </button>&nbsp; &nbsp; &nbsp;
+            </section>
+        </form>
+    </div>
+</ion-content>
+
+<!--****************************************************** Identité *********************************************-->
+
+<!--================== Entête IDENTITE, ENGIN, PAIEMENT ===================-->
+<ion-header *ngIf="mode === 3 || mode === 4 || mode === 5 || mode === 6 || mode === 7  || mode === 8 || mode === 9"
+            class=" secondScreen">
+    <ion-toolbar class=" pt-5 secondScreen">
+        <div class="groupButtonsSS">
+            <!--================ Entête PAIEMENT ===============-->
+            <ion-buttons class="secondScreen" slot="start" *ngIf="mode === 9" (click)="newBack()">
+                <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+            </ion-buttons>
+            <ion-buttons class="secondScreen" slot="start" *ngIf="mode === 8" (click)="backPaiement()">
+                <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+            </ion-buttons>
+            <!--================ Entête ENGIN ===============-->
+            <ion-buttons class="secondScreen" slot="start" *ngIf="mode === 7" (click)="backPhotoEngin()">
+                <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+            </ion-buttons>
+            <ion-buttons class="secondScreen" slot="start" *ngIf="mode === 6" (click)="backVerifEngin()">
+                <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+            </ion-buttons>
+            <!--================ Entête IDENTITE ===============-->
+            <ion-buttons class="secondScreen" slot="start" *ngIf="mode === 5" (click)="backTypeFonction()">
+                <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+            </ion-buttons>
+            <ion-buttons class="secondScreen" slot="start" *ngIf="mode === 4" (click)="backPhoto()">
+                <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+            </ion-buttons>
+            <ion-buttons class="secondScreen" slot="start" *ngIf="mode === 3" (click)="backCnib()">
+                <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+            </ion-buttons>
+            <!--================ Entête IDENTITE ===============-->
+            <ion-title class="secondScreen" *ngIf="mode === 3 || mode === 4 || mode === 5"> Validation de l'identité
+            </ion-title>
+            <ion-buttons slot="end" class="saveSecondScreen" *ngIf="mode === 3 || mode === 4 || mode === 5">
+                <ion-button [disabled]="showBtnSave" (click)="retrievePageUser(utilisateur)">
+                    <ion-icon slot="icon-only" class="saveButton" name="save-outline"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+
+            <!--================ Entête ENGIN ===============-->
+            <ion-title class="secondScreen" *ngIf="mode === 6 || mode === 7"> Validation de l'engin</ion-title>
+            <ion-buttons slot="end" class="saveSecondScreen" *ngIf="mode === 6 || mode === 7">
+                <ion-button [disabled]="showBtnSave" (click)="retrievePageEngin(engin)">
+                    <ion-icon slot="icon-only" class="saveButton" name="save-outline"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+
+            <!--================ Entête PAIEMENT ===============-->
+            <ion-title class="secondScreen" *ngIf="mode === 8 || mode === 9"> Paiement</ion-title>
+
+        </div>
+        <img src="assets/icons/christab2_neutre.svg" class="secondScreen"> <br>
+    </ion-toolbar>
+</ion-header>
+
+
+<!--==================================== Corps identité =========================================-->
+
+<ion-content
+        *ngIf="mode === 0 || mode === 3 || mode === 4 || mode === 5 || mode === 6 || mode === 7 || mode === 8 || mode === 9 || mode === 15 || mode === 16 || mode === 19 || mode === 20 || mode === 21 || mode === 22 || mode === 23 || mode === 24 || mode === 25">
+
+    <!--=============== INTERFACES IDENTITE =========-->
+    <!--$$$ 1re interface IDENTITE $$$-->
+    <h1 *ngIf="mode === 3">Pour votre sécurité et celle des autres utilisateurs, veuillez préciser votre identité.</h1>
+    <br>
+    <div *ngIf="mode === 3">
+        <ion-avatar class="profilImg secondScreen">
+            <img [src]="photo" (click)="openCam('photo')"/>
+        </ion-avatar>
+        <p class="Identite">Ajouter une photo de profil</p>
+    </div>
+
+    <form #f="ngForm" (ngSubmit)="savePassager()">
+        <div class="formAreaIdentite" *ngIf="mode === 3 || mode === 15">
+            <div class="groupIdentite">
+                <ion-label class="labelIdentite">DOCUMENT D'IDENTITE</ion-label>
+                <ion-select name="typeDocument" (ionChange)="selectTypeDocument($event)" [(ngModel)]="utilisateur.typeDocument" required>
+                    <ion-select-option *ngFor="let t of typeDocument" [value]="t.val">{{t.val}}</ion-select-option>
+                </ion-select>
+            </div>
+            <div *ngIf="showButton" style="color: red">{{errorTypeDoc}}</div>
+            <div class="groupIdentite">
+                <ion-label class="labelIdentite">N° DU DOCUMENT</ion-label>
+                <ion-input type="text" name="numeroDocument"
+                           [(ngModel)]="utilisateur.numeroCnib" (input)="checkCnibNb($event)"></ion-input>
+            </div>
+            <div *ngIf="showButton" style="color: red">{{errorCnibNb}}</div>
+            <div class="groupIdentite">
+                <ion-label class="labelIdentite">DATE DE DELIVRANCE</ion-label>
+                <ion-datetime displayFormat="DD MMM YYYY" max="3099-12-31" [dayShortNames]="days"
+                              [monthShortNames]="months" (ionChange)="checkDates('Delivrance', $event)"
+                              [doneText]="doneBtn" [cancelText]="backBtn"
+                              [(ngModel)]="utilisateur.dateDelivrance"
+                              [ngModelOptions]="{standalone: true}">
+                </ion-datetime>
+            </div>
+            <div class="groupIdentite">
+                <ion-label class="labelIdentite">DATE D'EXPIRATION</ion-label>
+                <ion-datetime displayFormat="DD MMM YYYY" max="3099-12-31" [dayShortNames]="days"
+                              [monthShortNames]="months"
+                              [doneText]="doneBtn" [cancelText]="backBtn" (ionChange)="checkDates('Expiration', $event)"
+                              [(ngModel)]="utilisateur.dateExpiration"
+                              name="dateExpiration" >
+                </ion-datetime>
+            </div>
+            <div *ngIf="showButton" style="color: red">{{errorDate}}</div>
+            <div class="groupIdentite">
+                <ion-label class="labelIdentite">LIEU DE DELIVRANCE</ion-label>
+                <ion-input type="text" name="lieuDelivrance"
+                           [(ngModel)]="utilisateur.lieuDelivrance"></ion-input>
+            </div>
+        </div>
+        <section class="validation" *ngIf="mode === 3">
+            &nbsp; &nbsp;<button type="button"
+                                 class="secondScreen  btn btn-lg btn-outline-black border border-1 border-dark rounded-pill text-dark  font-size"
+                                 (click)="nextPhoto()">Suivant
+        </button>&nbsp; &nbsp; &nbsp;
+        </section>
+        <section class="validation" *ngIf="mode === 15">
+            &nbsp; &nbsp;<button type="button"
+                                 class="secondScreen  btn btn-lg btn-outline-black border border-1 border-dark rounded-pill text-dark  font-size"
+                                 (click)="nextPhotoProfil()">Suivant
+        </button>&nbsp; &nbsp; &nbsp;
+        </section>
+
+        <!--$$$ 2e interface IDENTITE $$$-->
+        <h1 *ngIf="mode === 4 || mode === 16" class="Identite">Photos du document d'identité</h1>
+        <h2 *ngIf="mode === 4 || mode === 16" class="Identite">Ajouter trois (03) photos de votre document d'identité
+            <br>
+            en vous référant sur les exemples ci-dessous</h2>
+        <div class="div" *ngIf="mode === 4 || mode === 16">
+            <ion-grid class="grid secondScreen">
+                <ion-row class="mx-auto">
+                    <ion-col class="mx-auto container-fluid">
+                        <img src="assets/nouvellesIcones/face_cnib.png" class="refImage"
+                             style="width: auto;margin-left: 0;">
+                        <p class="p1">Recto</p>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <p class="paragraphe Identite">* La photo doit être lisible et montrer clairement le visage du détenteur et
+                le
+                document d'identité</p>
+            <div class="trait"></div>
+            <br> <br>
+            <ion-grid class="secondScreen">
+                <ion-row>
+                    <ion-col>
+                        <img [src]="cnibR" class="imgPlus secondScreen" (click)="openCam('cnibR')" class="refImage2">
+                        <img src="assets/nouvellesIcones/delete.svg" class="del" *ngIf="showDeleteCNR"
+                             (click)="deleteUpCNRecto()">
+                        <p class="p1">Recto</p>
+                    </ion-col>
+                </ion-row>
+                <div *ngIf="showButton" style="color: red; text-align: center">{{errorCnibPhoto}}</div>
+            </ion-grid>
+        </div>
+        <section class="validation" *ngIf="mode === 4">
+            <button type="button"
+                    class="secondScreen  btn btn-lg btn-outline-black border border-1 border-dark rounded-pill text-dark  font-size"
+                    (click)="nextTypeFonction()">Suivant
+            </button>&nbsp; &nbsp; &nbsp;
+        </section>
+        <section class="validation" *ngIf="mode === 16">
+            <button type="button"
+                    class="secondScreen  btn btn-lg btn-outline-black border border-1 border-dark rounded-pill text-dark  font-size"
+                    (click)="update()">Suivant
+            </button>&nbsp; &nbsp; &nbsp;
+        </section>
+
+        <!--$$$ 3e interface IDENTITE $$$-->
+        <h3 *ngIf="mode === 5" class="Identite">Je veux être:</h3>
+        <section class="validationProfil container-fluid" *ngIf="mode === 5">
+            <br> <br>
+            <button type="button" style="margin-left:5%"
+                    class="btn btn-lg btn-outline-black border border-1 border-dark rounded-pill text-dark  font-size"
+                    (click)="nextVerifEngin()">CONDUCTEUR
+            </button>&nbsp; &nbsp; &nbsp;
+            <button type="submit"
+                    class="btn btn-lg btn-outline-black border border-1 border-dark rounded-pill text-dark  font-size">
+                PASSAGER
+            </button>&nbsp; &nbsp; &nbsp;
+        </section>
+        <p class="footer Identite" *ngIf="mode === 5">Vous pourrez à tout moment ajouter un engin <br> en vous rendant
+            dans
+            paramètres personnels.</p>
+
+        <!--===================== INTERFACES ENGIN ================-->
+        <!--$$$ 1re interface ENGIN $$$-->
+        <h1 class="h1" *ngIf="mode === 6">Ajoutez des informations sur l'engin</h1>
+        <h1 class="h1" *ngIf="mode === 22">Ajouter un engin</h1>
+        <div class="formAreaEngin" *ngIf="mode === 6 || mode === 22">
+            <div class="groupEngin">
+                <ion-label class="labelEngin">TYPE D'ENGIN</ion-label>
+                <ion-radio-group name="typeEngin" [(ngModel)]="engin.typeEngin">
+                    <div class="typEngin">
+                        <div class="typEngin" *ngFor="let t of typeEngins">
+                            <p class="type">{{t.val}}</p>
+                            <ion-radio slot="end" class="radioButton Engin"
+                                      [value]="t.val" (ionFocus)="selectTypeEngin($event, t)"></ion-radio> &nbsp; &nbsp; &nbsp; &nbsp;
+                            &nbsp;
+                            &nbsp;
+                        </div>
+                    </div>
+                </ion-radio-group>
+            </div>
+            <div *ngIf="showButton" style="color: red">{{errorTypeEngin}}</div>
+            <div class="groupEngin">
+                <ion-label class="labelEngin">MARQUE</ion-label>
+                <ion-input type="text" name="marque" [(ngModel)]="engin.marque"></ion-input>
+            </div>
+            <div class="groupEngin">
+                <ion-label class="labelEngin">MODELE</ion-label>
+                <ion-input type="text" name="modele" [(ngModel)]="engin.modele"></ion-input>
+            </div>
+            <div class="groupEngin">
+                <ion-label class="labelEngin">COULEUR</ion-label>
+                <ion-input type="text" name="couleurEngin" [(ngModel)]="engin.couleur"></ion-input>
+            </div>
+            <div class="groupEngin">
+                <ion-label class="labelEngin">NUMERO D'IMMATRICULATION</ion-label>
+                <ion-input type="text" name="immatriculation"
+                           [(ngModel)]="engin.immatriculation"></ion-input>
+            </div>
+        </div>
+        <section class="validation" *ngIf="mode === 6">
+            <button type="button"
+                    class="secondScreen  btn btn-lg btn-outline-black border border-1 border-dark rounded-pill text-dark  font-size"
+                    (click)="nextPhotoEngin()">Suivant
+            </button>&nbsp; &nbsp; &nbsp;
+        </section>
+        <section class="validation" *ngIf="isC() && mode === 22">
+            <button type="button"
+                    class="secondScreen  btn btn-lg btn-outline-black border border-1 border-dark rounded-pill text-dark  font-size"
+                    (click)="ajoutENextPhoto()">Suivant
+            </button>&nbsp; &nbsp; &nbsp;
+        </section>
+
+        <!--$$$ 2e interface ENGIN $$$-->
+        <h1 class="h1" *ngIf="mode === 7 || mode === 19 || mode === 23">Photos de l'engin</h1>
+        <p class="p9" *ngIf="mode === 7 || mode === 19 || mode === 23">
+            Ajouter la photo de l'engin en vous référant sur les exemples ci-dessous <br>
+            Ces informations sont confidentielles et ne seront pas vues par les autres utilisateurs
+        </p>
+        <ion-grid *ngIf="mode === 7 || mode === 19 || mode === 23">
+            <ion-row align="center">
+                <ion-col>
+                    <img src="assets/nouvellesIcones/moto_profil.png" class=" refImage3"
+                         style="width: auto;margin-left: 0;">
+                    <p class="p9">De profil</p>
+                </ion-col>
+            </ion-row>
+            <div class="trait2"></div>
+            <br>
+        </ion-grid>
+        <ion-grid *ngIf="mode === 7 || mode === 19 || mode === 23">
+            <ion-row align="center">
+                <ion-col>
+                    <img [src]="photoEP" class="refImage3" (click)="openCam('photoEP')">
+                    <img src="assets/nouvellesIcones/delete.svg" class="del3" *ngIf="showDeletePEP"
+                         (click)="deleteUpPEP()">
+                    <p class="p1">De profil</p>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="showButtonPhoto" style="color: red">{{errorEnginPhoto}}</ion-row>
+        </ion-grid>
+        <h1 class="h11" *ngIf="mode === 7 || mode === 19 || mode === 23">Photos de la carte grise</h1>
+        <p class="p9" *ngIf="mode === 7 || mode === 19 || mode === 23">Ajoutez des photos de votre carte grise</p> <br>
+        <ion-grid class="" *ngIf="mode === 7 || mode === 19 || mode === 23">
+            <ion-row align="center">
+                <ion-col>
+                    <img [src]="photoCGR" class="refImage3" (click)="openCam('photoCGR')">
+                    <img src="assets/nouvellesIcones/delete.svg" class="del3" *ngIf="showDeleteCGR"
+                         (click)="deleteUpCGR()">
+                    <p class="p1">Recto</p>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="showButtonCG" style="color: red">{{errorCarteGPhoto}}</ion-row>
+        </ion-grid>
+        <h1 class="h11" *ngIf="mode === 7 || mode === 19 || mode === 23">Photos de votre permis de conduire</h1>
+        <p class="p9" *ngIf="mode === 7 || mode === 19 || mode === 23">Ajoutez des photos de votre permis de
+            conduire</p> <br>
+        <ion-grid *ngIf="mode === 7 || mode === 19 || mode === 23">
+            <ion-row align="center">
+                <ion-col>
+                    <img [src]="photoPCR" class="refImage3" (click)="openCam('photoPCR')">
+                    <img src="assets/nouvellesIcones/delete.svg" class="del3" *ngIf="showDeletePCR "
+                         (click)="deleteUpPCR()">
+                    <p class="p1">Recto</p>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="showButtonPC" style="color: red">{{errorPermisPhoto}}</ion-row>
+        </ion-grid>
+        <h1 class="h11" *ngIf="mode === 7 || mode === 19 || mode === 23">Photos de l'assurance</h1>
+        <p class="p9" *ngIf="mode === 7 || mode === 19 || mode === 23">Ajoutez des photos de votre assurance</p> <br>
+        <ion-grid *ngIf="mode === 7 || mode === 19 || mode === 23">
+            <ion-row align="center">
+                <ion-col>
+                    <img [src]="photoAssuR" class="refImage3" (click)="openCam('photoAssuR')">
+                    <img src="assets/nouvellesIcones/delete.svg" class="del3" *ngIf="showDeleteAssuR "
+                         (click)="deleteUpAssuR()">
+                    <p class="p1">Recto</p>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="showButtonAssu" style="color: red">{{errorAssurPhoto}}</ion-row>
+        </ion-grid>
+        <section class="validation" *ngIf="mode === 7">
+            <button type="button"
+                    class="secondScreen  btn btn-lg btn-outline-black border border-1 border-dark rounded-pill text-dark  font-size"
+                    (click)="nextPaiement()">Suivant
+            </button>&nbsp; &nbsp; &nbsp;
+        </section>
+        <section class="validation" *ngIf=" mode === 19">
+            <button type="button"
+                    class="secondScreen  btn btn-lg btn-outline-black border border-1 border-dark rounded-pill text-dark  font-size"
+                    (click)="nextPaiementFonction()">Suivant
+            </button>&nbsp; &nbsp; &nbsp;
+        </section>
+        <section class="validation" *ngIf="isC() && mode === 23">
+            <button type="button"
+                    class="secondScreen  btn btn-lg btn-outline-black border border-1 border-dark rounded-pill text-dark  font-size"
+                    (click)="ajouterEngin()">Suivant
+            </button>&nbsp; &nbsp; &nbsp;
+        </section>
+
+        <!--===================== INTERFACES PAIEMENT CONDUCTEUR ==================-->
+        <!--$$$ 1re interface PAIEMENT $$$-->
+        <h5 *ngIf="mode === 8 || mode === 20 || mode === 24" class="Paiement">Paiement des frais d'adhésion</h5>
+        <h6 *ngIf="mode === 8 || mode === 20 || mode === 24 " class="Paiement">Les frais d'adhésion sont de
+            <strong>{{showPrix}} FCFA</strong> par
+            an.</h6>
+        <div style="display: flex;justify-content: space-around;" *ngIf="mode === 8 || mode === 24"
+             class="mx-auto p-3 mt-5 ">
+
+
+            <div [ngClass]="{'demandeBordure': checkO, 'demandeBordureGris': !checkO}"
+                 style=" width: 100px;height:70px;display: flex;justify-content: center;padding-top: 10px;">
+                <span class="badge pull-right checkedbox ">
+                    <ion-checkbox style="--border-radius: 25px;" color="danger" value="1"
+                                  (ionChange)="getOrange($event)" disabled="true"></ion-checkbox>
+                </span>
+                <div style="width: 40px;height:10px;position: absolute;">
+                    <img src="/assets/nouvellesIcones/Money_Logo_Portrait_Black_RGB.png">
+                </div>
+            </div>
+
+
+            <div [ngClass]="{'demandeBordure': checkM, 'demandeBordureGris': !checkM}"
+                 style="width: 100px;height:70px;display: flex;justify-content: center;padding-top: 20px;margin-left: 100px;">
+                <span class="badge pull-right checkedbox1">
+                    <ion-checkbox style="--border-radius: 25px;" color="danger" value="2"
+                                  (ionChange)="getMobicash($event)" disabled="true"></ion-checkbox>
+                </span>
+                <div style="width: 70px;height:15px;position: absolute;">
+                    <img src="/assets/nouvellesIcones/mobicash.png">
+                </div>
+            </div>
+
+        </div>
+        <div class="container pl-5 pr-5 pt-5 pb-0">
+            <p style="font-size: 85%; color: red;" class="pl-3" *ngIf="mode === 8 || mode === 20 || mode === 24">Le
+                paiement sera obligatoire après 3 mois</p>
+            <div class="divInput container" *ngIf="mode === 8 || mode === 24">
+                <ion-input type="number" class="input" name="numeroClient" [disabled]="!checkO && !checkM"
+                           (input)="checkNumber($event)"
+                           [(ngModel)]="paiement.numeroClient" readonly="true"></ion-input>
+            </div>
+        </div>
+        <div *ngIf="!showBtn && (mode === 8 || mode === 24)" style="color: red" class="pl-4">{{errorCustomer}}</div>
+        <section class="validation" *ngIf="mode === 8 || mode === 20 || mode === 24">
+            <ion-buttons *ngIf="mode === 8 || mode === 20" class=" validation">
+                <ion-button
+                        class=" secondScreen  btn btn-lg btn-outline-black border border-1 border-dark rounded-pill text-dark  font-size"
+                        (click)="saveConducteur()">Valider
+                </ion-button>
+            </ion-buttons>
+
+            <ion-buttons *ngIf="mode === 24" class=" validation">
+                <ion-button
+                        class="refImageValidation1 secondScreen  btn btn-lg btn-outline-black border border-1 border-dark rounded-pill text-dark  font-size"
+                        (click)="changeFonctionCheck()">Valider
+                </ion-button>
+            </ion-buttons>
+            &nbsp; &nbsp;
+        </section>
+
+        <!--$$$ 2e interface PAIEMENT $$$-->
+        <div class="container" *ngIf="mode === 9 || mode === 20 || mode === 25">
+
+            <h5 class="Paiement">Validation du paiement</h5>
+            <p class="p6">Il y a deux(02) étapes:</p>
+            <h4 class="Paiement">Etape 1: Génération du OTP avec le montant: {{showPrix}}F CFA</h4>
+            <p class="p6">Depuis votre numéro de téléphone <strong>{{paiement.numeroClient}}</strong>. <br>
+                Saisissez <strong> *144*4*6*{{showPrix}}# </strong> et Lancez l'appel.</p>
+            <h4 class="Paiement">Etape 2: Saisie du OTP</h4>
+            <p class="p6">Orange Money envoie un SMS sur le <strong>{{paiement.numeroClient}}</strong> <br>
+                contenant un <strong>CODE</strong>.Saisissez ce <strong>CODE</strong> <br> dans le champ de saisie
+                ci-dessous.
+            </p>
+            <h4 class="Paiement">OTP</h4>
+            <div class="divInput">
+                <ion-input type="number" class="input" name="codeOtp" (input)="getOtp($event)"
+                           [(ngModel)]="paiement.codeOtp"></ion-input>
+            </div>
+            <div *ngIf="showBtn" style="color: red">{{errorOtp}}</div>
+
+
+        </div>
+
+        <section class="validation" *ngIf="mode === 9 || mode === 20 || mode === 25">
+            <ion-buttons *ngIf="mode === 9 || mode === 20">
+                <ion-button
+                        class="refImageValidation1 secondScreen  btn btn-lg btn-outline-black border border-1 border-dark rounded-pill text-dark  font-size"
+                        (click)="saveConducteur()">Valider
+                </ion-button>
+            </ion-buttons>
+            <ion-buttons *ngIf="mode === 25">
+                <ion-button
+                        class="refImageValidation1 secondScreen  btn btn-lg btn-outline-black border border-1 border-dark rounded-pill text-dark  font-size"
+                        [disabled]="showBtn" (click)="changeFonction()">Valider
+                </ion-button>
+            </ion-buttons>&nbsp; &nbsp;
+        </section>
+    </form>
+    <!--================== 3e interface PAIEMENT Success message =============-->
+    <img src="assets/nouvellesIcones/tick blue.png" class="positionImage" *ngIf="mode === 0 && modePaie === 1">
+    <h3 class="h3" *ngIf="mode === 0 && modePaie === 1">Inscription en cours de <br> validation!</h3> <br>
+    <p class="p7" *ngIf="mode === 0 && modePaie === 1">Nous avons bien reçu votre paiement!</p>
+    <p class="p7" *ngIf="mode === 0 && modePaie === 1">Votre demande d'inscription est prise en compte.</p>
+    <p class="p8" *ngIf="mode === 0 && modePaie === 1">Après vérification et validation de vos documents, <br> vous
+        recevrez un email confirmant votre accès à l'application.</p>
+    <section class="validation" *ngIf="mode === 0 && modePaie === 1">
+        <img src="assets/nouvellesIcones/a.png" (click)="nextValidationPaiement()" class="refImageValidation">
+    </section>
+
+    <!--================= 4e interface PAIEMENT fail message ===============-->
+    <img src="assets/nouvellesIcones/tick belue.png" class="positionImage" *ngIf="mode === 0 && modePaie === 2">
+    <h3 class="h3" *ngIf="mode === 0 && modePaie === 2">Paiement échoué</h3> <br>
+    <p class="p7" *ngIf="mode === 0 && modePaie === 2">Il semble que nous avons rencontrer un problème à procéder à
+        votre paiement</p>
+    <p class="p7" *ngIf="mode === 0 && modePaie === 2"><strong> Motif: Solde insuffisant </strong></p>
+    <p class="p7" *ngIf="mode === 0 && modePaie === 2">Veuillez vérifier que toutes les données sont correctes, puis
+        reéssayez!</p>
+    <section style="text-align: center" class="validation" *ngIf="mode === 0 && modePaie === 2">
+        <img src="assets/nouvellesIcones/Grouezp.png" (click)="nextValidationPaiement()" class="refImageValidation">
+    </section>
+
+</ion-content>
+
+
+<!--*************************************************** Partie Edition ***************************************************-->
+
+
+<!--================= Entete interface GERER MON PROFIL, 1re interface SECURITE et 2e interface SECURITE ===============-->
+<ion-header
+        *ngIf="mode === 10 || mode === 11 || mode === 12 || mode === 15 || mode === 16 || mode === 17 || mode === 18 || mode === 19 || mode === 20 || mode === 22 || mode === 23 || mode === 24 || mode === 25">
+    <ion-toolbar color="primary" class="pt-5 profilButton">
+        <ion-buttons class="buttonTitle" slot="start" *ngIf="mode === 10">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+
+        <ion-buttons slot="start" class="back-icon buttonTitle" (click)="gererProfil()"
+                     *ngIf="mode === 11 || mode === 12 || mode === 15 || mode === 16 || mode === 17 || mode === 18 || mode === 19 || mode === 20 || mode === 22 || mode === 23 || mode === 24 || mode === 25">
+            <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+        </ion-buttons>
+
+        <ion-buttons class="buttonTitle" slot="end">
+            <ion-button (click)="isAuthorised()">
+                <ion-label style="font-size: small;text-transform: capitalize;">Accueil</ion-label>
+            </ion-button>
+        </ion-buttons>
+        <div class="d-flex flex-column facturation">
+            <div>
+                <ion-title *ngIf="mode === 10 || mode === 11 || mode === 15 || mode === 16 || mode === 17"
+                           style="text-align: center;"> Gérer mon profil
+                </ion-title>
+                <ion-title *ngIf="mode === 12"> Sécurité</ion-title>
+                <!--================= Entête interface DEVENIR CONDUCTEUR ================-->
+                <ion-title *ngIf="mode === 18 || mode === 19 || mode === 20 || mode === 24 || mode === 25"> Devenir
+                    conducteur
+                </ion-title>
+                <!--================= Entête interface Ajouter Engin ================-->
+                <ion-title *ngIf="mode === 22 || mode === 23"> Ajouter Engin</ion-title>
+            </div>
+
+            <div class="imgLogo mx-auto">
+                <img src="assets/icons/christab2_neutre.svg">
+            </div>
+        </div>
+        <br>
+    </ion-toolbar>
+</ion-header>
+
+
+<!--================= Interface GERER MON PROFIL ==================-->
+<ion-content
+        *ngIf=" mode === 10 || mode === 11 || mode === 12 || mode === 13 || mode === 14 || mode === 17 || mode === 18">
+
+    <!--======== 1re interface Photo =========-->
+    <div *ngIf=" mode === 10" class="container imgProfil">
+        <div>
+            <ion-avatar class="sizePhoto">
+                <img [src]="photo">
+            </ion-avatar>
+        </div>
+        <div (click)="changerPhoto()">
+            <ion-label class="modifLabel">Modifier</ion-label>
+        </div>
+    </div>
+    <!--======== 2e interface Photo Modification de la photo=========-->
+    <div *ngIf="mode === 17" class="container imgProfil">
+        <div class="imgProfilEdit">
+            <ion-avatar class="sizePhoto" (click)="openCam('photo')">
+                <img [src]="photo">
+            </ion-avatar>
+        </div>
+        <div (click)="updatePhoto()">
+            <ion-label class="validModifLabel">Enregistrer</ion-label>
+        </div>
+    </div>
+
+    <!--======== 1re interface Informations de base =========-->
+    <div class="container spaceBetween title" *ngIf=" mode === 10 || mode === 17">
+        <div>
+            <ion-label class="infoProfil">Informations de base</ion-label>
+        </div>
+        <div class="modifLabel" (click)="edit(utilisateur)">Modifier</div>
+    </div>
+    <div class="container " *ngIf=" mode === 10  || mode === 17">
+        <div class="groupIdentite">
+            <ion-label>NOM</ion-label>
+            <ion-input class="placeholderInput" type="text" name="nom" [(ngModel)]="utilisateur.nom"
+                       readonly=""></ion-input>
+        </div>
+        <div class="groupIdentite">
+            <ion-label>PRENOM</ion-label>
+            <ion-input class="placeholderInput" type="text" name="prenom" [(ngModel)]="utilisateur.prenom"
+                       readonly=""></ion-input>
+        </div>
+        <div class="groupIdentite">
+            <ion-label>EMAIL</ion-label>
+            <ion-input class="placeholderInput" type="email" name="email" [(ngModel)]="utilisateur.email"
+                       readonly=""></ion-input>
+        </div>
+        <div class="groupIdentite">
+            <ion-label>NUMERO DE TELEPHONE</ion-label>
+            <ion-input class="placeholderInput" type="tel" name="tel" [(ngModel)]="utilisateur.tel"
+                       readonly=""></ion-input>
+        </div>
+    </div>
+    <!--======== 2e interface Informations de base Modification des informations =========-->
+    <div class="container spaceBetween title" *ngIf=" mode === 11">
+        <div>
+            <ion-label class="infoProfil"><strong>Informations de base</strong></ion-label>
+        </div>
+    </div>
+    <div class="container" *ngIf=" mode === 11">
+        <div class="groupIdentite">
+            <ion-label>NOM</ion-label>
+            <ion-input class="placeholderInput" type="text" name="nom" [(ngModel)]="utilisateur.nom"></ion-input>
+        </div>
+        <div class="groupIdentite">
+            <ion-label>PRENOM</ion-label>
+            <ion-input class="placeholderInput" type="text" name="prenom" [(ngModel)]="utilisateur.prenom"></ion-input>
+        </div>
+        <div class="groupIdentite">
+            <ion-label>EMAIL</ion-label>
+            <ion-input class="placeholderInput" type="email" name="email" [(ngModel)]="utilisateur.email"
+                       (input)="checkEmailP($event)"></ion-input>
+        </div>
+        <div style="color: red;" *ngIf="showButton">{{errorEmail}}</div>
+        <div class="groupIdentite">
+            <ion-label>NUMERO DE TELEPHONE</ion-label>
+            <ion-input class="placeholderInput" type="tel" name="tel" [(ngModel)]="utilisateur.tel"></ion-input>
+        </div>
+        <div class="groupIdentite">
+            <ion-label>NUMERO D'URGENCE</ion-label>
+            <ion-input class="placeholderInput" type="tel" name="tel" [(ngModel)]="utilisateur.telSos"></ion-input>
+        </div>
+        <section class="text-center">
+            <ion-button shape="round" fill="outline" type="button" (click)="nextCnibProfil()"> Suivant</ion-button>
+        </section>
+    </div>
+
+    <!--======== 1re interface SECURITE Mot de passe =========-->
+    <div class="container spaceBetween title" *ngIf=" mode === 10 || mode === 17">
+        <div>
+            <ion-label class="infoProfil"><strong>Sécurité</strong></ion-label>
+        </div>
+        <div (click)="changerPassword(utilisateur)">
+            <ion-label class="modifLabel">Modifier</ion-label>
+        </div>
+    </div>
+    <br>
+    <div class="container" *ngIf=" mode === 10 || mode === 17">
+        <div class="groupIdentite">
+            <ion-label>MOT DE PASSE</ion-label>
+            <ion-input class="placeholderInput" type="password"></ion-input>
+        </div>
+    </div>
+    <!--======== 2e interface SECURITE Modification du mot de passe =========-->
+    <h1 class="h1" *ngIf=" mode === 12">Modifier votre mot de passe</h1>
+    <div class="formAreaIdentite" *ngIf=" mode === 12">
+        <form>
+            <div class="groupIdentite">
+                <ion-label>ANCIEN MOT DE PASSE</ion-label>
+                <ion-input type="password" name="oldPassword" [(ngModel)]="user.oldPassword"></ion-input>
+            </div>
+            <ion-label color="danger" *ngIf="showP">{{errorPasswordOld}}</ion-label>
+            <div class="groupIdentite">
+                <ion-label>NOUVEAU MOT DE PASSE</ion-label>
+                <ion-input type="password" name="password" [(ngModel)]="user.password"></ion-input>
+            </div>
+            <ion-label color="danger" *ngIf="show">{{errorPassword}}</ion-label>
+            <div class="groupIdentite">
+                <ion-label>CONFIRMATION DU NOUVEAU MOT DE PASSE</ion-label>
+                <ion-input type="password" name="passwordConfirmed" [(ngModel)]="user.passwordConfirmed"></ion-input>
+            </div>
+            <ion-label color="danger" *ngIf="show">{{errorPassword}}</ion-label>
+        </form>
+        <section class="validation">
+            <ion-buttons>
+                <ion-button shape="round" fill="outline" type="button" [disabled]="show" (click)="updatePwd()">Valider
+                </ion-button>
+            </ion-buttons>&nbsp; &nbsp;
+        </section>
+    </div>
+
+    <!--=================== Liste des engins du conducteur ==================-->
+    <div class="container spaceBetween title" *ngIf=" isC() && mode === 10">
+        <div>
+            <ion-label class="infoProfil"><strong>Engins</strong></ion-label>
+        </div>
+    </div>
+    <br>
+    <div class="container" *ngIf=" isC() && mode === 10">
+        <div class="groupIdentite" *ngFor="let e of engins">
+            <ion-label>{{e.marque}} {{e.modele}} {{e.immatriculation}}</ion-label>
+        </div>
+    </div>
+    <div class="spaceBetweenPreferences" style="text-align: center;" (click)="ajoutEngin()"
+         *ngIf=" isC() && mode === 10">
+        <ion-label style="text-decoration: underline;font-size: medium;font-weight:bold;padding-bottom: 20px;"><strong>Ajouter
+            un nouvel engin</strong></ion-label>
+    </div>
+
+
+    <!--======== Interface Préférences =========-->
+    <div class="container-fluid spaceBetween mb-5" *ngIf=" mode === 10 || mode === 17">
+        <div>
+            <ion-label class="infoProfil"><strong>Préférences</strong></ion-label>
+        </div>
+        <div class="spaceBetweenPreferences labelTextDiv">
+            <p class="labelText">Voulez-vous que ces informations soient connues de vos passagers et/ou du conducteur
+                auprès duquel vous avez réservé des places? </p>
+        </div>
+    </div>
+    <div style="display: flex; justify-content: space-between;" class="d-flex flex-row container-fluid "
+         *ngIf=" mode === 10 || mode === 17">
+        <!--============= Eléments de gauche ==============-->
+        <div style="margin-top: 30px;line-height: 10px;">
+            <div class="spaceBetweenPreferences">
+                <ion-label style="font-size: small;font-weight: bold;text-align: justify;">Voulez-vous recevoir un
+                    courriel pour vous rappeler d'évaluer votre dernier transport?
+                </ion-label>
+            </div>
+            <div class="spaceBetweenPreferences">
+                <ion-label style="font-size: small;font-weight:bold;text-align: justify;">J'autorise ChristaB Auto-Moto
+                    à me renseigner par courrier électronique <br>sur les promotions et les nouvelles fonctionnalités du
+                    service succeptibles de m'intérresser
+                </ion-label>
+            </div>
+        </div>
+
+        <!--============= Eléments de droite ==============-->
+        <div style="display: inline-flex;">
+            <!--============== Oui et ses checkbox ==========-->
+            <div>
+                <div class="d-flex flex-row">
+                    <div>
+                        <ion-label style="font-size: medium;font-weight: bold;">Oui
+                        </ion-label>
+                    </div>
+                    <div class="ml-2">
+                        <ion-label style="font-size: medium;font-weight: bold;"> Non
+                        </ion-label>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;height: 50px;">
+                    <ion-radio-group *ngIf="prefEval">
+                        <ion-radio value="1" (ionFocus)="display('Eval', $event)"></ion-radio> &nbsp;
+                        <ion-radio class="ml-2" value="2" (ionFocus)="display('Eval', $event)"></ion-radio> &nbsp;
+                    </ion-radio-group>
+                    <ion-radio-group *ngIf="!prefEval && utilisateur.courrierEvaluation" value="1">
+                        <ion-radio value="1" (ionFocus)="display('Eval', $event)"></ion-radio>
+                        <ion-radio class="ml-1" value="2" (ionFocus)="display('Eval', $event)"></ion-radio>
+                    </ion-radio-group>
+                    <ion-radio-group *ngIf="!prefEval && !utilisateur.courrierEvaluation" value="2">
+                        <ion-radio value="1" (ionFocus)="display('Eval', $event)"></ion-radio>
+                        <ion-radio class="ml-1" value="2" (ionFocus)="display('Eval', $event)"></ion-radio>
+                    </ion-radio-group>
+                </div>
+                <div>
+                    <ion-radio-group *ngIf="prefPromo">
+                        <ion-radio value="1" (ionFocus)="display('Promo', $event)"></ion-radio> &nbsp;
+                        <ion-radio class="ml-2" value="2" (ionFocus)="display('Promo', $event)"></ion-radio> &nbsp;
+                    </ion-radio-group>
+                    <ion-radio-group *ngIf="!prefPromo && utilisateur.courrierPromotion" value="1">
+                        <ion-radio value="1" (ionFocus)="display('Promo', $event)"></ion-radio>
+                        <ion-radio class="ml-1" value="2" (ionFocus)="display('Promo', $event)"></ion-radio>
+                    </ion-radio-group>
+                    <ion-radio-group *ngIf="!prefPromo && !utilisateur.courrierPromotion" value="2">
+                        <ion-radio value="1" (ionFocus)="display('Promo', $event)"></ion-radio>
+                        <ion-radio class="ml-1" value="2" (ionFocus)="display('Promo', $event)"></ion-radio>
+                    </ion-radio-group>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: flex; flex-direction: column; text-align:center;justify-content: center"
+         class="container spaceBetween" *ngIf="isP() && (mode === 10 || mode === 17)">
+        <div>
+            <ion-label style="font-size: small;margin-left: 10px;font-weight: bold;margin-top: 20px;line-height: 18px;">
+                Vous souhaitez devenir conducteur?
+            </ion-label>
+        </div>
+        <ion-note style="font-size: small;margin-left: -10px;">Cliquez sur le lien ci-dessous et suivez les étapes
+            requises
+        </ion-note>
+        <div class="spaceBetweenPreferences" (click)="changerProfil()">
+            <ion-label style="text-decoration: underline;font-size: medium;font-weight:bold;padding-bottom: 20px;">
+                <strong>Devenir conducteur</strong></ion-label>
+        </div>
+    </div>
+    <div style="display: flex; flex-direction: column; text-align:center;justify-content: center"
+         class="container spaceBetween" *ngIf="isC() && showRenouveler">
+        <div class="spaceBetweenPreferences" [routerLink]="['/renouvellement']">
+            <ion-label style="text-decoration: underline;font-size: medium;font-weight:bold;padding-bottom: 20px;">
+                <strong>Renouveler</strong></ion-label>
+        </div>
+    </div>
+
+
+    <!--================ Interface DEVENIR CONDUCTEUR ==================-->
+    <h1 class="H1" *ngIf=" mode === 18">Afin de valider votre inscription en tant que conducteur vous devez ajoutez un
+        engin:</h1>
+    <div class="formAreaEngin" *ngIf="mode === 18">
+        <div class="groupEngin" *ngIf="mode === 18">
+            <ion-label class="labelEngin">TYPE D'ENGIN</ion-label>
+            <ion-radio-group>
+                <ion-input type="radio">
+                    <div class="typEngin">
+                        <div class="typEngin" *ngFor="let t of typeEngins">
+                            <p class="type">{{t.val}}</p>
+                            <ion-radio slot="end" class="radioButton Engin"
+                                       (ionFocus)="selectTypeEngin($event, t)"></ion-radio> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            &nbsp;
+                        </div>
+                    </div>
+                </ion-input>
+            </ion-radio-group>
+        </div>
+        <div class="groupEngin">
+            <ion-label class="labelEngin">MARQUE</ion-label>
+            <ion-input type="text" name="marque" [(ngModel)]="engin.marque"></ion-input>
+        </div>
+        <div class="groupEngin">
+            <ion-label class="labelEngin">MODELE</ion-label>
+            <ion-input type="text" name="modele" [(ngModel)]="engin.modele"></ion-input>
+        </div>
+        <div class="groupEngin">
+            <ion-label class="labelEngin">COULEUR</ion-label>
+            <ion-input type="text" name="couleurEngin" [(ngModel)]="engin.couleur"></ion-input>
+        </div>
+        <div class="groupEngin">
+            <ion-label class="labelEngin">NUMERO D'IMMATRICULATION</ion-label>
+            <ion-input type="text" name="immatriculation"
+                       [(ngModel)]="engin.immatriculation"></ion-input>
+        </div>
+    </div>
+    <section class="validation" *ngIf=" mode === 18">
+        &nbsp;<button type="button"
+                      class="secondScreen  btn btn-lg btn-outline-black border border-1 border-dark rounded-pill text-dark  font-size"
+                      (click)="nextAjoutPhotoEngin()">Suivant
+    </button>&nbsp; &nbsp; &nbsp;
+    </section>
+
+</ion-content>
+
+<!-- *************************************************************************************************************** -->

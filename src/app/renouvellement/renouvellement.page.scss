@@ -1,0 +1,32 @@
+ion-checkbox{
+  --border-radius: 25px;
+}
+
+.checkedbox{
+  position: relative;
+  top: -40%;
+  right: -45%;
+}
+.checkedbox1{
+  position: relative;
+  top:-70%;
+  right:-45%;
+}
+.demandeBordureGris{
+  border-radius: 7px;
+  border: 0.1px solid lightgray;
+}
+
+.demandeBordure{
+  border-color: orangered;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 7px;
+
+}
+
+
+.imgCbFT{
+  width: 95px;
+  height: 95px;
+}

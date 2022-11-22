@@ -1,0 +1,615 @@
+ <ion-header>
+    <ion-toolbar color="primary"  *ngIf="mode === 1">
+      <ion-buttons slot="start" (click)="prec()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-buttons>
+      <div class="mx-4">
+        <ion-title *ngIf="showA">Trajets auto</ion-title>
+        <ion-title *ngIf="showM">Trajets moto</ion-title>
+      </div>
+      <ion-buttons slot="end">
+        <ion-button (click)="filtreView($event)"><img class="Filter" src="/assets/Icones/filter.png"></ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+
+    <!--********************** entête recherche ******************-->
+    <ion-toolbar color="primary" *ngIf="mode === 2|| mode === 3">
+      <ion-buttons slot="start" (click)="back()" *ngIf="mode === 2">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-buttons>
+      <ion-buttons slot="start" (click)="backRecherche()" *ngIf="mode === 3">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-buttons>
+      <div class="conteneurRC">
+        <div style="display: flex;">
+          <img style="width: 28px;height: auto" src="/assets/nouvellesIcones/loupe.png">
+          <ion-title style="margin-left: -15px;">Rechercher</ion-title>
+        </div>
+        <div *ngIf="totalFiltre >0">
+          <ion-label style="font-size: 10px">{{totalFiltre}} FILTRES ACTIFS</ion-label>
+        </div>
+      </div>
+      <ion-buttons slot="end">
+        <ion-button class="imgFilter" (click)="initialise()"><img src="/assets/Icones/Fill.png"></ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+
+
+  <!--================================= en tete du composant validation ======================-->
+  <ion-toolbar color="primary" *ngIf="mode === 4">
+    <ion-buttons slot="start" (click)="back()">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+
+    <div id="enTeteReservation">
+      <div>
+        <ion-title size="small" *ngIf="annonce.depart || annonce.destination">{{annonce.depart}} - {{annonce.destination}}</ion-title>
+        <ion-title size="small" *ngIf="!annonce.depart || !annonce.destination">{{annonce.lieuDepart}} - {{annonce.lieuArrivee}}</ion-title>
+      </div>
+      <div>
+        <ion-label style="font-size: 10px;">PASSAGER {{utilisateur.prenom}}</ion-label>
+      </div>
+    </div>
+  </ion-toolbar>
+
+   <!-- ==========================================================================en tete du composant information du conducteur-->
+   <ion-toolbar color="primary" *ngIf="mode === 5">
+     <ion-buttons slot="start" (click)="backInfo()">
+       <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+     </ion-buttons>
+     <div class="conteneur">
+       <div>
+         <ion-title>Informations du passager</ion-title>
+       </div>
+       <div style="margin-top: -10px;">
+         <ion-label style="font-size: 10px;">PASSAGER {{utilisateur.prenom}}</ion-label>
+       </div>
+     </div>
+   </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ng-container *ngIf="mode === 1">
+    <ion-list  *ngFor="let d of demandesWUAIAv;let i = index">
+      <ion-list-header class="Titre">{{d[2].dateDepart | date:'EEEE d MMMM y'}}</ion-list-header>
+      <ion-item style="border-bottom:0.8px solid grey;" class="row" lines="none"
+                (click)="showTrajetForValidate(d)">
+        <div class="col-3">
+          <ion-avatar class="ava">
+            <img [src]="images">
+          </ion-avatar>
+          <div style="margin-top: 5px;margin-left: -10px;width: 100px;">
+            <ion-note class="name">{{d[1].prenom}} {{d[1].nom.charAt(0)}}.</ion-note>
+          </div>
+        </div>
+        <div class="col-6">
+          <div>
+            <img class="trajet1" src="/assets/imgs/trajet.png">
+            <ion-note *ngIf="d[0].depart" class="depart1">{{d[0].depart}}</ion-note>
+            <ion-note *ngIf="!d[0].depart" class="depart1">{{d[0].lieuDepart}}</ion-note>
+            <ion-note *ngIf="d[0].destination" class="arriver1">{{d[0].destination}}</ion-note>
+            <ion-note *ngIf="!d[0].destination" class="arriver1">{{d[0].lieuArrivee}}</ion-note>
+          </div>
+          <div class="heure1">
+            <img class="clock1" src="/assets/imgs/clock.png">
+            <ion-note class="aujourdhuiClock1" color="primary">{{d[2].dateDepart | date:'dd/MM/yyyy':'fr-FR'}} à {{d[2].heureDepart}}</ion-note>
+          </div>
+          <div id="infoSuplementaire11">
+            <ng-container *ngFor="let inf of d[4]">
+              <img class="imag" *ngIf="inf.id === d[0].idAnnonce" [src]="inf.val.val2"/>
+            </ng-container>
+          </div>
+        </div>
+        <div style=" height:100%;border-left:0.8px solid grey;">
+
+        </div>
+        <div class="col-3 align-self-center">
+          <div id="conteneur3_1">
+            <div>
+              <ion-img class="users" src="/assets/imgs/users.png"></ion-img>
+              <ion-note class="plac">place(s)</ion-note>
+            </div>
+            <div>
+              <ion-note class="n34" color="primary">{{d[0].nbrePersonne}}</ion-note>
+            </div>
+          </div>
+          <div style="width:1500px;border-bottom:0.8px solid grey;">
+          </div>
+          <div id="conteneur3_2">
+            <div>
+              <ion-note class="franc">{{d[0].prix}} FCFA</ion-note>
+            </div>
+            <div>
+              <ion-note>par pers.</ion-note>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+
+  <!--******************************************************** Recherche ***********************************************-->
+
+  <!-- ========premiere partie du composant rechercher======= -->
+  <div class="backcolor" *ngIf="mode === 2">
+    <ion-label class="small" position="floating">DEPART</ion-label>
+  </div>
+  <ion-item style="" *ngIf="mode === 2">
+    <!--*********************** Trajet voyage ********************* -->
+    <ion-radio-group style="width: 100%;" *ngIf="showV">
+      <ion-item lines="none" style="display: flex;">
+        <ion-radio color="success" style="margin-left: -14px;" slot="start" value="1"  (ionFocus)="getCityD($event)"></ion-radio>
+        <ion-input type="text" placeholder="Ouagadougou" [(ngModel)]="recherche.depart" [readonly]="enableRadioD1"></ion-input>
+        <ion-buttons style="width: 40px;">
+          <ion-button>
+            <ion-img class="radio1" src="/assets/imgs/location.png"></ion-img>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+      <ion-item style="display: flex;">
+        <ion-radio color="success" style="margin-left: -14px;" slot="start" value="2"  (ionFocus)="getCityD($event)"></ion-radio>
+        <div style="height: 25px;margin-top: 5px;">
+          <ion-note>Toute adresse</ion-note>
+        </div>
+      </ion-item>
+    </ion-radio-group>
+    <!--*********************** Trajet urbain ********************* -->
+    <ion-radio-group style="width: 100%;"  *ngIf="showU">
+      <ion-item lines="none" style="display: flex;">
+        <ion-radio color="success" style="margin-left: -14px;" slot="start" value="1" (ionFocus)="getCityD($event)"></ion-radio>
+        <ion-input type="text" placeholder="Cappucino" [(ngModel)]="recherche.lieuDepart" [readonly]="enableRadioD1"></ion-input>
+        <ion-buttons style="width: 40px;">
+          <ion-button>
+            <ion-img class="radio1" src="/assets/imgs/location.png"></ion-img>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+      <ion-item style="display: flex;">
+        <ion-radio color="success" style="margin-left: -14px;" slot="start" value="2" (ionFocus)="getCityD($event)"></ion-radio>
+        <div style="height: 25px;margin-top: 5px;">
+          <ion-note>Toute adresse</ion-note>
+        </div>
+      </ion-item>
+    </ion-radio-group>
+  </ion-item>
+  <ion-item *ngIf="mode === 2">
+    <div style="display: flex; ">
+      <ion-buttons>
+        <ion-button>
+          <ion-img class="r" src="/assets/Icones/Bitmadp.png"></ion-img>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons>
+        <ion-button>
+          <ion-label class="s" color="primary"><strong>{{dateD}}</strong></ion-label>
+        </ion-button>
+      </ion-buttons>
+    </div>
+    <div slot="end" style="display: flex;">
+      <ion-buttons>
+        <ion-button>
+          <ion-img class="r" src="/assets/imgs/clock.png"></ion-img>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons>
+        <ion-button>
+          <ion-label color="primary"><strong>{{motD}} {{heureD}}</strong></ion-label>
+        </ion-button>
+      </ion-buttons>
+    </div>
+  </ion-item>
+  <div class="container col" style="display: flex;justify-content: space-between;align-items: center;" *ngIf="mode === 2">
+    <div style="margin-left: -10px;display: flex;flex-direction: column;align-items: center;">
+      <ion-item lines="none" style="border-bottom: 2px solid green;border-top: 2px solid green">
+        <ion-datetime  displayFormat="DD MMM" placeholder="23 JUIN" (ionFocus)="getDateDep($event)"></ion-datetime>
+      </ion-item>
+    </div>
+    <div style="border-left: 1px solid grey;">
+    </div>
+    <div style="display: flex;flex-direction: column;align-items: center;">
+      <ion-item lines="none" style="border-bottom: 2px solid green;border-top: 2px solid green">
+        <ion-select placeholder="A PARTIR DE" (ionFocus)="getWordD($event)">
+          <ion-select-option value="A">A</ion-select-option>
+          <ion-select-option value="A partir de">A PARTIR DE</ion-select-option>
+          <ion-select-option value="Avant">AVANT</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+    <div style="border-left: 1px solid grey;">
+    </div>
+    <div style="margin-left:5px;display: flex;flex-direction: column;align-items: center;">
+      <ion-item lines="none" style="border-bottom: 2px solid green;border-top: 2px solid green">
+        <ion-datetime (ionFocus)="getHeureDep($event)" displayFormat="HH:mm" placeholder="8H"></ion-datetime>
+      </ion-item>
+    </div>
+
+  </div>
+  <ion-item lines="none" *ngIf="mode === 2">
+    <ion-radio-group style="width: 100%;">
+      <ion-item style="display: flex;">
+        <ion-radio style="margin-left: -14px;" slot="start" value="2" (ionFocus)="allAdresseD($event)"></ion-radio>
+        <div style="height: 25px;margin-top: 5px;">
+          <ion-note>Toute date</ion-note>
+        </div>
+      </ion-item>
+    </ion-radio-group>
+  </ion-item>
+  <div class="backcolor" *ngIf="mode === 2">
+    <ion-label class="small" position="floating">ARRIVEE</ion-label>
+  </div>
+  <ion-item style="" *ngIf="mode === 2">
+    <!--*********************** Trajet voyage ********************* -->
+    <ion-radio-group   *ngIf="showV">
+      <ion-item lines="none" style="display: flex;">
+        <ion-radio color="danger" style="margin-left: -14px;" slot="start" value="1" (ionFocus)="getCityA($event)"></ion-radio>
+        <ion-input type="text" style="width: 335px;"
+                   placeholder="Bobo dioulasso" [(ngModel)]="recherche.destination" [readonly]="enableRadioA1"></ion-input>
+        <ion-buttons style="width: 40px;">
+          <ion-button>
+            <ion-img class="radio1" src="/assets/imgs/location_red.png"></ion-img>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+      <ion-item style="display: flex;">
+        <ion-radio color="danger" style="margin-left: -15px;" slot="start" value="2" (ionFocus)="getCityA($event)"></ion-radio>
+        <div style="height: 25px;margin-top: 5px;">
+          <ion-note>Toute adresse</ion-note>
+        </div>
+      </ion-item>
+    </ion-radio-group>
+    <!--*********************** Trajet urbain ********************* -->
+    <ion-radio-group  *ngIf="showU">
+      <ion-item lines="none" style="display: flex;">
+        <ion-radio color="danger" style="margin-left: -14px;" slot="start" value="1" (ionFocus)="getCityA($event)"></ion-radio>
+        <ion-input type="text" style="width: 335px;" placeholder="Rond point des nations unies" [(ngModel)]="recherche.lieuArrivee" [readonly]="enableRadioA1"></ion-input>
+        <ion-buttons style="width: 40px;">
+          <ion-button>
+            <ion-img class="radio1" src="/assets/imgs/location_red.png"></ion-img>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+      <ion-item style="display: flex;">
+        <ion-radio color="danger" style="margin-left: -15px;" slot="start" value="2" (ionFocus)="getCityA($event)"></ion-radio>
+        <div style="height: 25px;margin-top: 5px;">
+          <ion-note>Toute adresse</ion-note>
+        </div>
+      </ion-item>
+    </ion-radio-group>
+  </ion-item>
+  <ion-item *ngIf="mode === 2">
+    <div style="display: flex; ">
+      <ion-buttons>
+        <ion-button>
+          <ion-img class="r" src="/assets/Icones/Bitmadp.png"></ion-img>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons>
+        <ion-button>
+          <ion-label class="s" color="primary"><strong>{{dateAr}}</strong></ion-label>
+        </ion-button>
+      </ion-buttons>
+    </div>
+    <div slot="end" style="display: flex;">
+      <ion-buttons>
+        <ion-button>
+          <ion-img class="r" src="/assets/imgs/clock.png"></ion-img>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons>
+        <ion-button>
+          <ion-label color="primary"><strong>{{motA}} {{heureAr}}</strong></ion-label>
+        </ion-button>
+      </ion-buttons>
+    </div>
+  </ion-item>
+  <div class="container col" style="display: flex;justify-content: space-between;align-items: center;" *ngIf="mode === 2">
+    <div style="margin-left: -10px;display: flex;flex-direction: column;align-items: center;">
+      <ion-item lines="none" style="border-bottom: 2px solid green;border-top: 2px solid green">
+        <ion-datetime displayFormat="DD MMM" placeholder="23 JUIN" (ionFocus)="getDateAr($event)"></ion-datetime>
+      </ion-item>
+    </div>
+    <ion-label style="margin-top: 20%;" color="danger">{{errorDate}}</ion-label>
+    <div style="border-left: 1px solid grey;">
+    </div>
+    <div style="display: flex;flex-direction: column;align-items: center;">
+      <ion-item lines="none" style="border-bottom: 2px solid green;border-top: 2px solid green">
+        <ion-select placeholder="A PARTIR DE" (ionFocus)="getWordA($event)">
+          <ion-select-option value="A">A</ion-select-option>
+          <ion-select-option value="A partir de">A PARTIR DE</ion-select-option>
+          <ion-select-option value="Avant">AVANT</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+    <div style="border-left: 1px solid grey;">
+    </div>
+    <div style="margin-left:5px;display: flex;flex-direction: column;align-items: center;">
+      <ion-item lines="none" style="border-bottom: 2px solid green;border-top: 2px solid green">
+        <ion-datetime (ionFocus)="getHeureAr($event)" displayFormat="HH:mm" placeholder="8H"></ion-datetime>
+      </ion-item>
+    </div>
+
+  </div>
+  <ion-item lines="none" *ngIf="mode === 2">
+    <ion-radio-group>
+      <ion-item style="display: flex;">
+        <ion-radio style="margin-left: -15px;" slot="start" value="2" (ionFocus)="allAdresseA($event)"></ion-radio>
+        <div style="height: 25px;margin-top: 5px;">
+          <ion-note>Toute date</ion-note>
+        </div>
+      </ion-item>
+    </ion-radio-group>
+  </ion-item>
+  <div class="container divideRech container-fluid" *ngIf="mode === 2">
+    <div class="container-fluid mx-auto">
+      <ion-buttons class="divideRechSuiv  mx-auto" style="">
+        <ion-button shape="round" fill="outline" type="button" [disabled]="showButton" (click)="nextRecherche()"> Suivant</ion-button>
+      </ion-buttons>
+    </div>
+  </div>
+  <!-- ======deuxieme partie du composant recherche====== -->
+
+  <div class="backcolor" *ngIf="mode === 3">
+    <ion-label class="small" position="floating">PERSONNES</ion-label>
+  </div>
+  <div *ngIf="mode === 3 && showA">
+    <ion-select name="nombrePersonne" (ionChange)="selectRP($event)" value="1">
+      <ion-select-option *ngFor="let p of PlaceA">{{p.val}}</ion-select-option>
+    </ion-select>
+  </div>
+  <div *ngIf="mode === 3 && showM">
+    <ion-select name="nombrePersonne" (ionChange)="selectRP($event)" value="1">
+      <ion-select-option *ngFor="let p of PlaceM">{{p.val}}</ion-select-option>
+    </ion-select>
+  </div>
+  <div class="backcolor" *ngIf="mode === 3">
+    <ion-label class="small">PRIX/PLACE</ion-label>
+  </div>
+  <ion-item *ngIf="mode === 3">
+    <div style="width: 100%; ">
+      <div style="margin-top: 20px;margin-left: 15px;margin-bottom: -20px;">
+        <ion-label style="font-size: smaller;color: lightskyblue;"> En bas de {{prix}}
+        </ion-label>
+      </div>
+      <div>
+        <ion-range min="1000" max="10000" step="1000" snaps="true" (ionChange)="getPrice($event)">
+        </ion-range>
+      </div>
+    </div>
+  </ion-item>
+  <div class="backcolor" *ngIf="mode === 3">
+    <ion-label class="small">BAGAGES</ion-label>
+  </div>
+  <ion-item *ngIf="mode === 3">
+    <div style="width: 100%;">
+      <div style="display: flex;justify-content: space-between;margin-bottom: -29px;margin-top: 15px;">
+
+
+          <div class="tooltip leftbag mt-3 mb-3" style="width: 20px;" >
+              <ion-img src="/assets/nouvellesIcones/bag1.png"></ion-img>
+              <span class="tooltiptext">Petit sac à dos</span>
+          </div>
+
+
+          <div class="tooltip mt-3 mb-3 " style="width: 20px;" >
+              <ion-img src="/assets/nouvellesIcones/bag2.png"></ion-img>
+              <span class="tooltiptext">Grand sac à dos</span>
+          </div>
+          <div class="tooltip mt-3 mb-3 mr-5" style="width: 20px;">
+              <ion-img  src="/assets/nouvellesIcones/bag3.png"></ion-img>
+              <span class="tooltiptext">Valise</span>
+          </div>
+      </div>
+      <div style="margin-bottom: 5px;margin-top: 5px;">
+        <ion-range  min="0" max="2" step="1" snaps="true" (ionFocus)="getBag($event)">
+        </ion-range>
+      </div>
+    </div>
+  </ion-item>
+
+  <div class="backcolor" *ngIf="mode === 3">
+    <ion-label class="small">AUTRES CRITERES</ion-label>
+  </div>
+  <ion-item lines="none" *ngIf="mode === 3" class="p-0">
+    <div class="container m-0 p-0" style="width:100%;display: flex;justify-content:space-between; ">
+      <div style="border-radius: 20%;display: flex; " class=" marginRespons">
+        <ion-buttons  class="tooltip ml-4">
+          <ion-button class="mt-15 " [ngClass]="{'btnCritere':enableSmoke}"  (click)="getSmoke($event)">
+            <img name="smoke" style="width: 30px;height: 25px;" src="/assets/nouvellesIcones/Bitmdap.png">
+          </ion-button>
+          <span class="tooltiptexta">Espace fumeur</span>
+
+        </ion-buttons>
+        <ion-buttons class="tooltip" >
+          <ion-button class="mt-15 h-auto" [ngClass]="{'btnCritere':enableNSmoke}" (click)="getSmoke($event)">
+            <img name="nonSmoke" style="width: 30px;height: 30px;" src="/assets/nouvellesIcones/Group 1f3.png">
+          </ion-button>
+          <span class="tooltiptexta">Espace non fumeur</span>
+
+        </ion-buttons>
+      </div>
+      <div style="border-radius: 20%;display: flex;" class="marginRespons">
+        <ion-buttons  class="tooltip ">
+          <ion-button class="mt-15" [ngClass]="{'btnCritere':enableAnimal}" (click)="getAnimal($event)" [disabled]="enableAnimal">
+            <img name="animal" style="width:30px;height: 25px;" src="/assets/nouvellesIcones/animafls.png">
+          </ion-button>
+          <span class="tooltiptexta">Animaux autorisés</span>
+        </ion-buttons>
+        <ion-buttons  class="tooltip">
+          <ion-button class="mt-15 h-auto" [ngClass]="{'btnCritere':enableNAnimal}" (click)="getAnimal($event)" [disabled]="enableNAnimal">
+            <img name="nonAnimal" style="width: 30px;height: 25px;"
+                 src="/assets/nouvellesIcones/Group 1fd3.png">
+          </ion-button>
+          <span class="tooltiptexta">Animaux interdits</span>
+
+        </ion-buttons>
+      </div>
+    </div>
+  </ion-item>
+  <ion-item lines="none" *ngIf="mode === 3 && showA" class=" ">
+    <div class="container mr-0 ml-0 marginResponsa" style="display: flex;" >
+      <ion-buttons  class="tooltip ml-4">
+        <ion-button class="mt-15" [ngClass]="{'btnCritere':enableSpring}" (click)="getSpring($event)">
+          <img name="spring" style="width: 30px;height: 30px;" src="/assets/nouvellesIcones/Icone clim_1.png">
+        </ion-button>
+        <span class="tooltiptexta">Véhicule climatisé</span>
+
+      </ion-buttons>
+      <ion-buttons  class="tooltip  ">
+        <ion-button class="mt-15" [ngClass]="{'btnCritere':enableNSpring}" (click)="getSpring($event)">
+          <img name="nonSpring" style="width: 30px;height: 30px;" src="/assets/nouvellesIcones/Icone clim_2.png">
+        </ion-button>
+        <span class="tooltiptexta">Véhicule non-climatisé</span>
+
+      </ion-buttons>
+    </div>
+  </ion-item>
+
+  <div style="margin-top: 20px;margin-bottom: 10px;" *ngIf="mode === 3">
+    <ion-buttons>
+      <ion-button expand="block" (click)="rechercher()">
+        <ion-img src="/assets/nouvellesIcones/btn  2.png"></ion-img>
+      </ion-button>
+    </ion-buttons>
+  </div>
+<!--***************************************************** Validation ***********************************************-->
+  <div [hidden]="checkMode()">
+    <div style="height: 200px;" id="mapDP"></div>
+  </div>
+  <div class="container" *ngIf="mode === 4">
+    <div class="elementApresCarte">
+
+      <div class="cntrer">
+        <div>
+          <img class="clock2" src="/assets/imgs/clock.png">
+        </div>
+        <div>
+          <ion-note>{{annonce.dateDepart}} - {{itineraire.heureDepart}}</ion-note>
+        </div>
+      </div>
+      <div class="element3">
+        <div class="centrageH">
+          <div class="usersPlace">
+            <ion-img class="userss" src="/assets/imgs/users.png"></ion-img>
+          </div>
+          <div>
+            <ion-note class="n33" color="primary">{{annonce.nbrePersonne}}</ion-note>
+          </div>
+        </div>
+        <ion-note class="plce">place(s)</ion-note>
+      </div>
+      <div>
+        <div class="cntrerV">
+          <ion-note class="CFA">{{annonce.prix}} FCFA</ion-note>
+          <ion-note>par place</ion-note>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="Lettre1" *ngIf="mode === 4">
+    <label class="dpart1">TRAJET</label>
+  </div>
+  <div class="element2" *ngIf="mode === 4">
+
+    <img class="trajet2" src="/assets/imgs/trajet.png">
+    <div>
+      <div class="departB">
+        <ion-note class="d"><strong>Depart</strong></ion-note><br>
+        <ion-label class="Dtext">{{annonce.depart}}<br>{{annonce.lieuDepart}}</ion-label>
+      </div>
+      <br>
+      <div class="arriveeO">
+        <ion-note class="a">Arrivee</ion-note><br>
+        <ion-label class="Atext">{{annonce.destination}}<br>{{annonce.lieuArrivee}}</ion-label>
+      </div>
+    </div>
+  </div>
+  <div class="Lettre1" *ngIf="mode === 4">
+    <ion-label class="dpart1"><strong>INFO PASSAGER</strong></ion-label>
+  </div>
+  <ion-item (click)="showInfoPassager(utilisateur, annonce)" button detail *ngIf="mode === 4">
+    <ion-avatar>
+      <ion-img class="ion-avatr" [src]="photo"></ion-img>
+    </ion-avatar>
+    <div class="espace">
+      <div>
+        <ion-label style="font-size: 15px;">{{utilisateur.prenom}}</ion-label>
+      </div>
+      <div *ngIf="avis">
+        <ion-buttons>
+          <ion-button color="light">
+            <ion-icon class="etoileA" name="star"></ion-icon>
+            <ion-icon class="etoileA" name="star"></ion-icon>
+            <ion-icon class="etoileA" name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </div>
+      <div class="infoConducteur">
+        <div class="info1">
+          <ion-img class="phone" src="/assets/icon/icodn.png"></ion-img>
+          <ion-img class="check" src="/assets/icon/checked.svg"></ion-img>
+        </div>
+        <div class="info2">
+          <ion-img class="message" src="/assets/icon/icogn.png"></ion-img>
+          <ion-img class="check" src="/assets/icon/checked.svg"></ion-img>
+        </div>
+      </div>
+    </div>
+    <ion-note class="avis6" slot="end" *ngIf="avis">{{objectKeys(avis).length}} avis</ion-note>
+  </ion-item>
+  <div class="Lettre1" *ngIf="mode === 4 && infoSup.length>0">
+    <ion-label class="dpart1"><strong>INFO SUPPLEMENTAIRES</strong></ion-label>
+  </div>
+  <ion-item button detail *ngIf="mode === 4 && infoSup.length>0" >
+    <div class="horizontal-scroll">
+      <img *ngFor="let inf of infoSup" class="iconeSize1" [src]="inf.iconeInformationsSupplementaires"/>
+    </div>
+  </ion-item>
+
+  <ion-button color="warning" expand="block" [disabled]="buttonSaveClicked" *ngIf="mode === 4" (click)="valider(utilisateur, annonce, itineraire)">Accepter</ion-button>
+
+  <!-- *********************************************************************ion-content du composant information du passager *********************************************-->
+  <div class="container" *ngIf="mode === 5">
+    <div id="conteneur1">
+      <div class="element1">
+        <ion-avatar class="ion-avatarIC">
+          <img [src]="photo">
+        </ion-avatar>
+      </div>
+    </div>
+    <fieldset class="backFT">
+      <legend class="legendDemande">
+        <ion-label style="font-size: medium"><strong>Information passager</strong></ion-label>
+      </legend>
+      <div class="contFT">
+        <div>
+          <ion-label class="ion-labelFT"><strong>Nom</strong></ion-label>
+        </div>
+        <div>
+          <ion-label class="ion-labelFT" style=""><strong>{{utilisateur.nom}} {{utilisateur.prenom}}</strong></ion-label>
+        </div>
+      </div>
+      <div class="contFT">
+        <div>
+          <ion-label class="ion-labelFT"><strong>Tel</strong></ion-label>
+        </div>
+        <div>
+          <ion-label class="ion-labelFT"><strong>{{utilisateur.tel}}</strong></ion-label>
+        </div>
+      </div>
+      <div class="contFT">
+        <div>
+          <ion-label class="ion-labelFT"><strong>Email</strong></ion-label>
+        </div>
+        <div>
+          <ion-label class="ion-labelFT"><strong>{{utilisateur.email}}</strong></ion-label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+</ion-content>

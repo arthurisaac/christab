@@ -1,0 +1,204 @@
+
+ion-content {
+  font-family: klavika-bold!important;
+
+}
+ion-header{
+  font-family: klavika-bold!important;
+
+}
+
+ion-icon.iconColor{
+  color: #00800096;
+}
+ion-icon.iconColor1{
+  color: #ff000094;
+}
+
+.conteneurRC{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 20px;
+}
+.imgFilter{
+  width: 40px;
+  height: 35px;
+}
+.radio1{
+  margin-left: -8px;
+  weight: 19px;
+  height: 19px;
+}
+.circle{
+  weight: 25px;
+  height: 25px;
+  margin-left: -25px;
+}
+.backcolor{
+  background-color:#DADADA;
+  color :black;
+  opacity: 0.5;
+}
+.small{
+  font-size: 11px;
+  margin-left: 10px;
+}
+
+.smallT{
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+
+/// Pour les bagages ////
+.tooltip {
+  position: relative;
+  display: inline-block;
+  opacity: 0.6!important;
+
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 110px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 80%;
+  margin-left: -60px;
+  font-size: small;
+}
+
+.tooltip .tooltiptext-info {
+  visibility: hidden;
+  width: 110px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 80%;
+  margin-left: -250%;
+  font-size: small;
+}
+
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+
+}
+
+
+.tooltip .tooltiptext-info::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+
+}
+
+.tooltiptext{
+  bottom: 100%!important;
+}
+
+.tooltiptext-info{
+  bottom: 100%!important;
+}
+
+.leftbag{
+  margin-left:5%
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip:hover .tooltiptext-info {
+  visibility: visible;
+}
+
+
+/// Pour autre criteres ////
+
+.tooltip .tooltiptexta {
+  visibility: hidden;
+  width: 110px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 80%;
+  margin-left: -60px;
+  font-size: small;
+}
+
+.tooltip .tooltiptexta::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+
+}
+.tooltiptexta{
+  bottom: 100%!important;
+}
+
+
+.tooltip:hover .tooltiptexta {
+  visibility: visible;
+}
+
+
+//margin to 15%
+.mt-15{
+  margin-top: 15%;
+}
+.ml-15{
+  margin-left: 15%;
+}
+
+
+/***** Ajout personnel *******/
+
+.btnCritere{
+  background: darkgrey;
+}
+
+
+
+.info-prix{
+  font-size: 48%;
+  font-weight: bolder;
+  border-radius: 105%;
+  height: 15px;
+  width: 15px;
+}
+

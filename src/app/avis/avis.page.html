@@ -1,0 +1,204 @@
+<ion-header>
+
+  <!-- ===================================================Avis (votre Avis compte,merci!) ========================================================================-->
+
+    <ion-toolbar color="primary" *ngIf="mode === 1 || mode === 2" class=" pt-3  profilButton">
+        <ion-buttons class="buttonTitle"  slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+
+        <ion-buttons class="buttonTitle"  slot="end">
+            <ion-button size="small" (click)="isAuthorised()"><ion-label style="font-size: small;text-transform: capitalize;">Accueil</ion-label> </ion-button>
+        </ion-buttons>
+        <div class="d-flex flex-column facturation">
+            <div class="text-center">
+                <ion-title >Avis</ion-title>
+
+            </div>
+
+            <div class="imgLogo mx-auto">
+                <img src="/assets/Icones/christab2_neutre.png">
+            </div>
+        </div>
+        <br>
+
+    </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+
+    <div class="container" *ngIf="mode === 1">
+        <div>
+            <h1 style="text-align: center;font-size: smaller;margin-top: 40px;">
+                <ion-label>
+                    <strong>
+                        VOTRE AVIS COMPTE, MERCI !
+                    </strong>
+                </ion-label>
+            </h1>
+        </div>
+        <div>
+            <div style="text-align: center;line-height: 15px;font-size: smaller;margin-top: 20px;margin-bottom: 30px;">
+                <ion-note  style="font-size: smaller;">
+                    parce que votre satisfaction est notre priorite nous collections vos avis
+                </ion-note>
+                <ion-note style="font-size: smaller;">
+                    afin d'ameliorer toujours plus nos services et nos produits.
+                </ion-note>
+            </div>
+        </div>
+        <div style="display: flex;flex-direction: column;justify-content: center;">
+            <div  style="display:flex;margin-bottom: 15px;justify-content: space-between;">
+                <div>
+                    <ion-label><strong style="font-size: smaller;">Facilité d'utilisation de l'application</strong></ion-label>
+                </div>
+                <div style="display: flex;margin-top: -5px;width: 125px;justify-content: flex-end;">
+                    <ion-buttons style="width: 20%;">
+                        <ion-button  (click)="onRateF($event, 6, 1)" color="light">
+                            <ion-icon [ngClass]="{'etoilCF': rateF==0, 'etoileC': rateF>=1 }" name="star"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                    <ion-buttons style="width: 20%;">
+                        <ion-button (click)="onRateF($event,6, 2)" color="light">
+                            <ion-icon [ngClass]="{'etoileC': rateF>=2 }" name="star"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                    <ion-buttons style="width: 20%;">
+                        <ion-button (click)="onRateF($event,6, 3)" color="light">
+                            <ion-icon [ngClass]="{'etoileC': rateF>=3 }" name="star"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                    <ion-buttons style="width: 20%;">
+                        <ion-button (click)="onRateF($event,6, 4)" color="light">
+                            <ion-icon [ngClass]="{'etoileC': rateF>=4 }" name="star"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                    <ion-buttons style="width: 20%;">
+                        <ion-button (click)="onRateF($event,6, 5)" color="light">
+                            <ion-icon [ngClass]="{'etoileC': rateF>=5 }" name="star"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                </div>
+            </div>
+
+            <div  style="display:flex;margin-bottom: 15px;justify-content: space-between;">
+                <div>
+                    <ion-label><strong style="font-size: smaller;">Réactivité du service client</strong></ion-label>
+                </div>
+                <div style="display: flex;margin-top: -5px;width: 125px;justify-content: flex-end;" [id]="7">
+                    <ion-buttons style="width: 20%;">
+                        <ion-button  (click)="onRateR($event, 7, 1)" color="light">
+                            <ion-icon [ngClass]="{'etoileC': rateR>=1}" name="star"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                    <ion-buttons style="width: 20%;">
+                        <ion-button (click)="onRateR($event,7, 2)" color="light">
+                            <ion-icon [ngClass]="{'etoileC': rateR>=2 }" name="star"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                    <ion-buttons style="width: 20%;">
+                        <ion-button (click)="onRateR($event,7, 3)" color="light">
+                            <ion-icon [ngClass]="{'etoileC': rateR>=3 }" name="star"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                    <ion-buttons style="width: 20%;">
+                        <ion-button (click)="onRateR($event,7, 4)" color="light">
+                            <ion-icon [ngClass]="{'etoileC': rateR>=4 }" name="star"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                    <ion-buttons style="width: 20%;">
+                        <ion-button (click)="onRateR($event,7, 5)" color="light">
+                            <ion-icon [ngClass]="{'etoileC': rateR>=5 }" name="star"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                </div>
+            </div>
+            <div  style="display:flex;margin-bottom: 15px;justify-content: space-between;">
+                <div>
+                    <ion-label><strong style="font-size: smaller;">Niveau de sécurité</strong></ion-label>
+                </div>
+                <div style="display: flex;margin-top: -5px;width: 125px;justify-content: flex-end;">
+                    <ion-buttons style="width: 20%;">
+                        <ion-button  (click)="onRateN($event, 8, 1)" color="light">
+                            <ion-icon [ngClass]="{'etoileC': rateN>=1 }" name="star"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                    <ion-buttons style="width: 20%;">
+                        <ion-button (click)="onRateN($event,8, 2)" color="light">
+                            <ion-icon [ngClass]="{'etoileC': rateN>=2 }" name="star"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                    <ion-buttons style="width: 20%;">
+                        <ion-button (click)="onRateN($event,8, 3)" color="light">
+                            <ion-icon [ngClass]="{'etoileC': rateN>=3 }" name="star"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                    <ion-buttons style="width: 20%;">
+                        <ion-button (click)="onRateN($event,8, 4)" color="light">
+                            <ion-icon [ngClass]="{'etoileC': rateN>=4 }" name="star"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                    <ion-buttons style="width: 20%;">
+                        <ion-button (click)="onRateN($event,8, 5)" color="light">
+                            <ion-icon [ngClass]="{'etoileC': rateN>=5 }" name="star"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center;margin-top: 15px;">
+            <ion-label>
+                <strong >
+                    Commentaires & améliorations
+                </strong>
+            </ion-label>
+        </div>
+        <ion-textarea type="text" name="avis" [(ngModel)]="avi.avis">
+        </ion-textarea>
+
+    </div>
+    <div style="display: flex;justify-content: center;margin-bottom: 20px;margin-top: 40px;" *ngIf="mode === 1">
+        <div>
+            <ion-buttons>
+                <ion-button (click)="save()"><ion-img  style="width: 150px;height: 32px;" src="/assets/nouvellesIcones/Groudzp.png"></ion-img></ion-button>
+            </ion-buttons>
+        </div>
+    </div>
+
+    <div class="container" style="display: flex;flex-direction: column;align-items: center;" *ngIf="mode === 2">
+        <div style="margin-top: 20px;margin-bottom: 20px;">
+            <ion-img style="width: 150px;height: auto;" src="/assets/nouvellesIcones/Bitmap1.png"></ion-img>
+        </div>
+        <div style="margin-bottom: 20px;display: flex;flex-direction: column;align-items: center;line-height: 20px;">
+            <div>
+                <ion-label>
+                    <strong>
+                        Nous vous remercions de nous
+                    </strong>
+                </ion-label>
+            </div>
+            <div>
+                <ion-label>
+                    <strong>
+                        avoir laisse vos avis !
+                    </strong>
+                </ion-label>
+            </div>
+        </div>
+        <div style="display: flex;flex-direction: column;align-items: center;line-height: 13px;">
+            <div style=";width: 364px;">
+                <ion-label style="font-size: smaller;word-spacing: -1px;">
+                    Nous prendrons le temps de les analyser afin d'ameliorer votre
+                </ion-label>
+            </div>
+            <div>
+                <ion-label style="font-size: smaller;">
+                    experience client, qui nous tient tant a coeur
+                </ion-label>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

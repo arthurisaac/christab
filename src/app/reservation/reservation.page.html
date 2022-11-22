@@ -1,0 +1,613 @@
+<ion-header>
+  <ion-toolbar color="primary" *ngIf="mode === 1 || mode === 2">
+    <div id="enTeteReservation">
+      <div>
+        <ion-title size="small" style="text-align: center;">{{demande?.depart}}{{demande?.lieuDepart}} - {{demande?.destination}}{{demande?.lieuArrivee}}</ion-title>
+      </div>
+    </div>
+    <div>
+      <ion-label style="font-size: 10px;">CONDUCTEUR {{utilisateur?.prenom}}</ion-label>
+    </div>
+    <ion-buttons *ngIf="mode === 1" slot="start" (click)="back()">
+      <ion-back-button slot="end" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons *ngIf="mode === 2" slot="start" (click)="backPayer()">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar color="primary" *ngIf="mode === 3 || mode === 4">
+    <ion-buttons *ngIf="mode === 3" class="leftButton" slot="start" (click)="backConfirmer()">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons *ngIf="mode === 4" class="leftButton" slot="start" (click)="backReservation()">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <div class="" id="entete_conteneurFT">
+      <ion-title class=" titleMargin10">Finaliser la transaction</ion-title>
+      <div class="logoStyle">
+        <ion-img class="imgCb" src="/assets/Icones/christab2_neutre.png"></ion-img>
+      </div>
+    </div>
+
+  </ion-toolbar>
+  <ion-toolbar color="primary" *ngIf="mode === 5">
+    <ion-buttons slot="start" (click)="backInfo()">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <div class="conteneur">
+      <div>
+        <ion-title>Informations du conducteur</ion-title>
+      </div>
+      <div style="margin-top: -10px;">
+        <ion-label style="font-size: 10px;">CONDUCTEUR {{utilisateur?.prenom}}</ion-label>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="carte" *ngIf="mode === 1">
+    <!--<agm-map [latitude]="lat" [longitude]="long" [zoom]="16">
+      <agm-marker [latitude]="lat" [longitude]="long"></agm-marker>
+    </agm-map>-->
+    <div style="height: 250px;" id="map"></div>
+  </div>
+  <ion-grid *ngIf="mode === 1">
+    <ion-row>
+      <ion-col align-self-center>
+        <div class="margeInterne">
+          <div>
+            <img class="clock" src="/assets/imgs/clock.png">
+          </div>
+          <div>
+            <ion-note>{{itineraire?.dateDepart | date :'dd MMMM'}} - {{itineraire?.heureDepart}}</ion-note>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col class="element3">
+        <div class="margeInterne">
+          <div class="usersPlace">
+            <ion-img class="users" src="/assets/imgs/users.png"></ion-img>
+          </div>
+          <div>
+            <ion-note class="n3" color="primary">{{demande?.nbrePlace}}</ion-note>
+          </div>
+          <div>
+            <ion-note class="plac">place(s)</ion-note>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col align-self-center>
+        <div class="margeInterne">
+          <div>
+            <ion-note class="CFA">{{demande?.prix}} FCFA</ion-note>
+          </div>
+          <div>
+            <ion-note>par place</ion-note>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="titre1" *ngIf="mode === 1">
+    <label class="depart">DEPART</label>
+  </div>
+  <div class="element2" *ngIf="mode === 1">
+    <ion-note class="heureD">{{itineraire?.heureDepart}}</ion-note>
+
+    <ion-note class="heureA">{{itineraire?.heureArrivee}}</ion-note>
+
+    <img class="trajet" src="/assets/imgs/trajet.png">
+    <div>
+      <div class="departB">
+        <ion-note class="d">Depart</ion-note><br>
+        <ion-label class="Dtext">{{demande?.depart}}{{demande?.lieuDepart}}</ion-label>
+      </div>
+      <br>
+      <div class="arriveeO">
+        <ion-note class="a">Arrivee</ion-note><br>
+        <ion-label class="Atext">{{demande?.destination}}{{demande?.lieuArrivee}}</ion-label>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="titre1" *ngIf="mode === 1">
+    <ion-label class="depart">INFO CONDUCTEUR</ion-label>
+  </div>
+  <ion-item (click)="showInfoConducteur(utilisateur)" button detail *ngIf="mode === 1">
+    <ion-avatar>
+      <img class="ion-avatar" [src]="photo"/>
+    </ion-avatar>
+    <div class="espace">
+      <div>
+        <ion-label style="font-size: 15px;">{{utilisateur?.prenom}}</ion-label>
+      </div>
+      <div class="star">
+        <ion-icon class="etoileA" name="star"></ion-icon>
+        <ion-icon class="etoileA" name="star"></ion-icon>
+        <ion-icon class="etoileA" name="star"></ion-icon>
+        <ion-icon class="etoileD" name="star"></ion-icon>
+        <ion-icon class="etoileD" name="star"></ion-icon>
+      </div>
+      <div class="infoConducteur">
+        <div class="info1">
+          <ion-img class="phone" src="/assets/icon/icodn.png"></ion-img>
+          <ion-img class="check" src="/assets/icon/checked.svg"></ion-img>
+        </div>
+        <div class="info2">
+          <ion-img class="message" src="/assets/icon/icogn.png"></ion-img>
+          <ion-img class="check" src="/assets/icon/checked.svg"></ion-img>
+        </div>
+
+      </div>
+    </div>
+    <ion-note *ngIf="avis !== null" class="avis6" slot="end">{{objectKeys(avis)?.length}} avis</ion-note>
+  </ion-item>
+  <div class="titre1" *ngIf="mode === 1 && infoSup.length>0">
+    <ion-label class="depart">INFO SUPPLEMENTAIRES</ion-label>
+  </div>
+  <ion-item button detail *ngIf="mode === 1 && infoSup.length>0">
+    <div class="horizontal-scroll">
+      <img *ngFor="let inf of infoSup" class="iconeSize1" [src]="inf.iconeInformationsSupplementaires"/>
+    </div>
+    <!--<ion-note slot="end" (click)="showInfoSupp()">Voir tous</ion-note>-->
+  </ion-item>
+  <ion-button *ngIf="mode === 1" color="warning" expand="block" (click)="confirmer(utilisateur, demande, itineraire)">Confirmer</ion-button>
+
+  <!--============================== Finaliser la transaction =======================-->
+  <div class="containerFT" *ngIf="mode === 2">
+    <div id="conteneurFT">
+      <div>
+        <div class="heureDepartFT">
+          <ion-label class="ion-labelFT">{{itineraire.dateDepart | date:'EEEE d MMM'}} <ion-note class="heureFT"> {{itineraire.heureDepart}}</ion-note></ion-label>
+        </div>
+        <div class="heureArriverFT">
+          <ion-label class="ion-labelFT"> {{itineraire.dateArrivee | date:'EEEE d MMM'}} <ion-note class="heureFT">{{itineraire.heureArrivee}}</ion-note></ion-label>
+        </div>
+      </div>
+      <div>
+        <img class="trajetFT" src="/assets/imgs/trajet.png">
+      </div>
+      <div>
+        <div class="ligneHeigthFT">
+          <div>
+            <ion-note class="departFT">Depart</ion-note>
+          </div>
+          <div>
+            <ion-label class="ion-labelFT"> {{demande.depart}}</ion-label>
+          </div>
+          <div>
+            <ion-label class="ion-labelFT">{{demande.lieuDepart}}</ion-label>
+          </div>
+        </div>
+        <div class="ligneHeigthMarginFT">
+          <div>
+            <ion-note class="arriverFT">Arrivee</ion-note>
+          </div>
+          <div>
+            <div>
+              <ion-label class="ion-labelFT">{{demande.destination}}</ion-label>
+            </div>
+            <div>
+              <ion-label class="ion-labelFT">{{demande.lieuArrivee}}</ion-label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="separateur3FT" *ngIf="mode === 2">
+  </div>
+  <div class="backFTN" *ngIf="mode === 2">
+    <div class="containerFT">
+      <div class="contFTN">
+        <div>
+          <ion-label class="ion-labelFTN"><strong>Frais de transport</strong></ion-label>
+        </div>
+        <div>
+          <ion-label class="ion-labelFT" style="color: red;font-size: 15px;"><strong>{{prixdu}} FCFA</strong></ion-label>
+        </div>
+      </div>
+      <div class="contFT">
+        <div>
+          <ion-label class="ion-labelFT"><strong>Frais de reservation</strong></ion-label>
+        </div>
+        <div>
+          <ion-label class="ion-labelFT"> <strong>{{prixreserv}} FCFA</strong></ion-label>
+        </div>
+      </div>
+      <div class="separateur2FT">
+      </div>
+      <div class="contFT">
+        <div>
+          <ion-label class="ion-labelFT" style="font-size: 20px;"><strong>Cout total</strong></ion-label>
+        </div>
+        <div>
+          <ion-label class="ion-labelFT" style="color: red;font-size: 15px;"><strong>{{demande.prix }} FCFA</strong></ion-label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="separateur1FT" *ngIf="mode === 2">
+  </div>
+  <div class="container footFT" *ngIf="mode === 2">
+    <div>
+      <ion-label class="ion-labelFT">
+        N'oubliez pas de nous signaler que vous êtes arrivés
+      </ion-label>
+    </div>
+    <div class="elementFT">
+      <ion-label class="ion-labelFT">
+        à bonne destination
+      </ion-label>
+    </div>
+  </div>
+  <ion-button *ngIf="mode === 2" class="text-white" style="--background: darkgreen;" (click)="nextChoixPaiement()" expand="full">PAYER</ion-button>
+
+  <!--========================================== paiement ============================-->
+
+  <!--==================== Interface choix paiement ==================-->
+  <div *ngIf="mode === 3" style="margin-top: 50px;display: flex;align-items: center;flex-direction: column;"
+       class="container">
+    <div>
+      <ion-label>
+        <strong>
+          <strong>
+            Paiement des frais de réservation
+          </strong>
+        </strong>
+      </ion-label>
+    </div>
+    <div style="margin-bottom: 20px;">
+      <ion-label style="font-size: small;">
+        Montant : <strong>{{prixreserv}} FCFA</strong>
+      </ion-label>
+    </div>
+
+
+    <div style="display: flex;justify-content: space-between;margin-bottom: 30px;">
+
+      <div  [ngClass]="{'demandeBordure': checkO, 'demandeBordureGris': !checkO}"  style=" width: 100px;height:70px;display: flex;justify-content: center;padding-top: 10px;margin-right: 20px;">
+                <span  class="badge pull-right checkedbox">
+                    <ion-checkbox color="danger" value="1" (ionChange)="getOrange($event)" [checked]="checkO" [disabled]="checkedO"></ion-checkbox>
+                </span>
+
+        <div style="width: 40px;height:10px;position: absolute;">
+          <img src="/assets/nouvellesIcones/Money_Logo_Portrait_Black_RGB.png">
+        </div>
+      </div>
+
+
+      <div  [ngClass]="{'demandeBordure': checkM, 'demandeBordureGris': !checkM}" style="width: 100px;height:70px;display: flex;justify-content: center;padding-top: 20px;">
+                <span   class="badge pull-right checkedbox1">
+                    <ion-checkbox color="danger" value="2" (ionChange)="getMobicash($event)" [checked]="checkM" [disabled]="checkedM"></ion-checkbox>
+                </span>
+        <div style="width: 70px;height:15px;position: absolute;">
+          <img src="/assets/nouvellesIcones/mobicash.png">
+        </div>
+      </div>
+
+    </div>
+
+    <div style="line-height: 15px;">
+      <div>
+        <ion-label style="font-size: smaller;" color="primary">VOTRE NUMERO DE TELEPHONE MOBILE MONEY
+        </ion-label>
+      </div>
+      <div>
+        <ion-note>Exemple: 76680456</ion-note>
+      </div>
+      <ion-input style="margin-left: -13px;border-bottom: 1px solid grey;" placeholder=" 76680456" type="tel"
+                 [disabled]="!checkO && !checkM" (input)="getNumberOrange($event)"
+                 [(ngModel)]="paiement.numeroClient"></ion-input>
+    </div>
+    <div *ngIf="showBtnCheck" style="color: red">{{errorCustomer}}</div>
+    <div style="margin-top: 70px;" *ngIf="mode === 3">
+      <ion-buttons>
+        <ion-button [disabled]="showBtnCheck" (click)="nextPaiement()">
+          <ion-img style="width: 150px;height: 32px;" src="/assets/nouvellesIcones/Group.png"></ion-img>
+        </ion-button>
+      </ion-buttons>
+    </div>
+  </div>
+
+  <!--===================== Interface validation paiement ===========-->
+
+  <div class="container" *ngIf="mode === 4">
+    <div style="text-align: center;margin-top: 50px;margin-bottom: 30px;">
+      <ion-label>
+        <strong>
+          Validation du paiement
+        </strong>
+      </ion-label>
+    </div>
+    <div>
+      <ion-label>
+        <strong>
+          Il y a deux (02) etapes:
+        </strong>
+      </ion-label>
+    </div>
+
+    <div style="margin-top: 20px;margin-bottom: 20px;">
+      <ion-label color="primary">
+        <strong>
+          Etape 1: Generation du OTP avec le montant: {{prixreserv}} FCFA
+        </strong>
+      </ion-label>
+    </div>
+    <div>
+      <ion-label style="font-size: small;">Depuis votre numero de téléphone <strong>{{paiement.numeroClient}}</strong>,<br>
+        saisissez: <strong>*144*4*6*{{paiement.montantPaiement}}# </strong>et Lancer l'appel.
+      </ion-label>
+    </div>
+    <div style="margin-top: 20px;margin-bottom: 20px;">
+      <ion-label color="primary">
+        <strong>
+          Etape 2: Saisie du OTP
+        </strong>
+      </ion-label>
+    </div>
+    <div style="margin-top: 20px;margin-bottom: 20px;">
+      <ion-label style="font-size: small;">Orange Money envoie un SMS sur le  <strong>{{paiement.numeroClient}}</strong><br>
+        contenant un <strong>CODE </strong>Saisissez ce <strong>CODE</strong><br>
+        dans le champ de saisi ci-dessous.
+      </ion-label>
+    </div>
+  </div>
+  <div *ngIf="mode === 4">
+    <div class="container" style="line-height: 5px;">
+      <ion-label color="primary">
+        OTP
+      </ion-label>
+      <ion-input style="border-bottom: 1px solid black;" type="number" (input)="getOtp($event)" [(ngModel)]="paiement.codeOtp"></ion-input>
+    </div>
+    <div *ngIf="showBtnCheck" style="color: red">{{errorOtp}}</div>
+    <div *ngIf="showBtnCheck" style="color: red">{{champOtp}}</div>
+  </div>
+  <div *ngIf="mode === 4" style="display: flex;justify-content: center;margin-top: 30px;">
+    <div>
+      <ion-buttons>
+        <ion-button (click)="save()"><ion-img style="width: 150px;height: 32px;" src="/assets/nouvellesIcones/Groudzp.png"></ion-img></ion-button>
+      </ion-buttons>
+    </div>
+  </div>
+
+  <div *ngIf="mode === 41">
+    <div class="container">
+      <ion-img style="height: 600px;" src="/assets/nouvellesIcones/moov_africa_bf.jpg"></ion-img>
+    </div>
+    <div style="text-align:center;">
+      <ion-label style="font-weight: bold">Après avoir reçu un message de la part de MOOV MONEY, veuillez vérifier la transaction
+        en suivant les instructions puis confirmez directement sur votre téléphone avant de cliquer sur valider</ion-label>
+      <div>
+        <ion-buttons style="display: inline;">
+          <ion-button (click)="finaliserMoovTransaction()">
+            <ion-img style="width: 150px;height: 32px;" src="/assets/nouvellesIcones/Groudzp.png"></ion-img>
+          </ion-button>
+        </ion-buttons>
+      </div>
+    </div>
+  </div>
+
+  <!-- *********************************************************************ion-content du composant information du conducteur *********************************************-->
+  <div class="container" *ngIf="mode === 5">
+    <div style="margin-bottom: 70px;">
+      <div>
+        <div id="conteneur1">
+          <div class="element1">
+            <ion-avatar class="ion-avatarIC">
+              <img [src]="photo">
+            </ion-avatar>
+          </div>
+
+          <div class="element1">
+            <ion-note>
+              <strong style="font-size: 20px;">{{utilisateur?.nom}} {{utilisateur?.prenom}}</strong>
+            </ion-note>
+          </div>
+        </div>
+      </div>
+            <div class="container horizontal-scroll">
+              <ion-grid>
+                <ion-row class="card-title">
+                  <ion-col style="font-size: 20px;">Type de vehicule</ion-col>
+                  <ion-col style="font-size: 20px;">Marque</ion-col>
+                  <ion-col style="font-size: 20px;">Modele</ion-col>
+                  <ion-col style="font-size: 20px;">Couleur</ion-col>
+                  <ion-col style="font-size: 20px;">Annee</ion-col>
+                </ion-row>
+                <ion-row  *ngFor="let e of engins">
+                  <ion-col>{{e.typeEngin}}</ion-col>
+                  <ion-col>{{e.marque}}</ion-col>
+                  <ion-col>{{e.modele}}</ion-col>
+                  <ion-col>{{e.couleur}}</ion-col>
+                  <ion-col>{{e.anneeModele}}</ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+      <div id="conteneur45">
+        <div id="conteneur4">
+          <div class="element4">
+            <div class="displayFlexE" style="height: 30px;" *ngFor="let t of typeAvis;let i = index">
+              <div>
+                <ion-label> {{t[i]?.libelleTypeAvis}}</ion-label>
+              </div>
+              <div>
+                <ion-buttons>
+                  <ion-button color="light">
+                    <ion-icon [ngClass]="{'etoileC': t[i].note>=1 }" name="star"></ion-icon>
+                    <ion-icon [ngClass]="{'etoileC': t[i].note>=2 }" name="star"></ion-icon>
+                    <ion-icon [ngClass]="{'etoileC': t[i].note>=3 }" name="star"></ion-icon>
+                    <ion-icon [ngClass]="{'etoileC': t[i].note>=4 }" name="star"></ion-icon>
+                    <ion-icon [ngClass]="{'etoileC': t[i].note>=5 }" name="star"></ion-icon>
+                  </ion-button>
+                </ion-buttons>
+              </div>
+            </div>
+
+
+            <div style="display: flex;  border-top: 1px solid #3a7be0;justify-content: space-between;margin-top: 25px;align-items: flex-end;height: 100px;" *ngIf="typeAvis">
+              <div class="total">
+                <ion-label><strong style="color: black;">Total</strong></ion-label>
+              </div>
+              <div>
+                <div class="total">
+                  <ion-buttons>
+                    <ion-button color="light">
+                      <ion-icon [ngClass]="{'etoileC': total>=1 }" name="star"></ion-icon>
+                      <ion-icon [ngClass]="{'etoileC': total>=2 }" name="star"></ion-icon>
+                      <ion-icon [ngClass]="{'etoileC': total>=3 }" name="star"></ion-icon>
+                      <ion-icon [ngClass]="{'etoileC': total>=4 }" name="star"></ion-icon>
+                      <ion-icon [ngClass]="{'etoileC': total>=5 }" name="star"></ion-icon>
+                    </ion-button>
+                  </ion-buttons>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="separateur">
+
+        </div>
+        <div id="conteneur5">
+          <div class="displayFlex2"  *ngIf="user.validated">
+            <div class="marginTop">
+              <img class="imgIC" src="/assets/nouvellesIcones/checkmark.png">
+            </div>
+            <div class="label">
+              <ion-label>Numero de téléphone verifié</ion-label>
+            </div>
+          </div>
+          <div class="displayFlex2"  *ngIf="user.activated">
+            <div class="marginTop">
+              <img class="imgIC" src="/assets/nouvellesIcones/checkmark.png">
+            </div>
+            <div  class="label">
+              <ion-label>Adresse e-mail verifiée</ion-label>
+            </div>
+          </div>
+          <div class="displayFlex2"  *ngIf="user.validated">
+            <div class="marginTop">
+              <img class="imgIC" src="/assets/nouvellesIcones/checkmark.png">
+            </div>
+            <div  class="label">
+              <ion-label>Permis de conduire verifié</ion-label>
+            </div>
+          </div>
+          <div class="displayFlex2" *ngIf="itineraire.confirmerArrivee">
+            <div class="marginTop">
+              <img class="imgIC" src="/assets/nouvellesIcones/checkmark.png">
+            </div>
+            <div  class="label" *ngIf="itineraire.confirmerArrivee">
+              <ion-label>Le membre a conduit plus de 15 passagers</ion-label>
+            </div>
+          </div>
+          <div class="displayFlex2"  *ngIf="total >= 4">
+            <div class="marginTop">
+              <img class="imgIC" src="/assets/nouvellesIcones/checkmark.png">
+            </div>
+            <div  class="label" *ngIf="total >= 4">
+              <ion-label>Le membre a 4 étoiles ou plus </ion-label>
+            </div>
+          </div>
+        </div>
+        <div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="mode === 6">
+    <div id="conteneur1IS">
+      <div *ngFor="let inf of infoSup">
+        <ion-img class="imgIS" [src]="inf.iconeInformationsSupplementaires"></ion-img>
+      </div>
+    </div>
+    <div class="separateIS"></div>
+    <div>
+      <div>
+        <ion-label class="legendeIS">
+          Legendes
+        </ion-label>
+      </div>
+    </div>
+    <div id="conteneur1_2IS">
+      <div id="conteneur2IS">
+        <div class="positionIS">
+          <img class="imageIS" src="/assets/nouvellesIcones/1.png">
+          <ion-label>Voiture Berline</ion-label>
+        </div>
+        <div class="positionIS">
+          <img class="imageIS" src="/assets/nouvellesIcones/1.png">
+          <ion-label>Voiture SUV/4*4</ion-label>
+        </div>
+        <div class="positionIS">
+          <img class="imageIS" src="/assets/nouvellesIcones/2.png">
+          <ion-label>Valise/grand sac a dos</ion-label>
+        </div>
+        <div class="positionIS">
+          <img class="imageIS" src="/assets/nouvellesIcones/18.png">
+          <ion-label>Petit sac a dos</ion-label>
+        </div>
+        <div class="positionIS">
+          <img class="imageIS" src="/assets/nouvellesIcones/3.png">
+          <ion-label>Animaux de compagnie en laisse autorises</ion-label>
+        </div>
+        <div class="positionIS">
+          <img class="imageIS" src="/assets/nouvellesIcones/16.png">
+          <ion-label>Animaux interdits</ion-label>
+        </div>
+        <div class="positionIS">
+          <img class="imageIS" src="/assets/nouvellesIcones/4.png">
+          <ion-label>Espace fumeur</ion-label>
+        </div>
+        <div class="positionIS">
+          <img class="imageIS" src="/assets/nouvellesIcones/15.png">
+          <ion-label>Espace non fumeur</ion-label>
+        </div>
+      </div>
+
+
+      <div class="separIS">
+      </div>
+      <div id="conteneur3IS">
+        <div class="positionIS">
+          <img src="/assets/nouvellesIcones/5.png" class="imageIS"/>
+          <ion-label>Moto de cylindree Inferieure à 300 Cm3</ion-label>
+        </div>
+        <div class="positionIS">
+          <img src="/assets/nouvellesIcones/6.png" class="imageIS">
+          <ion-label>Moto de cylindree superieure à 300 Cm3</ion-label>
+        </div>
+        <div class="positionIS">
+          <img src="/assets/nouvellesIcones/7.png" class="imageIS">
+          <ion-label>Acces au numéro de téléphone du conducteur</ion-label>
+        </div>
+        <div class="positionIS">
+          <img src="/assets/nouvellesIcones/8.png" class="imageIS">
+          <ion-label>Pas d'accès au numéro de téléphone du conducteur</ion-label>
+        </div>
+        <div class="positionIS">
+          <img src="/assets/nouvellesIcones/9.png" class="imageIS">
+          <ion-label>Acces a l'adresse e-mail du conducteur</ion-label>
+        </div>
+        <div class="positionIS">
+          <img src="/assets/nouvellesIcones/10.png" class="imageIS">
+          <ion-label>Pas d'accès a l'adresse e-mail ou conducteur</ion-label>
+        </div>
+        <div class="positionIS">
+          <img src="/assets/nouvellesIcones/11.png" class="imageIS">
+          <ion-label>Véhicule climatisé</ion-label>
+        </div>
+        <div class="positionIS">
+          <img src="/assets/nouvellesIcones/12.png" class="imageIS">
+          <ion-label>Véhicule non climatisé</ion-label>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+

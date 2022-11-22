@@ -1,0 +1,96 @@
+
+<!-- Entête 1ère et 2e interfaces -->
+<ion-header *ngIf="mode === 1 || mode === 2">
+  <ion-toolbar>
+    <div class="groupButtons">
+      <ion-buttons slot="start">
+        <ion-icon *ngIf="mode === 1" slot="icon-only" [routerLink]="['/utilisateur']" name="arrow-back-outline"></ion-icon>
+        <ion-icon *ngIf="mode === 2" slot="icon-only" (click)="backFirstEtape()" name="arrow-back-outline"></ion-icon>
+      </ion-buttons>
+      <ion-title>  Paiement </ion-title>
+    </div>
+    <img src="assets/icons/christab2_neutre.svg" class="img"> <br>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Enttête 1ère et 2e interfaces -->
+<ion-header *ngIf="mode === 3 || mode === 4">
+  <ion-toolbar>
+    <div class="groupButtons2">
+      <ion-buttons slot="start">
+        <ion-icon *ngIf="mode === 3" (click)="backSecondEtape()" slot="icon-only" name="arrow-back-outline"></ion-icon>
+        <ion-icon *ngIf="mode === 4" (click)="backThirdEtape()" slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-buttons>
+      <img src="assets/icons/christab2_neutre.svg" class="img2">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- 1re interface -->
+  <h5 *ngIf="mode === 1">Paiement des frais d'adhésion</h5>
+  <h6 *ngIf="mode === 1">Les frais d'adhésion sont de <strong>500 FCFA</strong> par an.</h6>
+  <div class="groupImages" *ngIf="mode === 1">
+    <ion-grid>
+      <ion-row class="row">
+        <ion-col class="group1">
+          <ion-checkbox (ionFocus)="getChecked($event)">></ion-checkbox>
+          <img src="assets/nouvellesIcones/Money_Logo_Portrait_Black_RGB.png" class="positionImage1" >
+        </ion-col>&nbsp;&nbsp; &nbsp; &nbsp;
+        <ion-col class="group2">
+          <ion-checkbox (ionFocus)="getChecked($event)">></ion-checkbox>
+          <img src="assets/nouvellesIcones/Bitmap.png" class="positionImage2">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <h5 class="h5" *ngIf="mode === 1">VOTRE NUMERO DE TELEPHONE MOBILE MONEY</h5>
+  <p class="exemple" *ngIf="mode === 1">Exemple: 76556687</p>
+  <div class="divInput" *ngIf="mode === 1">
+    <ion-input type="number" class="input" placeholder="55679808" name="numeroClient" [(ngModel)]="paiement.numeroClient"></ion-input>
+  </div>
+  <section class="validationPaiement" *ngIf="mode === 1">
+    <img src="assets/nouvellesIcones/Group.png" (click)="nextSecondEtape()" class="refImagePaiement">  &nbsp;  &nbsp;
+  </section>
+
+  <!-- 2e interface -->
+  <h1 *ngIf="mode === 2">Validation du paiement</h1>
+  <p *ngIf="mode === 2">Il y a deux(02) étapes:</p>
+  <h4 *ngIf="mode === 2">Etape 1: Génération du OTP avec le montant: 500F CFA</h4>
+  <p *ngIf="mode === 2">Depuis votre numéro de téléphone <strong>55679808</strong>. <br> Saisissez <strong> *144*4*6*500# </strong> et Lancez l'appel.</p>
+  <h4 *ngIf="mode === 2">Etape 2: Saisie du OTP</h4>
+  <p *ngIf="mode === 2">Orange Money envoie un SMS sur le <strong>55679808</strong>  <br> contenant un <strong>CODE</strong>.Saisissez ce <strong>CODE</strong> <br> dans le champ de saisie ci-dessous.</p>
+  <h4 *ngIf="mode === 2">OTP</h4>
+  <div class="div" *ngIf="mode === 2">
+    <ion-input type="number" class="input" name="codeOtp" [(ngModel)]="paiement.codeOtp"></ion-input>
+  </div>
+  <section class="validation" *ngIf="mode === 2">
+    <img src="assets/nouvellesIcones/Groudzp.png" (click)="nextThirdEtape()" class="refImage"> &nbsp;  &nbsp;
+  </section>
+
+
+  <!-- 3e interface -->
+  <img *ngIf="mode === 3" src="assets/nouvellesIcones/tick blue.png" class="positionImage">
+  <h3 *ngIf="mode === 3">Inscription en cours de <br> validation!</h3> <br>
+  <p *ngIf="mode === 3" class="p1">Nous avons bien reçu votre paiement!</p>
+  <p *ngIf="mode === 3" class="p1">Votre demande d'inscription est prise en compte.</p>
+  <p *ngIf="mode === 3" class="p1">Après vérification et validation de vos documents, <br> vous recevrez un email confirmant votre accès à l'application.</p>
+  <section class="validationEnCours" *ngIf="mode === 3">
+    <img src="assets/nouvellesIcones/a.png" (click)="nextFourthEtape()" class="refImageEnCours">
+  </section>
+
+  <!-- 4e interface -->
+  <img *ngIf="mode === 4" src="assets/nouvellesIcones/tick belue.png" class="positionImage">
+  <h4 *ngIf="mode === 4" class="h4">Paiement échoué</h4> <br>
+  <p *ngIf="mode === 4" class="p2">Il semble que nous avons rencontrer un problème à procéder à votre paiement</p>
+  <p *ngIf="mode === 4" class="p2"> <strong> Motif: Solde insuffisant </strong> </p>
+  <p *ngIf="mode === 4" class="p2">Veuillez vérifier que toutes les données sont correctes, puis reéssayez!</p>
+
+  <section style="text-align: center" class="validationEchouee" *ngIf="mode === 4">
+  </section>
+</ion-content>
+
+
+
+

@@ -1,0 +1,146 @@
+
+<ion-header *ngIf="mode === 1 || mode === 2 || mode === 3">
+  <ion-toolbar class=" pt-3  profilButton text-white">
+
+    <ion-buttons class="buttonTitle"  slot="start" *ngIf="mode === 1">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-buttons slot="start" class="backArrow" *ngIf="mode === 2 || mode === 3">
+      <ion-icon slot="icon-only" name="arrow-back-outline" (click)="backFaqAndCu()"></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons class="buttonTitle"  slot="end">
+      <ion-button size="small" *ngIf="mode === 1"  (click)="isAuthorised()"><ion-label style="font-size: small;text-transform: capitalize;">Accueil</ion-label> </ion-button>
+    </ion-buttons>
+    <div class="d-flex flex-column facturation">
+      <div class="text-center">
+        <ion-title *ngIf="mode === 1"> FAQ & CU</ion-title>
+        <!--=================== Entete FAQ ====================-->
+        <ion-title *ngIf="mode === 2"> FAQ </ion-title>
+        <!--===================== Entete CU =================-->
+        <ion-title *ngIf="mode === 3"> Conditions d'utilisation </ion-title>
+      </div>
+      <div class="imgLogo mx-auto">
+        <img src="assets/icons/christab2_neutre.svg">
+      </div>
+    </div>
+    <br>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="mode === 1 || mode === 2 || mode === 3">
+
+  <!--================= Interface FAQ & CU =====================-->
+  <ion-list *ngIf="mode === 1">
+    <ion-item>
+      <ion-label id="1" (click)="goFaq()"> <strong>FAQ </strong></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label id="2" (click)="goCu()"><strong>Conditions d'utilisation</strong></ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!--=================== Interface FAQ ==================-->
+  <h1 *ngIf="mode === 2">Questions fréquentes</h1> <br>
+
+  <div id="container" *ngIf="mode === 2">
+    <h3 class="first"><strong>Qui sommes-nous ?</strong></h3>
+    <h3>ChristaB fait la promotion d’un nouveau mode de transport, pratique, économique, conviviale et responsable : le Covoiturage.<br><br>
+      Pourquoi occuper 4 voitures quand on ne pourrait en prendre qu'une ?<br>
+      <br>
+      Pourquoi mobiliser 2 mobylettes quand on ne pourrait en utiliser qu’une ?<br>
+      <br>
+      Le covoiturage, c'est tout simplement l’utilisation d'un même véhicule particulier par plusieurs personnes effectuant le même trajet, notamment afin d'alléger le trafic routier et de partager les frais de transport.
+      <br>
+      ChristaB rassemble une large communauté de covoitureurs courte et longue distance au Burkina Faso.
+      La plateforme met en relation des conducteurs voyageant ou effectuant des trajets courtes distances avec des places libres, et des passagers se rendant dans la même direction.
+      Ils partagent un trajet et les frais qui y sont liés. ChristaB souhaite devenir une réponse à la problématique de la mobilité urbaine en réduisant au maximum les embouteillages dans nos villes.
+      Où que vous allez, ChristaB vous y conduit.
+    </h3> <br><br>
+    <h3 class="first"><strong>Comment ça marche ?</strong></h3>
+    <h3><strong>•	Vous êtes passager ?› Réservez une place</strong><br>
+      <strong>1. Recherchez votre trajet</strong><br>
+      Précisez simplement votre destination, votre point de départ et vos horaires. Puis choisissez le covoiturage qui vous convient !
+      Consultez les profils des conducteurs ! Vous pourrez lire les avis des autres passagers.<br>
+      <br>
+      <strong>2. Réservez et payez en ligne</strong><br>
+      Cliquez sur "Réserver" et payez votre place. Dès que ce sera fait, vous recevrez toutes les informations nécessaires.
+      Si votre trajet est annulé, nous vous rembourserons les frais de réservation.<br>
+      <br>
+      <strong>3. Effectuez votre déplacement</strong><br>
+      Bonne route et n'oubliez pas de laisser un avis sur le conducteur et sur nos services !
+    </h3>
+    <h3><strong>•	Vous êtes conducteur ?› Proposez vos places libres</strong><br>
+      <strong>1. Publiez votre annonce</strong><br>
+      Dites simplement où vous allez, et quand vous partez<br>
+      <br>
+      <strong>2. Vos passagers réservent et paient en ligne</strong><br>
+      Lorsqu'un passager réserve sur votre trajet, vous devez accepter sa requête pour qu’il ait l’autorisation de payer uniquement la réservation en en ligne. Ensuite nous lui donnons votre numéro au cas où il aura besoin de vous joindre pour des ajustements.
+      Vous pouvez vérifier les informations sur votre trajet et vos passagers à n'importe quel moment.<br>
+      <br>
+      <strong>3. Effectuez votre déplacement</strong><br>
+      Pour les courts ou longs trajets (urbains, interurbains …), partagez des anecdotes, de la bonne musique ou un moment de tranquillité avec vos passagers.
+      Ajoutez une photo de votre véhicule à l’inscription, comme ça les passagers vous retrouveront plus facilement.<br>
+      <br>
+      <strong>4. Recevez votre argent</strong><br>
+      Après le trajet, vous pouvez demander aux passagers de nous vous transférer votre argent sur votre compte mobile ou de vous le remettre en espèce.
+      Nous vous conseillons cependant l’option du transfert pour éviter les problèmes de monnaie et pour une meilleure traçabilité.
+      Nous vous prions de rester courtois lorsque vous réclamez votre argent aux passagers. En cas de difficultés, contactez le service client de ChristaB.<br>
+      <br>
+    </h3>
+    <h3> <strong>Pourquoi Faire vérifier ma pièce d'identité et les documents relatifs à mon véhicule si je suis conducteur ?</strong> <br>
+      <br>
+      Afin de créer un environnement de confiance et d’augmenter vos chances d’intéresser le maximum de passagers,
+      nous vérifions votre identité, votre permis de conduire et la validité des documents de votre véhicule.
+    </h3> <br><br>
+    <h3 class="first"> <strong>Les avis</strong> </h3>
+    <h3><strong>Laisser un avis</strong><br>
+      Les avis sont le meilleur moyen de créer et renforcer les liens de confiance entre les membres de la communauté ChristaB.
+      Vous pouvez laisser un avis sur un conducteur après avoir effectué un trajet avec lui.<br>
+      Allez dans Réglage en haut à gauche de votre écran, gérer mes trajets et notez votre covoiturer.
+      Dans la case en bas des notes, laissez votre avis sur sa ponctualité par exemple, sa convivialité, la propreté de sa voiture/moto ou tout autre critère que vous jugez pertinent.
+      Si vous souhaitez donner un avis négatif veuillez le faire de façon objective en restant courtois. Les avis à caractère injurieux seront supprimés.
+      <br>
+      Vous pourrez également laisser un avis sur le service offert par l’application ChristaB.
+      Allez dans  gérer mes trajets et cliquez sur avis. Vous pourrez nous noter dire si vous êtes satisfait de la plateforme,
+      si vous avez des plaintes ou si vous avez des propositions à faire pour améliorer le service.
+    </h3> <br><br>
+    <h3 class="first"> <strong>Annulation & Absence au rendez-vous</strong> </h3>
+    <h3><strong>•	En tant que conducteur ou conductrice »</strong><br>
+      Que se passe-t-il si un passager ou une passagère annule à la dernière   minute ou ne se présente pas ?<br>
+      Une réservation annulée au dernier moment, c’est embêtant.
+      Et si votre passager ou passagère vous pose un lapin, vous pouvez ouvrir une réclamation depuis votre Trajet.
+      <br>
+      Selon les cas, voici les modalités de compensation :
+      <br>
+      - un/e passager/ère annule plus de 24 heures avant le départ
+      La place libérée apparaît de nouveau dans les résultats de recherche mais nous ne vous versons pas le montant de sa réservation
+      car il vous reste suffisamment de temps pour avoir une nouvelle réservation.
+      <br>
+      - un/e passager/ère annule moins de 24 heures avant le départ
+      La place libérée apparaît de nouveau dans les résultats de recherche et nous vous versons 50 % du montant de sa réservation,
+      même si la place a été de réservée entre-temps.
+      <br>
+      - un/e passager/ère ne se présente pas au rendez-vous
+      Une fois la réclamation ouverte, notre équipe s’occupe de tout.
+      Le passager ou la passagère dispose de 7 jours pour confirmer ou contredire votre réclamation.
+      Si tout le monde est d’accord, vous recevrez le paiement complet du montant de la réservation, à titre de dédommagement.<br>
+      <br>
+      <strong>•	En tant que passager ou passagère</strong><br>
+      Et si le conducteur ou la conductrice annule ou ne vient pas au rendez-vous ?<br>
+      Les annulations sont rares, mais si cela arrive, nous vous remboursons intégralement.
+      <br>
+      Si le conducteur ou la conductrice n'annule pas son trajet en ligne, vous devez nous le signaler dans les 24 heures suivant l'heure du départ prévu pour recevoir les frais de réservation.<br>
+      </h3> <br>
+  </div> <br>
+
+
+  <!--===================== Interface CU ===================-->
+  <h3 *ngIf="mode === 3" class="first">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacinia quis vel eros donec ac odio tempor. Dui vivamus arcu felis bibendum ut tristique et. Eget mauris pharetra et ultrices neque ornare aenean euismod elementum. Ultricies tristique nulla aliquet enim tortor. Cras fermentum odio eu feugiat pretium. Sem integer vitae justo eget magna fermentum iaculis eu non. Massa ultricies mi quis hendrerit dolor magna eget est lorem. Enim eu turpis egestas pretium aenean. Enim nulla aliquet porttitor lacus luctus. Eget gravida cum sociis natoque penatibus. Orci porta non pulvinar neque laoreet suspendisse. Sagittis id consectetur purus ut faucibus pulvinar elementum. Id faucibus nisl tincidunt eget. Parturient montes nascetur ridiculus mus. Erat nam at lectus urna duis convallis convallis tellus. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Tincidunt ornare massa eget egestas purus viverra accumsan in. Vivamus arcu felis bibendum ut tristique et egestas quis. Sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper.</h3>
+  <h3 *ngIf="mode === 3">At elementum eu facilisis sed odio. Eu scelerisque felis imperdiet proin fermentum leo vel orci. Tincidunt lobortis feugiat vivamus at augue eget. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque. Enim ut sem viverra aliquet eget sit amet. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Lacinia at quis risus sed vulputate odio ut enim blandit. Amet risus nullam eget felis eget. A lacus vestibulum sed arcu non odio. Lorem mollis aliquam ut porttitor. Ridiculus mus mauris vitae ultricies leo integer.</h3>
+  <h3 *ngIf="mode === 3">Urna nec tincidunt praesent semper. Sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus. Blandit massa enim nec dui nunc mattis enim ut tellus. Id neque aliquam vestibulum morbi blandit cursus. Turpis massa tincidunt dui ut ornare lectus. Faucibus et molestie ac feugiat sed. Sed euismod nisi porta lorem mollis. Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat. Tellus id interdum velit laoreet id donec ultrices tincidunt arcu. In massa tempor nec feugiat nisl pretium fusce id. Sed ullamcorper morbi tincidunt ornare massa eget egestas. Amet consectetur adipiscing elit pellentesque. Consectetur adipiscing elit ut aliquam purus sit. Velit sed ullamcorper morbi tincidunt ornare massa eget egestas. Viverra orci sagittis eu volutpat odio. Suspendisse in est ante in nibh. At varius vel pharetra vel turpis nunc. Felis donec et odio pellentesque diam volutpat commodo sed egestas.</h3>
+
+</ion-content>
+
+

@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+	  <ion-buttons slot="start">
+		  <ion-menu-button>
+		  </ion-menu-button>
+	  </ion-buttons>
+    <ion-title>Type de fonction</ion-title>
+    <ion-buttons slot="end" *ngIf="mode === 1">
+    	<ion-icon name="add-outline" (click)="addNew()"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+	<div *ngIf="mode === 2 || mode === 3">
+		<ion-item>
+			<ion-label> Libellé: </ion-label> 
+			<ion-input type="text" placeholder="libellé type fonction" name="libelleTypeFonction" [(ngModel)]="this.typeFonction.libelleTypeFonction" required></ion-input> 
+		</ion-item>
+		<section style="text-align: center">
+			<ion-button shape="round" fill="outline" type="button" (click)="save()"> save </ion-button>
+		</section>
+	</div>
+	<div *ngIf="mode === 1">
+		<ion-list>
+			<ion-list-header>
+				<ion-label>Libellé</ion-label>
+				<ion-label>Actions</ion-label>
+			</ion-list-header>
+			<ion-item  *ngFor="let t of typeFonctions">
+				<div> {{t.libelleTypeFonction}} </div>
+				<div>
+					<ion-button slot="end" (click)="edit(t)">
+						<ion-icon name="pencil-outline"></ion-icon>
+					</ion-button>
+					<ion-button slot="end" (click)="delete(t)">
+						<ion-icon name="trash-outline"></ion-icon>
+					</ion-button></div>
+			</ion-item>
+		</ion-list>
+	</div>
+
+</ion-content>

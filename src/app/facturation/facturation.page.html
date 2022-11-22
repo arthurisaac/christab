@@ -1,0 +1,70 @@
+<!--Entete FACTURATION-->
+<ion-header *ngIf="mode === 1 || mode === 2">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" *ngIf="mode === 1" class="buttonTitle">
+      <ion-menu-button> </ion-menu-button>
+    </ion-buttons>
+
+    <ion-buttons slot="start" class="back-icon buttonTitle" (click)="backDetails()" *ngIf="mode === 2">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="end" *ngIf="mode === 1" class="buttonTitle">
+      <ion-button (click)="isAuthorised()" style="font-size: small;text-transform: capitalize;">Accueil</ion-button>
+    </ion-buttons>
+
+    <div   class=" d-flex flex-column facturation">
+      <div>
+        <ion-title  *ngIf="mode === 1"> Facturation </ion-title>
+        <!--Entete DETAIL DE LA FACTURATION-->
+        <ion-title *ngIf="mode === 2"> Détails facturation </ion-title>
+      </div>
+
+      <div class="imgLogo mx-auto">
+        <img style="height: 20px;" src="assets/icons/christab2_neutre.svg">
+      </div>
+
+    </div>
+    <br>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="mode === 1 || mode === 2">
+
+  <!--Interface facturation conducteur et passager-->
+  <h1 *ngIf="mode === 1">Date</h1>
+  <div *ngIf="mode === 1" class="divDate">
+    <p>du</p>
+    <ion-input type="date" name="startDate" [(ngModel)]="filterDates.startDate" class="input" (input)="onSearchChangeSt($event)"></ion-input>
+    <p>au</p>
+    <ion-input type="date" name="endDate" [(ngModel)]="filterDates.endDate" class="input" (input)="onSearchChangeEd($event)"></ion-input>
+  </div>
+  <div *ngIf="mode === 1" class="tri" (click)="triView($event)">
+    <ion-label class="custom-select">Trier par</ion-label>
+  </div>
+
+  <div id="container" *ngIf="mode === 1">
+    <ion-grid>
+      <ion-row class="colH">
+        <ion-col>N° de facture</ion-col>
+        <ion-col>Date & heure</ion-col>
+        <ion-col>Montant (F CFA)</ion-col>
+      </ion-row>
+      <ion-row class="colR" *ngFor="let p of paiements"  (click)="getRow(p)">
+        <ion-col class="colAlign1">{{p.numeroPaiement}}</ion-col>
+        <ion-col>{{p.datePaiement | date: 'dd/MM/yyyy'}}  {{p.heurePaiement}}</ion-col>
+        <ion-col class="colAlign2">{{p.montantPaiement}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!--Interface DETAIL DE LA FACTURATION du conducteur-->
+
+  <div *ngIf="paiement">
+    <h3 *ngIf="mode === 2"> <strong>Numéro de la facture:</strong> {{paiement.numeroPaiement}} </h3>
+    <h3 *ngIf="mode === 2"> <strong>Date & heure de la transaction:</strong> {{paiement.datePaiement | date: 'dd/MM/yyyy'}} à {{paiement.heurePaiement}}</h3>
+    <h3 *ngIf="mode === 2"> <strong>Trajet:</strong> {{annonce.depart}} -> {{annonce.destination}}</h3>
+    <h3 *ngIf="mode === 2"> <strong>Montant reçu: {{paiement.montantPaiement}}F CFA</strong> </h3>
+  </div>
+
+</ion-content>

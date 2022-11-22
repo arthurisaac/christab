@@ -1,0 +1,112 @@
+<!--========================================= CONNEXION ======================================-->
+
+<ion-content>
+    <img src="assets/icons/christab2_neutre.svg"> <br>
+    <div class="form-area" *ngIf="mode === 1">
+        <form #f="ngForm" (ngSubmit)="login(f.value)">
+            <div class="group">
+                <ion-label><img src="assets/icon/user.png" class="positionimg"></ion-label> &nbsp; &nbsp;
+                <ion-input type="text" placeholder="Joseph_O@gmail.fr" name="email" [(ngModel)]="loginD.email"
+                           (input)="checkEmail($event)" required></ion-input>
+            </div>
+            <div class="text-danger" *ngIf="showE">{{errorEmail}} </div>
+            <div class="group">
+                <ion-label><img src="assets/icon/lock.png" class="positionimg"></ion-label> &nbsp; &nbsp;
+                <ion-input type="password" placeholder="......" name="password" [(ngModel)]="loginD.password"
+                           (input)="checkPassword($event)" class="champ"></ion-input>
+            </div>
+            <div class="text-danger" *ngIf="showP">{{errorPwd}} </div>
+            <div style="padding-top: 25px;">
+                <p padding> Vous n'avez pas de compte? <a [routerLink]="['/utilisateur']">Inscrivez-vous </a></p>
+            </div>
+            <div style="text-align: center;">
+                <a (click)="initPassword()">Mot de passe oublié?</a>
+            </div>
+            <section class="firstScreen">
+                <button type="button"
+                        class=" firstScreen btn btn-outline-white border border-white border-5 rounded-pill text-white  font-size  "
+                        (click)="goHome()">Retour
+                </button>&nbsp; &nbsp; &nbsp;
+                <button class="firstScreen btn btn-outline-white border border-white border-5 rounded-pill text-white font-size "
+                        type="submit" [disabled]="!f.valid || showBtn">Se connecter
+                </button>&nbsp; &nbsp; &nbsp;
+            </section>
+        </form>
+    </div>
+
+    <!--******************** Interface MOT DE PASSE OUBLIE *******************-->
+    <div class="form-area1" *ngIf="mode === 2">
+        <form [formGroup]="keyForm">
+            <h1>Récupération du mot de passe</h1>
+            <div class="group1">
+                <ion-label>Entrez l'email</ion-label>
+                <ion-input type="email" formControlName="email" [(ngModel)]="user.email" placeholder="email"
+                           required=""></ion-input>
+            </div>
+            <div style="color: red; padding-top: 0.2rem" *ngIf="!emailValid">Entrer une adresse mail valide</div>
+            <section>
+                <button class=" firstScreen btn btn-outline-white border border-white border-5 rounded-pill text-white  font-size"
+                        (click)="RecoverKey()">Retour
+                </button> &nbsp; &nbsp;
+                <button type="button"
+                        class=" firstScreen btn btn-outline-white border border-white border-5 rounded-pill text-white  font-size "
+                        (click)="CheckEmail()" [disabled]="!keyForm.dirty">Continuer
+                </button>&nbsp; &nbsp; &nbsp;
+            </section>
+        </form>
+    </div>
+    <!--Interface 2 MOT DE PASSE OUBLIE-->
+    <div class="form-area1" *ngIf="mode === 3">
+        <form [formGroup]="keyForm">
+            <h1>Récupération du mot de passe</h1>
+            <div class="group1">
+                <ion-label>Entrez le code à six (06) chiffres envoyé dans votre boite mail</ion-label>
+                <ion-input type="password" formControlName="code" [(ngModel)]="user.code" (input)="checkCode($event)"
+                           placeholder="code"></ion-input>
+                <div class="text-danger" *ngIf="showC">{{errorCode}}</div>
+            </div>
+            <section>
+                <button class=" firstScreen btn btn-outline-white border border-white border-5 rounded-pill text-white  font-size"
+                        (click)="RecoverKey()">Retour
+                </button> &nbsp; &nbsp;
+                <button type="button"
+                        class=" firstScreen btn btn-outline-white border border-white border-5 rounded-pill text-white  font-size "
+                        (click)="KeyStep()">Continuer
+                </button>&nbsp; &nbsp; &nbsp;
+
+            </section>
+        </form>
+    </div>
+    <!--Interface 3 MOT DE PASSE OUBLIE-->
+    <div class="form-area1" *ngIf="mode === 4">
+        <form (ngSubmit)="changePass(keyForm)" [formGroup]="keyForm">
+            <h1>Récupération du mot de passe</h1>
+            <div class="group1">
+                <ion-label>Entrez le nouveau mot de passe</ion-label>
+                <ion-input type="password" formControlName="newpass" [(ngModel)]="user.password" placeholder="Password"
+                           required=""></ion-input>
+            </div>
+            <div class="group1">
+                <ion-label>Confirmez le mot de passe</ion-label>
+                <ion-input type="password" formControlName="confpass" [(ngModel)]="user.passwordConfirmed"
+                           placeholder="Confirmer password" required=""></ion-input>
+            </div>
+            <div style="color: red; padding-top: 0.2rem" *ngIf="keyForm.controls.confpass.invalid">6 caractères
+                minimum
+            </div>
+            <section>
+                <button class=" firstScreen btn btn-outline-white border border-white border-5 rounded-pill text-white  font-size"
+                        (click)="RecoverKey()">Retour
+                </button> &nbsp; &nbsp;
+                <button class=" firstScreen btn btn-outline-white border border-white border-5 rounded-pill text-white  font-size "
+                        type="submit" [disabled]="!keyForm.dirty">Valider
+                </button>
+            </section>
+        </form>
+    </div>
+</ion-content>
+
+
+
+
+

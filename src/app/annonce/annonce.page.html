@@ -1,0 +1,289 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start" (click)="prec()">
+            <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+        </ion-buttons>
+        <div class="conteneurRC">
+            <div style="display: flex;">
+                <ion-icon name="search" size="large"></ion-icon>
+                <ion-title style="margin-left: -15px;">Ajouter un trajet</ion-title>
+            </div>
+        </div>
+        <ion-buttons slot="end">
+            <ion-button class="imgFilter" (click)="initialiseA()"><img src="/assets/Icones/Fill.png"></ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="contentBackground">
+
+    <div class="backcolor">
+        <ion-label class="small" position="floating">DEPART</ion-label>
+    </div>
+    <ion-item *ngIf="showV">
+        <div style="display: flex; " lines="none" slot="end">
+            <ion-buttons style="width: 40px;">
+                <ion-button (click)="searchPlaceVD()">
+                    <ion-img class="radio1" src="/assets/imgs/mapG.png"></ion-img>
+                </ion-button>
+            </ion-buttons>
+        </div>
+        <ion-input type="text" class="smallT" name="depart" [(ngModel)]="annonce.depart"></ion-input>
+        <div class="navigation1" slot="start">
+            <ion-img slot="start" class="radio1" src="/assets/imgs/radio_button.png"></ion-img>
+        </div>
+    </ion-item>
+    <ion-item *ngIf="showU">
+        <div style="display: flex; " lines="none" slot="end">
+            <ion-buttons style="width: 40px;">
+                <ion-button (click)="searchPlaceUD()">
+                    <ion-img class="radio1" src="/assets/imgs/mapG.png"></ion-img>
+                </ion-button>
+            </ion-buttons>
+        </div>
+        <ion-input type="text" class="smallT" name="lieuDepart" [(ngModel)]="annonce.lieuDepart"></ion-input>
+        <div class="navigation1" slot="start">
+            <ion-img slot="start" class="radio1" src="/assets/imgs/radio_button.png"></ion-img>
+        </div>
+    </ion-item>
+    <ion-item>
+        <div style="display: flex; ">
+            <ion-buttons style="width: 35px;">
+                <ion-button>
+                    <ion-img style="width: 20px;" src="/assets/Icones/Bitmadp.png"></ion-img>
+                    <ion-datetime displayFormat="DD MMM" max="3099-12-31" [dayShortNames]="days"
+                                  [monthShortNames]="months"
+                                  [doneText]="doneBtn" [cancelText]="backBtn" name="dateDepart"
+                                  [(ngModel)]="itineraire.dateDepart" (ionChange)="getDateDep($event)"></ion-datetime>
+                </ion-button>
+            </ion-buttons>
+        </div>
+        <div slot="end" style="display: flex;">
+            <ion-buttons style="margin-right: -10px;">
+                <ion-button>
+                    <ion-img style="width: 20px;" src="/assets/imgs/clock.png"></ion-img>
+                    <ion-datetime displayFormat="HH:mm" name="heureDepart"
+                                  [hourValues]="hours" [doneText]="doneBtn" [cancelText]="backBtn"
+                                  [(ngModel)]="itineraire.heureDepart" (ionChange)="getHeureDep($event)"></ion-datetime>
+                </ion-button>
+            </ion-buttons>
+        </div>
+    </ion-item>
+    <div *ngIf="showButton" style="color: red">{{errorFields}}</div>
+    <div class="backcolor">
+        <ion-label class="small" position="floating">ARRIVEE</ion-label>
+    </div>
+    <ion-item *ngIf="showV">
+        <div style="display: flex; " slot="end">
+            <ion-buttons style="width: 40px;">
+                <ion-button (click)="searchPlaceVA()">
+                    <ion-img slot="start" class="radio1" src="/assets/imgs/mapR.png"></ion-img>
+                </ion-button>
+            </ion-buttons>
+        </div>
+        <ion-input type="text" class="smallT" name="destination" [(ngModel)]="annonce.destination"></ion-input>
+        <div slot="start">
+            <div class="navigation1" slot="start">
+                <ion-img class="radio1" src="/assets/imgs/radio_rouge.png"></ion-img>
+            </div>
+        </div>
+    </ion-item>
+    <ion-item *ngIf="showU">
+        <div style="display: flex; " slot="end">
+            <ion-buttons style="width: 40px;">
+                <ion-button (click)="searchPlaceUA()">
+                    <ion-img slot="start" class="radio1" src="/assets/imgs/mapR.png"></ion-img>
+                </ion-button>
+            </ion-buttons>
+        </div>
+        <ion-input type="text" class="smallT" name="lieuArrivee" [(ngModel)]="annonce.lieuArrivee"></ion-input>
+        <div slot="start">
+            <div class="navigation1" slot="start">
+                <ion-img class="radio1" src="/assets/imgs/radio_rouge.png"></ion-img>
+            </div>
+        </div>
+    </ion-item>
+    <ion-item>
+        <div style="display: flex; ">
+            <ion-buttons style="width: 28px;">
+                <ion-button>
+                    <ion-img style="width: 20px;" src="/assets/Icones/Bitmadp.png"></ion-img>
+                    <ion-datetime displayFormat="DD MMM" max="3099-12-31" [dayShortNames]="days"
+                                  [monthShortNames]="months"
+                                  [doneText]="doneBtn" [cancelText]="backBtn" name="dateArrivee"
+                                  [(ngModel)]="itineraire.dateArrivee" (ionChange)="getDateAr($event)"></ion-datetime>
+                </ion-button>
+            </ion-buttons>
+        </div>
+        <div slot="end" style="display: flex;">
+            <ion-buttons style="margin-right: -10px;">
+                <ion-button>
+                    <ion-img style="width: 20px;" class="r" src="/assets/imgs/clock.png"></ion-img>
+                    <ion-datetime (ionChange)="getHeureAr($event)" displayFormat="HH:mm" [hourValues]="hours"
+                                  [doneText]="doneBtn" [cancelText]="backBtn" name="heureArrivee"
+                                  [(ngModel)]="itineraire.heureArrivee"></ion-datetime>
+                </ion-button>
+            </ion-buttons>
+        </div>
+    </ion-item>
+    <ion-label style="margin-top: 20%;" color="danger">{{errorDate}}</ion-label>
+
+    <div class="backcolor">
+        <ion-label class="small" position="floating">ENGIN</ion-label>
+    </div>
+    <ion-item lines="none">
+        <ion-radio-group>
+            <ion-item lines="none" style="width: 340px;">
+                <ion-select name="nombrePersonne" (ionChange)="selectE($event)">
+                    <ion-select-option *ngFor="let e of engins"
+                                       value="{{e.idEngin}}">{{e.marque}} {{e.modele}} {{e.immatriculation}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-radio-group>
+    </ion-item>
+    <div *ngIf="showButton" style="color: red">{{errorFields}}</div>
+    <div class="backcolor">
+        <ion-label class="small" position="floating">NOMBRE DE PLACE</ion-label>
+    </div>
+    <div *ngIf="showA">
+        <ion-select name="nombrePersonne" (ionChange)="selectRP($event)" value="0">
+            <ion-select-option *ngFor="let p of PlaceA">{{p.val}}</ion-select-option>
+        </ion-select>
+    </div>
+    <div *ngIf="showM">
+        <ion-select name="nombrePersonne" (ionChange)="selectRP($event)" value="0">
+            <ion-select-option *ngFor="let p of PlaceM">{{p.val}}</ion-select-option>
+        </ion-select>
+    </div>
+    <div class="backcolor">
+        <ion-label class="small" position="floating">PRIX EN CFA/PLACE</ion-label>
+    </div>
+    <ion-item>
+        <div class="ion-text-center d-flex flex-row justify-content-around container-fluid mt-2">
+            <div class="w-25" style="border:0.2px solid">
+                <ion-input type="number" name="prix" [(ngModel)]="annonce.prix"
+                           (input)="loadPrixReserv($event)"></ion-input>
+            </div>
+
+            <div class="mx-auto">
+                <p class="pt-3"> {{prixreserv}}</p>
+            </div>
+
+            <div class="  mx-auto pt-2 d-flex flex-row pb-0 pl-0 pr-0 m-0">
+                <div class="m-0 pt-0 pb-0 pr-2 pl-0">
+                    <p class="pt-2"> {{prixdu}}</p>
+                </div>
+
+                <div class=" tooltip pt-0 p-0 mt-3 mb-0 mr-0 ml-0">
+                    <p class=" border border-primary text-primary text-center info-prix">i</p>
+                    <span class="tooltiptext-info pr-1 pl-1 " style="font-size: 70%;width: max-content;">Montant à percevoir</span>
+                </div>
+
+            </div>
+        </div>
+    </ion-item>
+    <div *ngIf="showButton" style="color: red">{{errorFields}}</div>
+    <div class="backcolor">
+        <ion-label class="small">BAGAGES</ion-label>
+    </div>
+    <ion-item>
+        <div style="width: 100%;" class="pb-4">
+            <div style="display: flex;justify-content: space-between;margin-bottom: -29px;margin-top: 15px;"
+                 class="pt-3">
+
+
+                <div class="tooltip leftbag mt-3 mb-1" style="width: 20px;">
+                    <ion-img src="/assets/nouvellesIcones/bag1.png"></ion-img>
+                    <span class="tooltiptext">Petit sac <br/> a dos</span>
+                </div>
+
+
+                <div class="tooltip mt-3 mb-1 middletbag" style="width: 20px;">
+                    <ion-img src="/assets/nouvellesIcones/bag2.png"></ion-img>
+                    <span class="tooltiptext">Grand sac <br/>a dos</span>
+                </div>
+                <div class="tooltip mt-3 mb-1  rightbag" style="width: 20px;">
+                    <ion-img src="/assets/nouvellesIcones/bag3.png"></ion-img>
+                    <span class="tooltiptext">Valise</span>
+                </div>
+            </div>
+            <div style="margin-bottom: 5px;margin-top: 5px;" class="rangeText">
+                <ion-range min="0" max="2" step="1" snaps="true" (ionChange)="getBag($event)">
+                </ion-range>
+
+            </div>
+        </div>
+    </ion-item>
+
+    <div class="backcolor">
+        <ion-label class="small">AUTRES CRITERES</ion-label>
+    </div>
+    <ion-item lines="none" class="p-0">
+        <div class="container m-0 p-0" style="width:100%;display: flex;justify-content:space-between; ">
+            <div style="border-radius: 20%;display: flex; " class=" marginRespons">
+                <ion-buttons class="tooltip ml-4">
+                    <ion-button class="mt-15 " [ngClass]="{'btnCritere':enableSmoke}" (click)="getSmoke($event)">
+                        <img name="smoke" style="width: 30px;height: 25px;" src="/assets/nouvellesIcones/Bitmdap.png">
+                    </ion-button>
+                    <span class="tooltiptexta">Espace fumeur</span>
+
+                </ion-buttons>
+                <ion-buttons class="tooltip">
+                    <ion-button class="mt-15 h-auto" [ngClass]="{'btnCritere':enableNSmoke}" (click)="getSmoke($event)">
+                        <img name="nonSmoke" style="width: 30px;height: 25px;"
+                             src="/assets/nouvellesIcones/Group 1f3.png">
+                    </ion-button>
+                    <span class="tooltiptexta">Espace non fumeur</span>
+
+                </ion-buttons>
+            </div>
+            <div style="border-radius: 20%;display: flex;" class="marginRespons">
+                <ion-buttons class="tooltip ">
+                    <ion-button class="mt-15" [ngClass]="{'btnCritere':enableAnimal}" (click)="getAnimal($event)">
+                        <img name="animal" style="width: 30px;height: 25px;" src="/assets/nouvellesIcones/animafls.png">
+                    </ion-button>
+                    <span class="tooltiptexta">Animaux autorisés</span>
+                </ion-buttons>
+                <ion-buttons class="tooltip">
+                    <ion-button size="large" class="mt-15 h-auto" [ngClass]="{'btnCritere':enableNAnimal}"
+                                (click)="getAnimal($event)">
+                        <img name="nonAnimal" style="width: 30px;height: 30px;"
+                             src="/assets/nouvellesIcones/Group 1fd3.png">
+                    </ion-button>
+                    <span class="tooltiptexta">Animaux interdits</span>
+
+                </ion-buttons>
+            </div>
+        </div>
+    </ion-item>
+
+    <ion-item lines="none" *ngIf="showA">
+        <div class="container mr-0 ml-0 marginResponsa" style="display: flex;">
+            <ion-buttons class="tooltip ml-4">
+                <ion-button class="mt-15" [ngClass]="{'btnCritere':enableSpring}" (click)="getSpring($event)"
+                            [disabled]="enableSpring">
+                    <img name="spring" style="width: 30px;height: 30px;" src="/assets/nouvellesIcones/Icone clim_1.png">
+                </ion-button>
+                <span class="tooltiptexta">Véhicule climatisé</span>
+
+            </ion-buttons>
+            <ion-buttons class="tooltip  ">
+                <ion-button class="mt-15" [ngClass]="{'btnCritere':enableNSpring}" (click)="getSpring($event)"
+                            [disabled]="enableNSpring">
+                    <img name="nonSpring" style="width: 30px;height: 30px;"
+                         src="/assets/nouvellesIcones/Icone clim_2.png">
+                </ion-button>
+                <span class="tooltiptexta">Véhicule non-climatisé</span>
+
+            </ion-buttons>
+        </div>
+    </ion-item>
+
+    <div style="margin-top: 20px;margin-bottom: 10px;" class=" mb-5">
+        <ion-buttons>
+            <ion-button expand="block" (click)="save()">
+                <ion-img src="/assets/nouvellesIcones/btn_2.png"></ion-img>
+            </ion-button>
+        </ion-buttons>
+    </div>
+</ion-content>

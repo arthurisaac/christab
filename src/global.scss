@@ -1,0 +1,926 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+// adjuster les headers de "finaliser paiement", "paiement", "Paiement recut", "rechercher", Validation d'identite(header), page d'aceuil (header)
+/*@media only screen and (min-width: 0px){
+  .logoStyle{
+    width: 35% !important;
+    margin-top: 5% !important;
+    margin-bottom: 5% !important;
+  }
+  // titre de de transaction margin top
+  .titleMargin10{
+    font-size: 95%;
+  }
+
+  .tooltip .tooltiptext{
+    width: 62px !important;
+    left: 197% !important;
+    font-size: xx-small !important;
+
+
+  }
+  .leftbag{
+    margin-left:5% !important;
+  }
+  .rightbag{
+    margin-right:5% !important;
+  }
+
+  .tooltip .tooltiptexta {
+    width: 90px !important;
+    left: 62% !important;
+    font-size: xx-small !important;
+  }
+  .marginRespons{
+    margin-top: 13%;
+  }
+  .marginResponsa{
+    margin-top: 15%;
+    padding-left: 0%!important;
+  }
+
+  .rangeText{
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .saveSecondScreen {
+    margin-left: 255% !important;
+  }
+  .mt-hr{
+    margin-top: 0rem!important;
+  }
+
+  // header titre de gerer mon profile
+  .profil ion-title {
+    font-size: x-small!important;
+  }
+  // header logo de gerer mon profile
+  .profil.imgLogo{
+    width: 70px;
+  }
+  // header button de gerer mon profile
+  .profilButton ion-menu-button{
+    width: 85%;
+  }
+  .profilButton ion-button{
+    font-size: 80%;
+  }
+
+
+}
+
+
+
+@media only screen and (min-width: 320px) {
+  .logoStyle {
+    width: 35% !important;
+    margin-top: 5% !important;
+    margin-bottom: 5% !important;
+  }
+  .leftButton {
+    margin-bottom: 20%;
+  }
+  // titre de de transaction margin top
+  .titleMargin10 {
+    margin-top: 10%;
+  }
+
+
+  .marginRespons {
+    margin-top: 10%;
+  }
+
+  .marginResponsa {
+    margin-top: 13%;
+  }
+
+  .saveSecondScreen {
+    margin-left: 295% !important;
+  }
+
+
+  // header boutton titre de gerer mon profile
+  .profil ion-title {
+    font-size: medium !important;
+  }
+
+  // header logo de gerer mon profile
+  .profil.imgLogo{
+    width: 90px;
+  }
+  // header button de gerer mon profile
+  .profilButton ion-menu-button {
+    width: 100%;
+  }
+  .profilButton ion-button{
+    font-size: 100%;
+  }
+
+
+}
+
+
+//blackberry z30
+//Galaxy S5
+@media only screen and (min-width: 360px){
+  .saveSecondScreen {
+    margin-left: 350% !important;
+
+
+  }
+}
+
+
+@media only screen and (min-width: 400px){
+  .saveSecondScreen {
+    margin-left: 410% !important;
+
+
+  }
+  // header boutton titre de gerer mon profile
+  .profil ion-title {
+    font-size: large !important;
+  }
+}
+
+//Nokia N9
+@media only screen and (min-width: 480px){
+  .logoStyle{
+    width: 35% !important;
+    margin-top: 5% !important;
+    margin-bottom: 5% !important;
+  }
+  .marginRespons {
+    margin-top: 7%;
+  }
+
+  .marginResponsa {
+    margin-top: 8%;
+  }
+
+  .saveSecondScreen {
+    //margin-left: 530% !important;
+    margin-left: 490% !important;
+  }
+
+}
+
+
+@media only screen and (min-width: 600px){
+  .logoStyle{
+    width: 20% !important;
+    margin-top: 5% !important;
+    margin-bottom: 5% !important;
+  }
+  .leftButton{
+    margin-bottom: 10%;
+  }
+
+  .marginRespons{
+    margin-top: 5%;
+  }
+
+  .marginResponsa {
+    margin-top: 6%;
+  }
+
+  .saveSecondScreen {
+    margin-left: 630% !important;
+  }
+}
+
+//Galaxy S5
+@media only screen and (min-width: 640px){
+  .saveSecondScreen {
+    margin-left: 690% !important;
+  }
+}
+
+
+@media only screen and (min-width: 678px){
+  .logoStyle{
+    width: 20% !important;
+    margin-top: 5% !important;
+    margin-bottom: 5% !important;
+  }
+
+  .saveSecondScreen{
+    margin-left: 719% !important;
+
+  }
+
+
+}
+
+//Nexus 6
+@media only screen and (min-width: 732px){
+  .saveSecondScreen {
+    margin-left: 800% !important;
+
+  }
+
+  //hr margin top  page d'aceuil
+  .mt-hr{
+    margin-top: 1rem!important;
+  }
+
+}
+
+
+
+@media only screen and (min-width: 960px) {
+  .saveSecondScreen {
+    margin-left: 1075% !important;
+
+  }
+}
+
+@media only screen and (min-width: 1024px){
+  .logoStyle{
+    width: 15% !important;
+    margin-top: 5% !important;
+    margin-bottom: 5% !important;
+  }
+  .marginRespons {
+    margin-top: 3%;
+  }
+  .marginResponsa {
+    margin-top: 4%;
+  }
+  .saveSecondScreen {
+    margin-left: 1100% !important;
+  }
+
+  // titre de de transaction margin top
+  .titleMargin10 {
+    margin-top: 5%;
+  }
+
+
+}
+
+@media only screen and (min-width: 1200px){
+  .logoStyle{
+    width: 10% !important;
+    margin-top: 5% !important;
+    margin-bottom: 5% !important;
+  }
+
+  .leftButton{
+    margin-bottom: 5%;
+  }
+  .marginResponsa {
+    margin-top: 3%;
+  }
+
+
+  .saveSecondScreen {
+    margin-left: 1450% !important;
+  }
+
+  //hr margin top  page d'aceuil
+  .mt-hr{
+    margin-top: 0rem!important;
+  }
+
+  .buttonTitle {
+    margin-top: -6%!important;
+  }
+
+}
+
+
+@media only screen and (min-width: 1440px) {
+  .saveSecondScreen {
+    margin-left: 1600% !important;
+  }
+
+}
+
+@media screen and (max-width: 1440px) and (min-width: 768px){
+  // header titre de gerer mon profile
+  .profil ion-title {
+    font-size: x-large!important;
+    letter-spacing: normal!important;
+    position: inherit!important;
+  }
+}
+
+body{
+  font-family: klavika!important;
+  font-style: normal!important;
+  font-weight: normal!important;
+  src: url('assets/fonts/klavika/klavika-bold.otf')!important;
+
+}
+
+.griser{
+  background-color: whitesmoke;
+}
+
+.item.sc-ion-label-md-h, .item .sc-ion-label-md-h {
+  text-overflow: initial !important;
+}*/
+
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+// adjuster les headers de "finaliser paiement", "paiement", "Paiement recut", "rechercher", Validation d'identite(header), page d'aceuil (header)
+@media only screen and (min-width: 0px){
+  .logoStyle{
+    width: 35% !important;
+    margin-top: 5% !important;
+    margin-bottom: 5% !important;
+  }
+  // titre de de transaction margin top
+  .titleMargin10{
+    font-size: 95%;
+  }
+
+  .tooltip .tooltiptext{
+    width: 62px !important;
+    left: 197% !important;
+    font-size: xx-small !important;
+
+
+  }
+  .leftbag{
+    margin-left:5% !important;
+  }
+  .rightbag{
+    margin-right:5% !important;
+  }
+
+  .tooltip .tooltiptexta {
+    width: 90px !important;
+    left: 62% !important;
+    font-size: xx-small !important;
+  }
+  .marginRespons{
+    margin-top: 13%;
+  }
+  .marginResponsa{
+    margin-top: 15%;
+    padding-left: 0%!important;
+  }
+
+  .rangeText{
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .saveSecondScreen {
+    margin-left: 255% !important;
+  }
+
+  .buttonTitle {
+    margin-top: -20%!important;
+  }
+
+  .backArrow {
+    margin-top: -30% !important;
+  }
+
+  //hr margin top  page d'aceuil
+  .mt-hr{
+    margin-top: 0rem!important;
+  }
+
+  // header titre de gerer mon profile
+  .profil ion-title {
+    font-size: x-small!important;
+    font-family: inherit !important;
+    font-weight: bold;
+
+  }
+  // header logo de gerer mon profile
+  .profil .imgLogo{
+    width: 70px;
+    padding-top: 5%;
+  }
+  // header button de gerer mon profile
+  .profilButton ion-menu-button{
+    width: 85%;
+  }
+  .profilButton ion-button{
+    font-size: 80%;
+  }
+
+
+
+  // header titre de gerer la facturation
+  .facturation ion-title{
+    position: inherit!important;
+    margin-top: 0!important;
+    font-family: inherit !important;
+    font-size: large!important;
+    text-align: center;
+    font-weight: bold;
+
+
+  }
+
+  //Facture logo
+  .facturation .imgLogo{
+    width: 90px;
+    padding-top: 5%;
+  }
+
+
+  //  renouvellement paiement
+
+  .radio-size{
+    width: 7%;
+    height: 17px;
+    --border-width: 2px;
+    --color: rgba(0,0,0,0.51);
+    //margin-left: 3%;
+    //margin-right: 5%;
+    margin-left: 1%;
+    margin-right: 3%;
+
+  }
+
+  .radio-size1{
+    width: 7%;
+    height: 17px;
+    --border-width: 2px;
+    --color: rgba(0,0,0,0.51);
+    //margin-left: 2%;
+    //margin-right: 5%;
+    margin-left: 1%;
+    margin-right: 3%;
+  }
+
+  //validation d'identite
+  img.secondScreen{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 20% !important;
+    height: auto;
+  }
+
+
+
+
+}
+
+
+
+@media only screen and (min-width: 320px) {
+  .logoStyle {
+    width: 35% !important;
+    margin-top: 5% !important;
+    margin-bottom: 5% !important;
+  }
+  .leftButton {
+    margin-bottom: 20%;
+  }
+  // titre de de transaction margin top
+  .titleMargin10 {
+    margin-top: 10%;
+  }
+
+
+  .marginRespons {
+    margin-top: 10%;
+  }
+
+  .marginResponsa {
+    margin-top: 13%;
+  }
+
+  .saveSecondScreen {
+    margin-left: 295% !important;
+  }
+
+
+  .backArrow{
+    margin-top: -25% !important;
+  }
+
+
+  //.buttonTitle {
+  //  margin-top: -17%!important;
+  //}
+
+
+  // header boutton titre de gerer mon profile
+  .profil ion-title {
+    font-size: large !important;
+    font-family: inherit !important;
+
+
+  }
+
+  // header logo de gerer mon profile
+  .profil.imgLogo{
+    width: 90px;
+  }
+  // header button de gerer mon profile
+  .profilButton ion-menu-button {
+    width: 100%;
+  }
+  .profilButton ion-button{
+    font-size: 100%;
+  }
+
+}
+
+
+//blackberry z30
+//Galaxy S5
+@media only screen and (min-width: 360px){
+  .saveSecondScreen {
+    margin-left: 350% !important;
+
+
+  }
+
+
+}
+
+
+@media only screen and (min-width: 400px){
+  .saveSecondScreen {
+    margin-left: 410% !important;
+  }
+
+  .buttonTitle {
+    margin-top: -15%!important;
+  }
+  // header boutton titre de gerer mon profile
+  .profil ion-title {
+    font-size: large !important;
+    font-family: inherit !important;
+
+  }
+
+  //  renouvellement paiement
+
+  .radio-size {
+    width: 4%;
+    margin-left: 2%;
+    margin-right: 15%;
+  }
+
+  .radio-size1{
+    width: 4%;
+    margin-left: 2%;
+  }
+
+}
+
+//Nokia N9
+@media only screen and (min-width: 480px){
+  .logoStyle{
+    width: 35% !important;
+    margin-top: 5% !important;
+    margin-bottom: 5% !important;
+  }
+  .marginRespons {
+    margin-top: 7%;
+  }
+
+  .marginResponsa {
+    margin-top: 8%;
+  }
+
+  .saveSecondScreen {
+    //margin-left: 530% !important;
+    margin-left: 490% !important;
+  }
+
+  .backArrow {
+    margin-top: -20% !important;
+  }
+
+}
+
+
+@media only screen and (min-width: 600px){
+  .logoStyle{
+    width: 20% !important;
+    margin-top: 5% !important;
+    margin-bottom: 5% !important;
+  }
+  .leftButton{
+    margin-bottom: 10%;
+  }
+
+  .marginRespons{
+    margin-top: 5%;
+  }
+
+  .marginResponsa {
+    margin-top: 6%;
+  }
+
+  .saveSecondScreen {
+    margin-left: 630% !important;
+  }
+
+  .buttonTitle {
+    margin-top: -10%!important;
+  }
+  .backArrow {
+    margin-top: -13% !important;
+  }
+
+
+  // header logo de gerer mon profile
+  .profil .imgLogo{
+    width: 70px;
+    padding-top: 1%;
+  }
+
+  //Facture logo
+  .facturation .imgLogo{
+    width: 90px;
+    padding-top: 1%;
+  }
+
+  //validation d'identite
+  img.secondScreen{
+    width: 12% !important;
+  }
+
+
+
+
+
+
+
+}
+
+//Galaxy S5
+@media only screen and (min-width: 640px){
+  .saveSecondScreen {
+    margin-left: 690% !important;
+  }
+
+  .radio-size {
+    width: 4%;
+  }
+
+  .radio-size1{
+    width: 4%;
+  }
+
+
+
+}
+
+
+@media only screen and (min-width: 678px){
+  .logoStyle{
+    width: 20% !important;
+    margin-top: 5% !important;
+    margin-bottom: 5% !important;
+  }
+
+  .saveSecondScreen{
+    margin-left: 719% !important;
+
+  }
+
+  .backArrow {
+    margin-top: -10% !important;
+  }
+
+
+}
+
+//Nexus 6
+@media only screen and (min-width: 732px){
+  .saveSecondScreen {
+    margin-left: 800% !important;
+
+  }
+
+  // header titre de gerer la facturation
+  .facturation ion-title{
+    position: inherit!important;
+    margin-top: 0!important;
+    font-family: inherit !important;
+    font-size: x-large!important;
+    text-align: center;
+
+  }
+
+  //hr margin top  page d'aceuil
+  .mt-hr{
+    margin-top: 1rem!important;
+  }
+
+
+  //  renouvellement paiement
+
+  .radio-size {
+    width: 3%;
+  }
+
+  .radio-size1{
+    width: 3%;
+  }
+
+
+
+
+
+
+
+
+}
+
+
+
+@media only screen and (min-width: 960px) {
+  .saveSecondScreen {
+    margin-left: 1075% !important;
+
+  }
+
+
+
+}
+
+@media only screen and (min-width: 1024px){
+  .logoStyle{
+    width: 15% !important;
+    margin-top: 5% !important;
+    margin-bottom: 5% !important;
+  }
+  .marginRespons {
+    margin-top: 3%;
+  }
+  .marginResponsa {
+    margin-top: 4%;
+  }
+  .saveSecondScreen {
+    margin-left: 1100% !important;
+  }
+
+  .backArrow {
+    margin-top: -7% !important;
+  }
+
+  // titre de de transaction margin top
+  .titleMargin10 {
+    margin-top: 5%;
+  }
+
+
+
+  //  renouvellement paiement
+
+  .radio-size {
+    width: 2%;
+  }
+
+  .radio-size1{
+    width: 2%;
+  }
+
+
+}
+
+@media only screen and (min-width: 1200px){
+  .logoStyle{
+    width: 10% !important;
+    margin-top: 5% !important;
+    margin-bottom: 5% !important;
+  }
+
+  .leftButton{
+    margin-bottom: 5%;
+  }
+  .marginResponsa {
+    margin-top: 3%;
+  }
+
+
+  .saveSecondScreen {
+    margin-left: 1450% !important;
+  }
+
+  //hr margin top  page d'aceuil
+  .mt-hr{
+    margin-top: 0rem!important;
+  }
+
+  .buttonTitle {
+    margin-top: -6%!important;
+  }
+
+  .radio-size {
+    width: 2%;
+  }
+
+  .radio-size1{
+    width: 2%;
+  }
+
+
+
+
+}
+
+
+@media only screen and (min-width: 1440px) {
+  .saveSecondScreen {
+    margin-left: 1600% !important;
+  }
+
+
+}
+
+
+@media screen and (max-width: 1440px) and (min-width: 768px){
+  // header titre de gerer mon profile
+  .profil ion-title {
+    font-size: x-large!important;
+    letter-spacing: normal!important;
+    position: inherit!important;
+    font-family: inherit !important;
+
+  }
+
+  .buttonTitle {
+    margin-top: -7%!important;
+  }
+
+
+
+}
+
+
+/*body{
+  font-family: klavika!important;
+  font-style: normal!important;
+  font-weight: normal!important;
+  src: url('assets/fonts/klavika/klavika-bold.otf')!important;
+
+}*/
+
+.griser{
+  background-color: whitesmoke;
+}
+
+.item.sc-ion-label-md-h, .item .sc-ion-label-md-h {
+  text-overflow: initial !important;
+}
+

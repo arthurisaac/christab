@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <div id="cont">
+            <div id="id2">
+                <div>
+                    <ion-title>Trajets auto</ion-title>
+                </div>
+            </div>
+        </div>
+        <ion-buttons slot="start" (click)="back()">
+            <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button><img style="width: 28px;height: auto" src="/assets/nouvellesIcones/loupe.png"></ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div>
+        <div style="height: 800px;" id="mapL"></div>
+
+        <ion-card *ngIf="showDetails">
+            <img class="notification" src="/assets/Icones/path .png">
+            <ion-avatar>
+                <ion-img src="/assets/imgs/user7-128x128.jpg"></ion-img>
+            </ion-avatar>
+            <ion-note class="name">Boukary{{utilisateur.nom}}</ion-note>
+            <ion-label class="depart">Bobo Dioulasso {{annonce.depart}}</ion-label>
+            <ion-label class="arriver">Ouagadougou {{annonce.destination}}</ion-label>
+            <ion-label class="nombre">4 {{annonce.nbrePersonne}}</ion-label>
+            <ion-label class="date">Aujourd'hui a 8h00{{annonce.dateDepart}}</ion-label>
+            <ion-note class="prix">2900 {{annonce.prix}}FCFA</ion-note>
+            <div id="infoSuplementaire">
+                <div>
+                    <img class="img" src="/assets/nouvellesIcones/1.png">
+                </div>
+                <div>
+                    <img class="img" src="/assets/nouvellesIcones/2.png">
+                </div>
+                <div>
+                    <img class="img" src="/assets/nouvellesIcones/3.png">
+                </div>
+                <div>
+                    <img class="img" src="/assets/nouvellesIcones/4.png">
+                </div>
+            </div>
+        </ion-card>
+    </div>
+</ion-content>

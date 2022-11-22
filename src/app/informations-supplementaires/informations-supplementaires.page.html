@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button slot="end" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <div id="conteneurT">
+      <div class="element">
+        <ion-title>Informations suplementaires</ion-title>
+      </div>
+      <div class="element" *ngIf="showConducteur">
+        <label>CONDUCTEUR {{conducteur}}</label>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div id="conteneur1">
+    <div>
+      <img class="img" src="/assets/nouvellesIcones/1.png">
+    </div>
+    <div>
+      <img class="img" src="/assets/nouvellesIcones/2.png">
+    </div>
+    <div>
+      <img class="img" src="/assets/nouvellesIcones/3.png">
+    </div>
+    <div>
+      <img class="img" src="/assets/nouvellesIcones/4.png">
+    </div>
+  </div>
+  <div class="separate"></div>
+  <div>
+    <div>
+      <ion-label class="legende">
+        Legendes
+      </ion-label>
+    </div>
+  </div>
+  <div id="conteneur1_2">
+    <div id="conteneur2">
+      <div class="position">
+        <img class="image" src="/assets/nouvellesIcones/1.png">
+        <ion-label>Voiture SUV/4*4</ion-label>
+      </div>
+      <div class="position">
+        <img class="image" src="/assets/nouvellesIcones/2.png">
+        <ion-label>Valise/grand sac a dos</ion-label>
+      </div>
+      <div class="position">
+        <img class="image" src="/assets/nouvellesIcones/18.png">
+        <ion-label>Petit sac a dos</ion-label>
+      </div>
+      <div class="position">
+        <img class="image" src="/assets/nouvellesIcones/3.png">
+        <ion-label>Animaux de compagnie en laisse autorises</ion-label>
+      </div>
+      <div class="position">
+        <img class="image" src="/assets/nouvellesIcones/16.png">
+        <ion-label>Animaux interdits</ion-label>
+      </div>
+      <div class="position">
+        <img class="image" src="/assets/nouvellesIcones/4.png">
+        <ion-label>Espace fumeur</ion-label>
+      </div>
+      <div class="position">
+        <img class="image" src="/assets/nouvellesIcones/15.png">
+        <ion-label>Espace non fumeur</ion-label>
+      </div>
+    </div>
+    <!--dexieme column-->
+    <div class="separ">
+
+    </div>
+    <div id="conteneur3">
+      <div class="position">
+        <img src="/assets/nouvellesIcones/5.png"  class="image"  />
+        <ion-label>Moto de cylindree Inferieure a 300 Cm3</ion-label>
+      </div>
+      <div class="position">
+        <img src="/assets/nouvellesIcones/6.png"  class="image" >
+        <ion-label>Moto de cylindree superieure a 300 Cm3</ion-label>
+      </div>
+      <div class="position">
+        <img  src="/assets/nouvellesIcones/7.png"  class="image" >
+        <ion-label>Acces au numero de telephone du conducteur</ion-label>
+      </div>
+      <div class="position">
+        <img src="/assets/nouvellesIcones/8.png"  class="image" >
+        <ion-label>Pas d'acces au numero de telephone du conducteur</ion-label>
+      </div>
+      <div class="position">
+        <img src="/assets/nouvellesIcones/9.png"  class="image" >
+        <ion-label>Acces a l'adresse e-mail du conducteur</ion-label>
+      </div>
+      <div class="position">
+        <img src="/assets/nouvellesIcones/10.png"  class="image" >
+        <ion-label>Pas d'acces a l'adresse e-mail ou conducteur</ion-label>
+      </div>
+      <div class="position">
+        <img src="/assets/nouvellesIcones/11.png"  class="image" >
+        <ion-label>Vehicule climatise</ion-label>
+      </div>
+      <div class="position">
+        <img src="/assets/nouvellesIcones/12.png"  class="image" >
+        <ion-label>Vehicule non climatise</ion-label>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,1007 @@
+//css du composant liste des trajet ou css du composant demande
+.Titre{
+  background-color:  #DADADA;
+  font-size: 13px;
+}
+
+.ava{
+  margin-top: -10px;
+  width: 80px;
+  height: 80px;
+  margin-left: -3px;
+}
+
+.trajet1{
+  width: 20px;
+  height:50px;
+}
+.users{
+  width: 30px;
+  height: 30px;
+}
+.name{
+  color:gray;
+  font-size: smaller;
+}
+.depart1{
+  font-size: small;
+  width:170px;
+  display: block;
+  width:100px;
+  margin-left: 25px;
+  margin-top: -54px;
+  color: midnightblue;
+}
+
+.arriver1{
+  display: block;
+  margin-top:18px;
+  font-size: small;
+  margin-left: 25px;
+  color: midnightblue;
+}
+.clock1{
+  height:20px;
+  width: 20px;
+}
+.element{
+  height: 95px;
+}
+.aujourdhuiClock1{
+  display: inline-block;
+  margin-left: 5px;
+  font-size: small;
+  margin-top: 3px;
+}
+.heure1{
+  display: flex;
+  margin-top: 15px;
+}
+#conteneur{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.element:nth-child(3){
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.n34{
+  font-size: 30px;
+  display: inline-block;
+  margin-top: -20px;
+  margin-left: -15px;
+}
+.plac{
+  font-size: small;
+  margin-left: 5px;
+}
+.elmt3_1{
+  border-bottom: 0.5px solid black;
+}
+.Filter{
+  width: 25px;
+  height: 25px;
+}
+.conteneur{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#conteneur3_1{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#conteneur3_2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.imag{
+  height: 30px;
+  width: 30px;
+}
+#infoSuplementaire11{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.franc{
+  font-size: 11px;
+  color: red;
+}
+.titre{
+  font-size: 9px;
+  margin-top: -4px;
+}
+.menu{
+  width: 100px;
+  height: auto;
+}
+.imgFilter{
+  width: 25px;
+  height: 25px;
+}
+.toolbar{
+  border-bottom: 0.5px solid black;
+}
+.arrow_up{
+  margin-left: -10px;
+  margin-top: 10px;
+}
+#id2{
+  display: flex;
+}
+
+
+
+
+
+
+
+
+
+//css du composant reservation
+.elementApresCarte{
+  display: flex;
+  justify-content: space-between;
+}
+.cntrer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.cntrerV{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+}
+.imgFilter{
+  width: 40px;
+  height: 35px;
+}
+
+#enTeteReservation{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.carte{
+  width: 100%;
+  height: 50%;
+  border: 1px solid chartreuse;
+}
+
+.userss{
+  width: 30px;
+  height: 30px;
+
+  margin-left: -20px;
+}
+.centrageH{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CFA{
+  color: red;
+}
+
+.n33{
+  font-size: 35px;
+  margin-left: 7px;
+  color: blue;
+}
+.plce{
+  margin-top: -15px;
+}
+
+.usersPlace{
+  display: flex;
+  align-items: center;
+  padding-left: 30%;
+}
+.clock2{
+  width: 24px;
+  height: 24px;
+}
+.element3{
+  width: 30%;
+  border-left: 0.5px solid darkgray;
+  border-right: 0.5px solid darkgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Lettre1{
+  background-color: #DADADA;
+}
+.dpart1{
+  color: darkgray;
+  margin-left: 10px;
+  font-size: small;
+}
+
+
+.trajet2{
+  height: 150px;
+  width: 10%;
+  margin-left: 5px;
+}
+.heureD{
+  width:40px;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 2px;
+  color:darkblue;
+}
+.heureA{
+  margin-top:110px;
+
+  height: 30px;
+  margin-left: -45px;
+  color:darkblue;
+}
+.element2{
+  display: flex;
+  padding: 5px;
+}
+.d{
+  color: green;
+}
+.a{
+  color: red;
+}
+.Dtext{
+  font-size: 20px;
+}
+.Atext{
+  font-size: 20px;
+}
+.arriveeO{
+  margin-top: 20px;
+  margin-left: 9px;
+  line-height: 19px;
+}
+.departB{
+  margin-top: 15px;
+  margin-left: 9px;
+  line-height: 19px;
+}
+.espace{
+  padding: 10px;
+  margin-left: 30px;
+  line-height: 12px;
+
+}
+.ion-avatr{
+  width: 70px;
+  height: 70px;
+  margin-top: -20px;
+}
+
+
+.infoConducteur{
+  display: flex;
+}
+.info1{
+  display: flex;
+  margin-right: 15px;
+}
+.info2{
+  display: flex;
+}
+.phone{
+  width: 10px;
+  height: 40px;
+  margin-right: 5px;
+
+}
+.message{
+  width: 20px;
+  height: 40px;
+  margin-right: 5px;
+}
+.check{
+  width: 20px;
+}
+.etoileA{
+  color: #ffca22;
+  width: 12px;
+}
+.etoileD{
+  color: darkgrey;
+  width: 12px;
+}
+.avis6{
+  margin-top: 20px;
+}
+.iconeSize1{
+  width: 25px;
+  height:25px;
+  margin-right: 10px;
+}
+.voirT{
+  margin-left: 10px;
+}
+
+
+
+
+//css du composant rechercher
+.divideRech{
+  margin-top:10px;
+  display: flex;
+  justify-content: center;
+}
+.divideRechSuiv{
+  width: 150px;
+  height: 70px;
+}
+.navigation1{
+  margin-right :-10px;
+}
+.radio1{
+  margin-left: -14px;
+  weight: 19px;
+  height: 19px;
+}
+.r{
+  weight: 20px;
+  height: 20px;
+  margin-left: -14px;
+
+}
+.s{
+  font-size: small;
+  margin-left: -8px;
+}
+.s1{
+  font-size: smaller;
+  margin-left: -9px;
+}
+.circle{
+  weight: 25px;
+  height: 25px;
+  margin-left: -25px;
+}
+.aligner{
+  display: flex;
+  justify-content: space-between;
+}
+.positionMoto{
+  margin-top: 48px;
+  margin-left: -24px;
+}
+.positionAuto{
+  margin-top: 48px;
+  margin-left: -24px;
+}
+.carPosition1{
+}
+.backcolor{
+  background-color:#DADADA;
+  color :black;
+  opacity: 0.5;
+}
+.small{
+  font-size: 11px;
+  margin-left: 10px;
+}
+.clr{
+}
+
+.ion-icon1{
+  height: 40px;
+  weight: 50px;
+}
+.ion-icon2{
+  color: red;
+  height: 40px;
+  weight: 50px;
+}
+.iconeSize{
+  width: 24px;
+  height:24px;
+  margin-left: -7px;
+}
+.marge{
+  margin-right: -4px;
+}
+.titre1{
+  background-color: #DADADA;
+}
+.depart{
+  color: darkgray;
+  margin-left: 10px;
+}
+.car{
+  margin-left: 20px;
+}
+.moto{
+  margin-left: 20px;
+}
+.voirPlus{
+  font-size: 10px;
+}
+.position{
+  margin-right:-10px;
+}
+.conteneurRC{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 20px;
+}
+
+//css du composant trajets-autos
+
+#contTR{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.listTR{
+  height: 25px;
+  width: 25px;
+}
+
+.arrow_upTR{
+  margin-left: -10px;
+  margin-top: 10px;
+}
+#id2TR{
+  display: flex;
+}
+.menuTR{
+  width: 100px;
+  height: auto;
+}
+#id3TR{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: grey;
+}
+.notificationTR{
+  width: 350px;
+  height:auto;
+}
+.imgTR{
+  height: 35px;
+  width: 35px;
+  margin-right: 10px;
+}
+#infoSuplementaireTR{
+  display: flex;
+  justify-content: center;
+  margin-left: -15px;
+}
+
+.ion-avatarTR{
+  margin-top: -120px;
+  margin-left: 10px;
+}
+
+
+.departTR{
+  position: absolute;
+  display: inline-block;
+  font-size: smaller;
+  margin-left:35px ;
+  margin-top: -60px;
+}
+.nombreTR{
+  position: absolute;
+  margin-top: -65px;
+  margin-left: 205px;
+  font-size: 25px;
+  color: #46b0e0;
+}
+.dateTR{
+  font-size: smaller;
+  position: absolute;
+  margin-left: 35px;
+  margin-top: -2px;
+  color: #0e1ee0;
+
+}
+.arriverTR{
+  font-size: smaller;
+  position: absolute;
+  display: inline-block;
+  margin-left:35px ;
+  margin-top: -33px;
+}
+.prixTR{
+  position: absolute;
+  color: red;
+  margin-left: 175px;
+  margin-top: -5px;
+}
+.nameTR{
+  margin-left: 15px;
+}
+
+// css du composant information-du-conducteur
+
+.imgIC{
+  height: 20px;
+  width: 20px;
+  color: dodgerblue;
+}
+#conteneur1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 23px;
+}#conteneur2{
+   padding-top: 20px;
+   padding-bottom: 10px;
+ }
+#conteneur3{
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+}
+.displayFlex2{
+  display: flex;
+}
+
+.displayFlex{
+  display: flex;
+  margin-bottom: 7px;
+}
+
+.centrer{
+  display: flex;
+  justify-content: center;
+}
+#conteneur4{
+  display: flex;
+  margin-right: 20px ;
+}
+#conteneur5{
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px ;
+  justify-content: space-between;
+}
+
+#conteneur45{
+  display: flex;
+  justify-content: space-between;
+
+}
+.displayFlexE{
+  display: flex;
+  margin-bottom: 29px;
+  justify-content: space-between;
+  width: 170px;
+}
+.displayFlexET{
+  display: flex;
+  justify-content: space-between;
+  color: #3a7be0;
+}
+.totaDis:nth-child(6){
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid blue;
+}
+
+.separateur{
+  border-left: 0.5px solid #3a7be0;
+}
+.lab{
+  font-size: 20px;
+  margin-left: 2px;
+}
+.marginTop{
+  margin-right: 8px;
+}
+.etoileC{
+  color: #ffca22;
+}
+.etoilC{
+  color: rgba(91,88,88,0.26);
+}
+.label{
+  font-size: small;
+}
+#titre{
+  display: flex;
+  flex-direction: column ;
+  align-items: center;
+}
+.back{
+  width: 90px;
+}
+
+.ion-avatarIC{
+  width: 100px;
+  height: 100px;
+}
+//==============================css du composant informations-suplementaires
+
+.element1IS{
+  display: flex;
+  padding-top: 10px;
+}
+.imgIS{
+  height: 45px;
+  width: 45px;
+  margin-right: 10px;
+}
+
+.legendeIS{
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  color: black;
+  margin-bottom: 10px;
+}
+.separateIS{
+  border-bottom: 1px solid blue;
+  margin-top: 50px;
+  margin-right: 70px;
+  margin-left: 70px;
+  margin-bottom: 30px;
+}
+.separIS{
+  border-left: 1px solid blue;
+  margin: 15px;
+}
+.imageIS{
+  width: 48px;
+  height: 48px;
+}
+.positionIS{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin-top: 10px;
+}
+
+.positionIS ion-label {
+  margin-left: 5px;
+  font-size: 11px;
+}
+
+#conteneur1IS{
+  display: flex;
+  margin-top: 30px;
+}
+#conteneur2IS{
+  display: flex;
+  flex-direction: column;
+}
+#conteneur1_2IS{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 90px;
+}
+.conteneurIS{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.element:nth-child(2){
+  font-size: small;
+}
+.imgFIS{
+  width: 40px;
+  height: 15px;
+}
+
+//===============================================Finaliser la transaction
+
+.imgFilterFT{
+  width: 40px;
+  height: 20px;
+  margin-top: -90px;
+
+}
+
+#entete_conteneurFT{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.imgCbFT{
+  width: 95px;
+  height: 95px;
+}
+
+.trajetFT{
+  height:200px;
+  width: 45px;
+}
+#heure_depart_arriver1FT{
+  display: flex;
+  flex-direction: column;
+}
+#conteneurFT{
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+.heureFT {
+  color: blue;
+}
+.heureDepartFT{
+  margin-top: 20px;
+  width: 145px;
+}
+.heureArriverFT{
+  margin-top: 110px;
+  width: 145px;
+}
+.ligneHeigthFT{
+  line-height: 15px;
+  margin-top: 40px;
+  margin-left: 5px;
+}
+.departFT{
+  color: green;
+}
+.arriverFT{
+  color: red;
+}
+.ion-labelFTN{
+  font-size: small;
+}
+.ion-labelFT{
+}
+.ligneHeigthMarginFT{
+  line-height: 15px;
+  margin-top: 85px;
+  margin-left: 5px;
+}
+.contFTN{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+.contFT{
+  display: flex;
+  justify-content: space-between;
+}
+.separateur1FT{
+  margin-top: 20px;
+  border-bottom: 0.5px solid grey;
+  margin-bottom: 50px;
+}
+.separateur2FT{
+  margin-top: 10px;
+  border-bottom: 0.5px solid grey;
+  margin-bottom: 10px;
+  margin-left: 30%;
+  margin-right: -50%;
+}
+.backFTN{
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: whitesmoke;
+  height: 160px;
+  width: 100%;
+}
+.backFT{
+  background-color: whitesmoke;
+  padding-top: 11px;
+  width: 100%;
+  border-top: 1px solid blue;
+  border-bottom: 1px solid blue;
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+.footFT{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.elementFT:nth-child(2){
+  margin-left: 5px;
+}
+.separateur3FT{
+  margin-top: 30px;
+  border-bottom: 0.5px solid grey;
+  margin-bottom: 20px;
+
+}
+
+
+/************** Ajout personnel ************/
+
+.toolT {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.toolT .toolTtext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.toolT:hover .toolTtext {
+  visibility: visible;
+}
+
+.my-popover-class {
+  --ion-background-color: #3880ff;
+}
+
+.popChecked{
+  color: orangered;
+}
+
+.popUnchecked{
+  color: white;
+}
+
+.popItems{
+  color: white;
+}
+.btnCritere{
+  background: darkgrey;
+}
+
+
+/*-----------------------Ajout personnel 2eme personne -------------*/
+
+ion-checkbox{
+  --border-radius: 25px;
+}
+
+.checkedbox{
+  position: relative;
+  top: -40%;
+  right: -45%;
+}
+.checkedbox1{
+  position: relative;
+  top:-70%;
+  right:-45%;
+}
+.demandeBordureGris{
+  border-radius: 7px;
+  border: 0.1px solid lightgray;
+}
+
+.demandeBordure{
+  border-color: orangered;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 7px;
+
+}
+
+.legendDemande{
+  width: 60%!important;
+  background-color: whitesmoke;
+}
+
+/// Pour les bagages ////
+.tooltip {
+  position: relative;
+  display: inline-block;
+  opacity: 0.6!important;
+
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 110px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 80%;
+  margin-left: -60px;
+  font-size: small;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+
+}
+.tooltiptext{
+  bottom: 100%!important;
+}
+
+.leftbag{
+  margin-left:5%
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+
+/// Pour autre criteres ////
+
+.tooltip .tooltiptexta {
+  visibility: hidden;
+  width: 110px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 80%;
+  margin-left: -60px;
+  font-size: small;
+}
+
+.tooltip .tooltiptexta::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+
+}
+.tooltiptexta{
+  bottom: 100%!important;
+}
+
+
+.tooltip:hover .tooltiptexta {
+  visibility: visible;
+}
+
+
+//margin to 15%
+.mt-15{
+  margin-top: 15%;
+}
+.ml-15{
+  margin-left: 15%;
+}

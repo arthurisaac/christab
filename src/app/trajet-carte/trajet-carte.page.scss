@@ -1,0 +1,87 @@
+
+#cont{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.imgFilter{
+  width: 25px;
+  height: 25px;
+}
+.arrow_up{
+  margin-left: -10px;
+  margin-top: 10px;
+}
+#id2{
+  display: flex;
+}
+.menu{
+  width: 100px;
+  height: auto;
+}
+#id3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.notification{
+  width: 350px;
+  height:auto;
+}
+.img{
+  height: 35px;
+  width: 35px;
+  margin-right: 10px;
+}
+#infoSuplementaire{
+  display: flex;
+  justify-content: center;
+  margin-left: -15px;
+}
+ion-avatar{
+  margin-top: -120px;
+  margin-left: 10px;
+}
+.depart{
+  position: absolute;
+  display: inline-block;
+  font-size: smaller;
+  margin-left:35px ;
+  margin-top: -60px;
+}
+.nombre{
+  position: absolute;
+  margin-top: -65px;
+  margin-left: 205px;
+  font-size: 25px;
+  color: #46b0e0;
+}
+.date{
+  font-size: smaller;
+  position: absolute;
+  margin-left: 35px;
+  margin-top: -2px;
+  color: #0e1ee0;
+
+}
+.arriver{
+  font-size: smaller;
+  position: absolute;
+  display: inline-block;
+  margin-left:35px ;
+  margin-top: -33px;
+}
+.prix{
+  position: absolute;
+  color: red;
+  margin-left: 175px;
+  margin-top: -5px;
+}
+.name{
+  margin-left: 15px;
+}
+ion-content{
+  --background-color: red;
+}
+

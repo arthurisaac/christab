@@ -1,0 +1,245 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-button>
+          <ion-icon  name="arrow-back-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    <div id="titre">
+      <div>
+        <ion-title>Information du conducteur</ion-title>
+      </div>
+      <div>
+        <ion-label style="font-size: small;">Conducteur {{utilisateur.prenom}}</ion-label>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div>
+    <div>
+      <div id="conteneur1">
+        <div class="element1">
+          <ion-avatar>
+            <img src="/assets/imgs/user1-128x128.jpg">
+          </ion-avatar>
+        </div>
+        <br>
+        <div class="element1">
+          <ion-note>
+            <strong style="font-size: 20px;">{{utilisateur.nom}} {{utilisateur.prenom}}</strong>
+          </ion-note>
+        </div>
+      </div>
+    </div>
+    <div id="conteneur2">
+      <div>
+        <div class="displayFlex">
+          <div>
+            <ion-label><strong style="font-size: 20px;">Type de vehicule : </strong></ion-label>
+          </div>
+          <div>
+            <ion-label class="lab"> Berline</ion-label>
+          </div>
+        </div>
+        <div class="displayFlex">
+          <div class="lineHeight">
+            <ion-label><strong style="font-size: 20px;">Marque : </strong></ion-label>
+          </div>
+          <div id="marque" class="lineHeight">
+            <ion-label class="lab"> Toyota</ion-label>
+          </div>
+        </div>
+        <div class="displayFlex">
+          <div class="lineHeight">
+            <ion-label><strong style="font-size: 20px;">Modele : </strong></ion-label>
+          </div>
+          <div id="modele" class="lineHeight">
+            <label class="lab"> Camry</label>
+          </div>
+        </div>
+        <div class="displayFlex">
+          <div class="lineHeight">
+            <ion-label><strong style="font-size: 20px;">Couleur : </strong></ion-label>
+          </div>
+          <div id="couleur" class="lineHeight">
+            <label class="lab"> Blanche</label>
+          </div>
+        </div>
+        <div class="displayFlex">
+          <div class="lineHeight">
+            <ion-label style="font-size: 20px;"><strong>Annee :</strong></ion-label>
+          </div>
+          <div id="annee" class="lineHeight">
+            <ion-label class="lab"> 2016</ion-label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="conteneur45">
+      <div id="conteneur4">
+        <div class="element4">
+          <div class="displayFlexE">
+            <div>
+              <ion-label>Ponctualite</ion-label>
+            </div>
+            <div>
+              <ion-icon class="etoileC" name="star"></ion-icon>
+              <ion-icon class="etoileC" name="star"></ion-icon>
+              <ion-icon class="etoilC" name="star"></ion-icon>
+              <ion-icon class="etoilC" name="star"></ion-icon>
+              <ion-icon class="etoilC" name="star"></ion-icon>
+            </div>
+          </div>
+
+          <div class="displayFlexE">
+            <div>
+              <ion-label>Securite</ion-label>
+            </div>
+            <div>
+              <ion-icon class="etoileC" name="star"></ion-icon>
+              <ion-icon class="etoileC" name="star"></ion-icon>
+              <ion-icon class="etoileC" name="star"></ion-icon>
+              <ion-icon class="etoilC" name="star"></ion-icon>
+              <ion-icon class="etoilC" name="star"></ion-icon>
+            </div>
+          </div>
+          <div class="displayFlexE">
+            <div>
+              <ion-label>Confort</ion-label>
+            </div>
+            <div>
+              <ion-icon class="etoileC" name="star"></ion-icon>
+              <ion-icon class="etoileC" name="star"></ion-icon>
+              <ion-icon class="etoileC" name="star"></ion-icon>
+              <ion-icon class="etoilC" name="star"></ion-icon>
+              <ion-icon class="etoilC" name="star"></ion-icon>
+            </div>
+          </div>
+          <div class="displayFlexE">
+            <div>
+              <ion-label>Courtoisie</ion-label>
+            </div>
+            <div>
+              <div>
+                <ion-icon class="etoileC" name="star"></ion-icon>
+                <ion-icon class="etoileC" name="star"></ion-icon>
+                <ion-icon class="etoileC" name="star"></ion-icon>
+                <ion-icon class="etoileC" name="star"></ion-icon>
+                <ion-icon class="etoilC" name="star"></ion-icon>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex;justify-content: space-between;margin-bottom: 25px;">
+            <div>
+              <ion-label>Fiabilite</ion-label>
+            </div>
+            <div>
+              <ion-icon class="etoileC" name="star"></ion-icon>
+              <ion-icon class="etoileC" name="star"></ion-icon>
+              <ion-icon class="etoileC" name="star"></ion-icon>
+              <ion-icon class="etoilC" name="star"></ion-icon>
+              <ion-icon class="etoilC" name="star"></ion-icon>
+            </div>
+          </div>
+          <div class="sepa2">
+
+          </div>
+          <div style="display: flex;justify-content: space-between;margin-top: 25px;">
+            <div class="total">
+              <ion-label><strong style="color: black;">Total</strong></ion-label>
+            </div>
+            <div>
+              <div class="total">
+                <ion-icon class="etoileC" name="star"></ion-icon>
+                <ion-icon class="etoileC"name="star"></ion-icon>
+                <ion-icon class="etoileC" name="star"></ion-icon>
+                <ion-icon class="etoileC"name="star"></ion-icon>
+                <ion-icon class="etoilC" name="star"></ion-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="separateur">
+
+      </div>
+      <div id="conteneur5">
+        <div class="displayFlex2">
+          <div class="marginTop">
+            <img class="img" src="/assets/nouvellesIcones/Bitmdap.png">
+          </div>
+          <div class="label">
+            <ion-label>Numero de telephone verifie</ion-label>
+          </div>
+        </div>
+        <div class="displayFlex2">
+          <div class="marginTop">
+            <img class="img" src="/assets/nouvellesIcones/Bitmdap.png">
+          </div>
+          <div  class="label">
+            <ion-label>Adresse e-mail verifiee</ion-label>
+          </div>
+        </div>
+        <div class="displayFlex2">
+          <div class="marginTop">
+            <img class="img" src="/assets/nouvellesIcones/Bitmdap.png">
+          </div>
+          <div  class="label">
+            <ion-label>Permis de conduire verifie</ion-label>
+          </div>
+        </div>
+        <div class="displayFlex2">
+          <div class="marginTop">
+            <img class="img" src="/assets/nouvellesIcones/Bitmdap.png">
+          </div>
+          <div  class="label">
+            <ion-label>Le membre a fait plus de 5 transports</ion-label>
+          </div>
+        </div>
+        <div class="displayFlex2">
+          <div class="marginTop">
+            <img class="img" src="/assets/nouvellesIcones/Bitmdap.png">
+          </div>
+          <div  class="label">
+            <ion-label>Le membre a offert plus de 5 transports</ion-label>
+          </div>
+        </div>
+        <div class="displayFlex2">
+          <div class="marginTop">
+            <img class="img" src="/assets/nouvellesIcones/Bitmdap.png">
+          </div>
+          <div  class="label">
+            <ion-label>Le membre a conduit plus de 15 passagers</ion-label>
+          </div>
+        </div>
+        <div class="displayFlex2">
+          <div class="marginTop">
+            <img class="img" src="/assets/nouvellesIcones/Bitmdap.png">
+          </div>
+          <div  class="label">
+            <ion-label>Le membre a 4 etoile ou plus </ion-label>
+          </div>
+        </div>
+        <div class="displayFlex2">
+          <div class="marginTop">
+            <img class="img" src="/assets/nouvellesIcones/Bitmdap.png">
+          </div>
+          <div  class="label">
+            <ion-label>A recu plus de 15 evaluations</ion-label>
+          </div>
+        </div>
+        <div class="displayFlex2">
+          <div class="marginTop">
+            <img class="img" src="/assets/nouvellesIcones/Bitmdap.png">
+          </div>
+          <div  class="label">
+            <ion-label>Voiture de moins de 5 ans</ion-label>
+          </div>
+        </div>
+      </div>
+      <div>
+      </div>
+    </div>
+  </div>
+</ion-content>

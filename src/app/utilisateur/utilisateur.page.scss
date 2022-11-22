@@ -1,0 +1,1823 @@
+
+/*********************************************************Interfaces UTILISATEUR, GERER MON PROFIL & SECURITE ********************************************************************/
+
+////////////////////////////////////Background Interface UTILISATEUR//////////////////////////////////////////////
+
+ion-content.firstScreen {
+  --background: #fff url('../../assets/icones/Groupf 2.png') no-repeat center/cover fixed;
+  font-family: klavika-ligh!important;
+
+}
+
+ion-header ion-toolbar{
+  font-family: klavika-bold!important;
+
+}
+ion-header ion-button{
+  font-family: klavika-bold!important;
+
+}
+ion-content ion-button{
+  font-family: klavika-bold!important;
+
+}
+ion-content{
+  font-family: klavika-light!important;
+
+}
+
+
+///////////////////////////Background Interfaces GERER MON PROFIL & SECURITE///////////////////////////////////////
+
+//////////************************Affichage par défaut****************************///////////
+
+/********************* Interface UTILISATEUR ***************************/
+form{
+  font-family: klavika-ligh!important;
+
+}
+img.firstScreen{
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  display: block;
+  margin-top: 80px;
+}
+
+.form-area{
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: auto;
+  margin-top: 20px;
+}
+
+.group{
+  border-bottom: 0.5px solid white;
+  font-size: medium;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  margin-top: 8px;
+  width: 100%;
+  height: 60px;
+  color: white;
+}
+
+section.firstScreen{
+  width: 100%;
+  margin-top: 70px;
+  margin-bottom: 20px;
+  display: inline-flex;
+  justify-content: center;
+}
+
+ion-button.firstScreen{
+  --color: white;
+  --border-color: white;
+  font-size: small;
+  letter-spacing: 1px;
+  width: 35%;
+}
+
+/*********************En COMMUN Interface GERER MON PROFIL &/ou Interface SECURITE &/ou DEVENIR CONDUCTEUR ***************************/
+
+
+.buttonTitle{
+  margin-top: -10%;
+}
+
+.title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+ion-title.Profil{
+  font-size: large;
+  letter-spacing: 1px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+  font-weight: bold;
+  line-height: 40px;
+  margin-top: 10px
+}
+
+a{
+  position: relative;
+  color: white;
+  top: 21px;
+  margin-left: 238px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: small;
+}
+
+.save{
+  margin-left: 280px;
+}
+
+.img1{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 20%;
+  height: auto;
+}
+
+.validation{
+  margin-top: 30px;
+  justify-content: center;
+  width: 100%;
+}
+
+.refImageValidation{
+  display: block;
+  width: 30%;
+  height: auto;
+}
+
+.refImageValidation1{
+  display: block;
+  width: 29%;
+  height: auto;
+}
+
+
+/********************* Interface GERER MON PROFIL ***************************/
+ion-buttons.Profil{
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+/******************* Ajout personnel ************/
+.modifLabel{
+  font-size: small;
+  color: brown;
+  font-weight: bold;
+}
+
+.validModifLabel{
+  font-size: small;
+  color: #3483ff;
+  font-weight: bold;
+}
+
+.imgProfil{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  line-height: 40px;
+}
+
+.imgProfilEdit{
+  line-height: 0px;
+}
+
+.infoProfil{
+  font-size: large;
+  color: #3483ff;
+  font-weight: bold;
+}
+
+.labelTextDiv{
+  margin-left: -5px;
+}
+
+.labelText{
+  font-size: small;
+  letter-spacing: 0px;
+  text-align: center;
+  padding: 0px
+}
+
+.spaceBetween{
+  margin-top: 40px;
+}
+
+.spaceBetweenPreferences{
+  margin-top: 20px;
+}
+
+.sizePhoto{
+  width: 100px;
+  height: 100px;
+}
+
+/********************* Fin *******************/
+.formPassword{
+  margin-left: -40%;
+  margin-top: -5%;
+}
+
+.placeholderInput{
+  margin-left: -5px;
+}
+
+.securitePreferences{
+  font-size: large;
+  letter-spacing: 1px;
+  color: #3483ff;
+  font-weight: bold;
+  margin-left: -60%;
+}
+
+.divProfilImg{
+  margin-top: 10%;
+}
+
+.profilImg{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  width: 100px;
+  height: 100px;
+}
+
+p.Profil{
+  font-size: small;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 18px;
+  margin-top: 8px;
+  color: brown;
+  font-weight: bold;
+}
+
+.titleProfil{
+  display: inline-flex;
+}
+
+h1.Profil{
+  font-size: large;
+  letter-spacing: 1px;
+  color: #3483ff;
+  margin-left: -30%;
+  font-weight: bold;
+}
+
+h6.Profil{
+  font-size: small;
+  letter-spacing: 1px;
+  color: brown;
+  position: absolute;
+  right: 18px;
+  margin-top: 29px;
+  font-weight: bold;
+  font-weight: bold;
+}
+
+.formAreaIdentiteP{
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: auto;
+  margin-top: 10px;
+}
+
+.groupIdentite{
+  border-bottom: 1px solid darkgrey;
+  font-size: small;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.divPreferences{
+  margin-top: 40px;
+}
+
+.p1{
+  font-size: small;
+  text-align: center;
+  line-height: 15px;
+  margin-top: 5px;
+  color: black;
+}
+
+.ouiNon{
+  display: inline-flex;
+  margin-left: 273px;
+  margin-top: 10px;
+}
+
+h4.Profil{
+  font-size: medium;
+  font-weight: bold;
+}
+
+#conteneur{
+  display: inline-flex;
+  margin-top: 15px;
+}
+
+.elmt1{
+  width: 255px;
+}
+
+.elmt2{
+  margin-left: 19px;
+}
+
+h3.Profil{
+  font-size: large;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+h5{
+  font-size: small;
+  margin-left: 10px;
+  line-height: 20px;
+  text-align: justify;
+}
+
+h2{
+  font-size: small;
+  margin-left: 10px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+  line-height: 18px;
+}
+
+.lien{
+  font-size: medium;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  color: black;
+  text-decoration: underline;
+  padding-bottom: 20px;
+}
+
+/*********************Interface SECURITE ***************************/
+.back-icon{
+  margin-top: 14px;
+  margin-left: 5px;
+}
+
+.h1{
+  font-size: large;
+  letter-spacing: 1px;
+  color: black;
+  margin-left: 10px;
+  margin-top: 50px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.p2{
+  font-size: x-small;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 18px;
+  margin-top: 20px;
+  color: black;
+}
+
+.formAreaIdentiteS{
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: auto;
+  margin-top: 50px;
+}
+
+.groupIdentite{
+  border-bottom: 1px solid darkgrey;
+  font-size: small;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+
+
+/************************ Interface DEVENIR CONDUCTEUR********************/
+.H1{
+  color: black;
+  font-weight: bold;
+  font-size: medium;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-top: 50px;
+  line-height: 25px;
+}
+
+.formAreaEngin{
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: auto;
+  margin-top: 25px;
+}
+
+.groupEngin{
+  border-bottom: 1px solid black;
+  font-size: small;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+ion-radio.Conducteur{
+  display: flex;
+  top: -3px;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+
+.typEngin{
+  display: inline-flex;
+  font-family: klavika-light!important;
+
+}
+
+.type{
+  color: black;
+}
+
+.labelEngin{
+  color: #3483ff;
+}
+
+//////////*****Affichage au niveau des écrans ayant comme largeur minimale 768px et largeur maximale 1024px******///////////
+@media screen and (min-width:768px) and (max-width:1024px){
+
+  /********************* Interface UTILISATEUR ***************************/
+
+  .form-area{
+    margin-left: 40px;
+    margin-right: 40px;
+    padding: auto;
+    margin-top: 40px;
+  }
+
+  .group{
+    border-bottom: 1px solid white;
+    font-size: x-large;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    margin-top: 16px;
+    width: 100%;
+    height: 100px;
+    color: white;
+  }
+
+  section.firstScreen{
+    width: 100%;
+    margin-top: 162px;
+    margin-bottom: 40px;
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  ion-button.firstScreen{
+    --color: white;
+    --border-color: white;
+    font-size: x-large;
+    letter-spacing: 2px;
+    width: 30%;
+    height: 64px;
+  }
+
+
+  /*********************En COMMUN Interface GERER MON PROFIL &/ou Interface SECURITE &/ou Interface DEVENIR CONDUCTEUR ***************************/
+  .groupButtons{
+    display: inline-flex;
+    color: white;
+  }
+
+  ion-title.Profil{
+    font-size: xx-large;
+    letter-spacing: 2px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    font-weight: bold;
+    line-height: 40px;
+    margin-top: 14px
+  }
+
+  a{
+    position: absolute;
+    right: 68px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: x-large;
+  }
+
+  .save{
+    position: absolute;
+    right: -60px;
+    width: 150px;
+  }
+
+  .img1{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    display: block;
+    width: 20%;
+    height: auto;
+  }
+
+  /********************* Interface GERER MON PROFIL ***************************/
+
+
+  ion-buttons.Profil{
+    margin-top: 10px;
+    margin-left: 5px;
+  }
+
+  .profilImg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 100px;
+    height: 100px;
+  }
+
+  p.Profil{
+    font-size: x-large;
+    text-align: center;
+    letter-spacing: 2px;
+    line-height: 18px;
+    margin-top: 17px;
+    color: brown;
+    font-weight: bold;
+  }
+
+  .titleProfil{
+    display: inline-block;
+  }
+
+  h1.Profil{
+    font-size: xx-large;
+    letter-spacing: 2px;
+    color: #3483ff;
+    margin-left: 20px;
+    margin-top: 40px;
+    font-weight: bold;
+  }
+
+  h6.Profil{
+    font-size: x-large;
+    letter-spacing: 2px;
+    color: brown;
+    position: absolute;
+    right: 68px;
+    margin-top: -36px;
+    font-weight: bold;
+  }
+
+  .formAreaIdentite{
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: auto;
+    margin-top: 30px;
+  }
+
+  .groupIdentite{
+    border-bottom: 2px solid darkgrey;
+    font-size: x-large;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+  }
+
+  .divPreferences{
+    margin-top: 80px;
+  }
+
+  .p1{
+    font-size: x-large;
+    line-height: 32px;
+    margin-top: 28px;
+    color: black;
+    text-align: justify;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .ouiNon{
+    display: inline-flex;
+    margin-top: 29px;
+    position: absolute;
+    right: 40px;
+  }
+
+  h4.Profil{
+    font-size: xx-large;
+    font-weight: bold;
+  }
+
+  #conteneur{
+    display: inline-flex;
+    margin-top: 60px;
+  }
+
+  .elmt1{
+    width: 525px;
+  }
+
+  .elmt2{
+    margin-top: 20px;
+    position: absolute;
+    right: 40px;
+  }
+
+  .radioButtonProfil{
+    width: 40px;
+    height: 40px;
+  }
+
+  h3.Profil{
+    font-size: xx-large;
+    margin-left: 10px;
+    font-weight: bold;
+  }
+
+  h5{
+    font-size: x-large;
+    margin-left: 10px;
+    line-height: 36px;
+    text-align: justify;
+  }
+
+  h2{
+    font-size: x-large;
+    margin-left: 10px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 35px;
+    line-height: 42px;
+  }
+
+  .lien{
+    font-size: xx-large;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+    color: black;
+    text-decoration: underline;
+    padding-bottom: 20px;
+  }
+
+  /********************* Interface SECURITE ***************************/
+  .back-icon{
+    margin-top: 14px;
+    margin-left: 5px;
+  }
+
+
+  .h1{
+    font-size: xx-large;
+    letter-spacing: 2px;
+    color: black;
+    margin-left: 10px;
+    margin-top: 100px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .p2{
+    font-size: large;
+    text-align: center;
+    letter-spacing: 2px;
+    line-height: 40px;
+    margin-top: 40px;
+    color: black;
+  }
+
+  .formAreaIdentite{
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: auto;
+    margin-top: 70px;
+  }
+
+  .groupIdentite{
+    border-bottom: 1px solid darkgrey;
+    font-size: x-large;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    margin-bottom: 10px;
+    margin-top: 40px;
+  }
+
+  .validation{
+    width: 100%;
+    margin-top: 40px;
+    justify-content: center;
+  }
+
+  .refImageValidation{
+    display: block;
+    width: 25%;
+    height: auto;
+  }
+
+  .refImageValidation1{
+    display: block;
+    width: 15%;
+    height: auto;
+  }
+
+
+
+  /************************Interface DEVENIR CONDUCTEUR********************/
+  .H1{
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-top: 80px;
+    line-height: 40px;
+  }
+
+  .formAreaEngin{
+    margin-left: 40px;
+    margin-right: 40px;
+    padding: auto;
+    margin-top: 80px;
+  }
+
+  .groupEngin{
+    border-bottom: 2px solid black;
+    font-size: x-large;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    margin-bottom: 15px;
+  }
+
+  ion-radio.Conducteur{
+    display: flex;
+    top: -10px;
+    margin-left: 5px;
+    margin-top: 10px;
+  }
+
+  .radioButton{
+    width: 35px;
+    height: 35px;
+    left: 20px;
+    top: -3px;
+    display: flex;
+    margin-top: 10px;
+  }
+
+  .typEngin{
+    display: inline-flex;
+    font-family: klavika-light!important;
+
+  }
+
+  .labelEngin{
+    color: #3483ff;
+  }
+
+  .type{
+    color: black;
+  }
+
+}
+
+
+/********************************************************* Interfaces IDENTITE, ENGIN & PAIEMENT ********************************************************************/
+
+////////////////////////////////////Background //////////////////////////////////////////////
+
+ion-header.secondScreen, ion-toolbar.secondScreen{
+  --background: #3483ff;
+}
+
+//////////************************Affichage par défaut****************************///////////
+/********************* EN COMMUN ***************************/
+ion-buttons.secondScreen{
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+.saveButton{
+  top: 10px;
+  position: relative;
+}
+
+.groupButtonsSS{
+  display: inline-flex;
+  color: white;
+  margin-top: 10px;
+}
+
+ion-title.secondScreen{
+  font-size: large;
+  letter-spacing: 2px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+  line-height: 40px;
+}
+
+.saveSecondScreen{
+  margin-left: 280px;
+  position: relative;
+}
+
+.positionImage{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 22%;
+  height: auto;
+  padding-top: 5px;
+  margin-top: 50px;
+  border-radius: 10px;
+}
+
+.validation{
+  display: inline-flex;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.refImageValidation{
+  display: block;
+  width: 30%;
+  height: auto;
+}
+
+
+
+/********************* Interface IDENTITE ***************************/
+h1{
+  font-weight: bold;
+  font-size: medium;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-top: 50px;
+  line-height: 30px;
+}
+
+p.Identite{
+  font-size: small;
+  text-align: center;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  line-height: 18px;
+}
+
+.profilImg{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  width: 100px;
+  height: 100px;
+}
+
+.formAreaIdentite{
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: auto;
+  margin-top: 25px;
+}
+
+.groupIdentite{
+  border-bottom: 1px solid darkgrey;
+  font-size: small;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.labelIdentite{
+  color: #3483ff;
+}
+
+h2.Identite{
+  font-size: small;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 20px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.refImage{
+  width: 80%;
+  height: auto;
+  margin-left: 10px;
+}
+
+.p1{
+  font-size: 13px;
+  text-align: center;
+  line-height: 15px;
+  margin-top: 5px;
+}
+
+.paragraphe{
+  font-size: 12px;
+  text-align: center;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 1px;
+  line-height: 18px;
+}
+
+.trait{
+  border-bottom: 1px solid #3483ff;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.refImage2{
+  width: 100%;
+  height: auto;
+}
+
+.del{
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  width: 25px;
+}
+
+.del2{
+  position: absolute;
+  top: 0px;
+  left: 100px;
+  width: 20px;
+}
+
+h3.Identite{
+  font-size: x-large;
+  text-align: center;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  margin-top: 98px;
+  line-height: 30px;
+}
+
+.footer{
+  font-size: small;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 18px;
+  height: 62px;
+  padding: 12px;
+  margin-top: 138px;
+}
+
+
+.validationProfil{
+  display: inline-flex;
+  margin-top: 84px;
+  justify-content: center;
+}
+
+.refImageProfil{
+  width: 35%;
+  height: auto;
+}
+
+.p3{
+  font-size: small;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 18px;
+  height: 62px;
+  padding-top: 12px;
+}
+
+/********************* Interface ENGIN ***************************/
+.h1{
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-top: 50px;
+  line-height: 30px;
+}
+
+.formAreaEngin{
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: auto;
+  margin-top: 25px;
+}
+
+.groupEngin{
+  border-bottom: 1px solid black;
+  font-size: small;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+.labelEngin{
+  color: #3483ff;
+}
+
+ion-radio.Engin{
+  display: flex;
+  top: -10px;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+
+.typEngin{
+  display: inline-flex;
+  font-family: klavika-light!important;
+
+}
+
+.p9{
+  font-size: small;
+  text-align: center;
+  font-weight: normal;
+  letter-spacing: 1px;
+  line-height: 18px;
+}
+
+.refImageEx{
+  width: 80%;
+  height: auto;
+  margin-left: 10px;
+}
+
+.trait2{
+  border-bottom: 1px solid #3483ff;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.refImage3{
+  width: 70%;
+  height: auto;
+}
+
+.del3{
+  position: absolute;
+  top: 0px;
+  left: 135px;
+  width: 20px;
+}
+
+.h11{
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 30px;
+}
+
+/*********************Interface PAIEMENT ***************************/
+h5.Paiement{
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  line-height: 30px;
+}
+
+h6.Paiement{
+  font-size: medium;
+  text-align: center;
+  line-height: 12px;
+  margin-top: 25px;
+}
+
+ion-grid.Paiement{
+  width: 100%;
+}
+
+.col{
+  border: 1px solid black;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.positionImage1{
+  width: auto;
+  height: 65px;
+  padding: 5px;
+}
+
+.positionImage2{
+  width: 120px;
+  height: auto;
+  padding: 5px;
+}
+
+ion-checkbox.Paiement{
+  --background-checked: red;
+  --border-color:red;
+  --border-color-checked: red;
+  --border-radius: 25px;
+  --checkmark-color: white;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+}
+
+.h5{
+  font-size: small;
+  letter-spacing: 1px;
+  color: #3483ff;
+  margin-left: 5px;
+  margin-right: auto;
+  margin-top: 34px;
+}
+
+.exemple{
+  font-size: small;
+  margin-left: 10px;
+  line-height: 1px;
+  text-align: left;
+}
+
+.divInput{
+  border-bottom: 1px solid black;
+  margin-top: 15px;
+}
+
+.input{
+  font-size: medium;
+  color: black;
+  height: 25px;
+}
+.p6{
+  font-size: 14px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 25px;
+  text-align: left;
+}
+
+h4.Paiement{
+  color: #3483ff;
+  font-size: 14px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.validationPaie{
+  display: inline-flex;
+  margin-top: 35px;
+  justify-content: center;
+}
+
+.refImagePaie{
+  display: block;
+  width: 30%;
+  height: auto;
+}
+
+.h3{
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+  word-spacing: 2px;
+  margin-top: 35px;
+}
+
+.p7{
+  font-size: 14px;
+  text-align: center;
+  margin-right: 0.5px;
+  margin-left: 0.5px;
+}
+
+.p77{
+  font-size: 14px;
+  text-align: center;
+  margin-right: 0.5px;
+  margin-left: 0.5px;
+  margin-top: 25px;
+}
+
+.p8{
+  font-size: 13.5px;
+  text-align: center;
+  margin-right: 0.5px;
+  margin-left: 0.5px;
+}
+
+.p88{
+  font-size: 12px;
+  text-align: center;
+  margin-right: 0.5px;
+  margin-left: 0.5px;
+}
+
+
+
+/****************Affichage au niveau des écrans ayant comme largeur minimale 768px et largeur maximale 1024px*****************************/
+@media screen and (min-width:768px) and (max-width:1024px){
+
+  /*********************EN COMMUN ***************************/
+  ion-buttons.secondScreen{
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+
+  .groupButtonsSS{
+    display: inline-flex;
+    color: white;
+    margin-top: 10px;
+  }
+
+  ion-title{
+    font-size: xx-large;
+    letter-spacing: 4px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    line-height: 40px;
+  }
+
+
+  .positionImage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+    height: auto;
+    padding-top: 5px;
+    margin-top: 50px;
+    border-radius: 10px;
+  }
+
+  .validation{
+    display: inline-flex;
+    margin-top: 100px;
+    justify-content: center;
+  }
+
+  .refImageValidation{
+    display: block;
+    width: 25%;
+    height: auto;
+  }
+
+
+
+  /*********************Interface IDENTITE ***************************/
+  h1.Identite{
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-top: 50px;
+    line-height: 30px;
+  }
+
+  p.Identite{
+    font-size: x-large;
+    text-align: center;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    line-height: 18px;
+    line-height: 37px;
+    margin-top: 25px;
+  }
+
+  .profilImg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    width: 100px;
+    height: 100px;
+  }
+
+  .formAreaIdentite{
+    margin-left: 40px;
+    margin-right: 40px;
+    padding: auto;
+    margin-top: 70px;
+  }
+
+  .groupIdentite{
+    border-bottom: 2px solid darkgrey;
+    font-size: x-large;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    margin-bottom: 10px;
+    margin-top: 40px;
+  }
+
+  .labelIdentite{
+    color: #3483ff;
+  }
+
+  h2.Identite{
+    font-size: x-large;
+    text-align: center;
+    letter-spacing: 2px;
+    line-height: 38px;
+    margin-top: 25px;
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+
+  .grid{
+    width: 100%;
+    margin-top: 50px;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  .refImage{
+    width: 60%;
+    height: auto;
+    margin-left: 10px;
+  }
+
+  .p1{
+    font-size: 27px;
+    text-align: center;
+    line-height: 31px;
+    margin-top: 22px;
+    margin-right: 31px;
+    margin-left: -17px;
+  }
+
+  .paragraphe{
+    font-size: 22px;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 4px;
+    line-height: 37px;
+  }
+
+  .trait{
+    border-bottom: 2px solid #3483ff;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .refImage2{
+    width: 70%;
+    height: auto;
+  }
+
+  .del{
+    position: absolute;
+    top: 2px;
+    right: 0px;
+    width: 25px;
+  }
+
+  .del2{
+    position: absolute;
+    top: 0px;
+    left: 100px;
+    width: 20px;
+  }
+
+  h3.Identite{
+    font-size: xx-large;
+    text-align: center;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    margin-top: 154px;
+    line-height: 30px;
+  }
+
+  .validationProfil{
+    display: inline-flex;
+    margin-top: 137px;
+    justify-content: center;
+  }
+
+  .refImageProfil{
+    width: 30%;
+    height: auto;
+  }
+
+  .footer{
+    font-size: x-large;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 47px;
+    height: 62px;
+    padding: 12px;
+    margin-top: 225px;
+  }
+
+  .p3{
+    font-size: small;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 18px;
+    height: 62px;
+    padding-top: 12px;
+  }
+
+
+
+  /********************* Interface ENGIN ***************************/
+  .h1{
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-top: 100px;
+    line-height: 30px;
+  }
+
+  .formAreaEngin{
+    margin-left: 40px;
+    margin-right: 40px;
+    padding: auto;
+    margin-top: 60px;
+  }
+
+  .groupEngin{
+    border-bottom: 2px solid black;
+    font-size: x-large;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    margin-bottom: 10px;
+    font-weight: normal;
+  }
+
+  .labelEngin{
+    color: #3483ff;
+  }
+
+  ion-radio.Engin{
+    display: flex;
+    top: -10px;
+    margin-left: 5px;
+    margin-top: 10px;
+  }
+
+  .typEngin{
+    display: inline-flex;
+    font-family: klavika-light!important;
+
+  }
+
+  .p9{
+    font-size: x-large;
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 2px;
+    line-height: 40px;
+    margin-top: 17px;
+  }
+
+  .refImageEx{
+    width: 80%;
+    height: auto;
+    margin-left: 10px;
+  }
+
+  .trait2{
+    border-bottom: 2px solid #3483ff;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .refImage3{
+    width: 70%;
+    height: auto;
+  }
+
+  .del3{
+    position: absolute;
+    top: 0px;
+    left: 135px;
+    width: 20px;
+  }
+
+  .h11{
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: center;
+    letter-spacing: 2px;
+    line-height: 30px;
+  }
+
+  /********************* Interface PAIEMENT ***************************/
+  h5.Paiement{
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: center;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    margin-top: 100px;
+    line-height: 30px;
+  }
+
+  h6.Paiement{
+    font-size: x-large;
+    text-align: center;
+    line-height: 12px;
+    margin-top: 50px;
+  }
+
+  #container{
+    margin-top: 50px;
+  }
+
+  ion-grid.Paiement{
+    width: 90%;
+    margin-left: 39px;
+  }
+
+  .col{
+    border: 1px solid black;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    margin-top: 15px;
+  }
+
+  .positionImage1{
+    width: auto;
+    height: 65px;
+    padding: 5px;
+  }
+
+  .positionImage2{
+    width: 120px;
+    height: auto;
+    padding: 5px;
+  }
+
+  ion-checkbox.Paiement{
+    --background-checked: red;
+    --border-color:red;
+    --border-color-checked: red;
+    --border-radius: 25px;
+    --checkmark-color: white;
+    position: absolute;
+    top: -8px;
+    right: -10px;
+  }
+
+  .h5{
+    font-size: x-large;
+    letter-spacing: 2px;
+    color: #3483ff;
+    margin-left: -39px;
+    margin-right: auto;
+    margin-top: 70px;
+  }
+
+  .exemple{
+    font-size: large;
+    margin-left: 48px;
+    line-height: 1px;
+    text-align: left;
+  }
+
+  .divInput{
+    border-bottom: 2px solid black;
+    margin-top: 30px;
+  }
+
+  .input{
+    font-size: x-large;
+    color: black;
+    height: 25px;
+  }
+
+  .p6{
+    font-size: 25px;
+    margin-left: 48px;
+    margin-right: 48px;
+    margin-top: 40px;
+    text-align: left;
+    letter-spacing: 2px;
+  }
+
+  h4.Paiement{
+    color: #3483ff;
+    font-size: 27px;
+    margin-left: 48px;
+    margin-right: 48px;
+    margin-top: 42px;
+  }
+
+  .h3{
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: center;
+    word-spacing: 2px;
+    margin-top: 38px;
+    line-height: 50px;
+    letter-spacing: 2px;
+  }
+
+  .p7{
+    font-size: 27px;
+    text-align: center;
+    margin-right: 0.5px;
+    margin-left: 0.5px;
+  }
+
+  .p77{
+    font-size: 32px;
+    text-align: center;
+    margin-right: 0.5px;
+    margin-left: 0.5px;
+    margin-top: 70px;
+  }
+
+  .p8{
+    font-size: 25.5px;
+    text-align: center;
+    margin-right: 0.5px;
+    margin-left: 0.5px;
+    line-height: 52px;
+  }
+
+  .p88{
+    font-size: 27px;
+    text-align: center;
+    margin-right: 0.5px;
+    line-height: 39px;
+    margin-left: 0.5px;
+  }
+
+}
+
+
+/****************Affichage au niveau des écrans ayant comme largeur minimale 1024px et largeur maximale 1366px*****************************/
+@media screen and (min-width:1024px) and (max-width:1366px){
+  .del{
+    position: absolute;
+    top: 2px;
+    right: 0px;
+    width: 25px;
+  }
+
+  .refImageValidation{
+    display: block;
+    width: 25%;
+    height: auto;
+    margin-left: 200px;
+    margin-right: 200px
+  }
+
+
+  h3.Paiement{
+    font-size: xx-large;
+    text-align: center;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    margin-top: 252px;
+    line-height: 30px;
+  }
+
+  .refImageProfil{
+    width: 25%;
+    height: auto;
+  }
+
+  .validationProfil{
+    display: inline-flex;
+    margin-top: 166px;
+    justify-content: center;
+  }
+
+  .footer{
+    font-size: xx-large;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 47px;
+    height: 62px;
+    padding: 12px;
+    margin-top: 399px;
+  }
+
+  .del2{
+    position: absolute;
+    top: 0px;
+    left: 100px;
+    width: 20px;
+  }
+
+  .del3{
+    position: absolute;
+    top: 0px;
+    left: 135px;
+    width: 20px;
+  }
+
+  #container{
+    margin-top: 112px;
+  }
+
+  .h5{
+    font-size: x-large;
+    letter-spacing: 2px;
+    color: #3483ff;
+    margin-left: -262px;
+    margin-right: auto;
+    margin-top: 109px;
+  }
+
+  .exemple{
+    font-size: x-large;
+    margin-left: 69px;
+    line-height: 30px;
+    text-align: left;
+  }
+
+  .divInput{
+    border-bottom: 2px solid black;
+    margin-top: 50px;
+  }
+
+  .input{
+    font-size: xx-large;
+    color: black;
+    height: 30px;
+  }
+
+}
+
+
+/************************************ Ajout personnel *************************************/
+
+.buttonAdd
+{
+  display: block;
+  margin-left: 85%;
+  width: 20px;
+  height: 20px;
+}
+
+.my-custom-class {
+  --background: #e5e5e5;
+}
+
+
+.my-custom-classS {
+  color: #2dd36f;
+}
+
+.my-custom-classF {
+  color: #eb445a;
+}
+
+.toast {
+  text-align: center;
+}
+
+/*----------------------- Ajout personnel 2eme personne -------------*/
+.checkedbox{
+  position: relative;
+  top: -40%;
+  right: -45%;
+}
+.checkedbox1{
+  position: relative;
+  top:-70%;
+  right:-45%;
+}
+.demandeBordureGris{
+  border-radius: 7px;
+  border: 0.1px solid lightgray;
+}
+
+.demandeBordure{
+  border-color: orangered;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 7px;
+
+}
+
+
+
+body{
+  font-family: klavika-light!important;
+
+}
+button{
+  font-size: medium!important;
+}

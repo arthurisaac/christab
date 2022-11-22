@@ -1,0 +1,54 @@
+<ion-header>
+
+    <!-- =========================================  Gerer mes trajets  ======================================================= -->
+    <ion-toolbar color="primary">
+        <div class="row">
+            <div class="col">
+                <ion-buttons>
+                    <ion-menu-button></ion-menu-button>
+                </ion-buttons>
+            </div>
+            <div class="col-5 centrer">
+                <div>
+                    <ion-title>Gerer mes trajets</ion-title>
+                </div>
+                <div>
+                    <ion-img class="imgCb" src="/assets/Icones/christab2_neutre.png"></ion-img>
+                </div>
+            </div>
+            <div class="col accueil">
+                <ion-buttons>
+                    <ion-button size="small" (click)="isAuthorised()">
+                        <ion-label style="font-size: smaller;text-transform: capitalize;">Accueil</ion-label>
+                    </ion-button>
+                </ion-buttons>
+            </div>
+        </div>
+    </ion-toolbar>
+
+</ion-header>
+
+<!-- =========================================  Gerer mes trajets  ======================================================= -->
+<ion-content>
+
+    <div style="background-color: #3880ff;margin-top: 30px;display: flex;flex-direction: column;align-items: center;">
+        <div style="height: 50px;padding-top: 10px;">
+            <ion-buttons style="color: white;">
+                <ion-button style="text-transform: capitalize;" [routerLink]="['/trajet-conducteur']">
+                    Trajets en tant que conducteur
+                </ion-button>
+            </ion-buttons>
+        </div>
+        <div style="border-bottom: 1px solid black;width: 100%;">
+
+        </div>
+        <div style="height: 50px;padding-top: 10px;">
+            <ion-buttons style="color: white;">
+                <ion-button style="text-transform: capitalize;" [routerLink]="['/trajet-passager']">
+                    Trajets en tant que passager
+                </ion-button>
+            </ion-buttons>
+        </div>
+    </div>
+
+</ion-content>

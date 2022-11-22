@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <div class="HomeConducteurTitre">
+            <div class="HomeCt">
+                <div>
+                    <ion-title>Trajets auto</ion-title>
+                </div>
+            </div>
+        </div>
+        <ion-buttons slot="start">
+            <ion-menu-button><img class="menu" src="/assets/Icones/icon menu.png"></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <ion-toolbar color="primary" class="toolbar">
+        <div class="conteneur">
+            <div (click)="rechercherTrajet()">
+                <ion-title class="TitreTrajetAuto">Réserver un trajet</ion-title>
+            </div>
+        </div>
+    </ion-toolbar>
+    <ion-toolbar color="primary" class="toolbar">
+        <div class="conteneur">
+            <div (click)="consulter()">
+                <ion-title class="TitreTrajetAuto">Demandes de trajet</ion-title>
+            </div>
+        </div>
+    </ion-toolbar>
+    <ion-toolbar color="primary">
+        <div class="conteneur">
+            <div (click)="ajouterTrajet()">
+                <ion-title class="TitreTrajetAuto">Ajouter un trajet</ion-title>
+            </div>
+        </div>
+    </ion-toolbar>
+</ion-header>
+<ion-content></ion-content>

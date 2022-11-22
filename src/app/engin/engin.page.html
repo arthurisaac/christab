@@ -1,0 +1,102 @@
+<ion-header>
+    <ion-toolbar class="pb-3">
+        <div class="groupButtons p-0 m-0">
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title> Bienvenue sur ChristaB</ion-title>
+        </div>
+
+        <div class="text-center w-full">
+            <div style="width:150px" class="mx-auto text-white">
+                <hr class="mx-auto bg-white mt-hr"/>
+            </div>
+        </div>
+
+        <div style="text-align: center; color: white" class="p-0 m-0 ">
+            <ion-label *ngIf="mode === 1 || mode === 2"> Quel engin vous convient le mieux?</ion-label>
+            <ion-label *ngIf="mode === 3 || mode === 4"> Quel engin souhaitez-vous consulter?</ion-label>
+            <ion-label *ngIf="mode === 5 || mode === 6"> Quel engin souhaitez-vous ajouter?</ion-label>
+            <ion-label *ngIf="mode === 7 || mode === 8"> Quel engin souhaitez-vous réserver?</ion-label>
+            <ion-buttons (click)="prec()">
+                <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+            </ion-buttons>
+
+        </div>
+
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content style="text-align: center">
+    <div class="group" *ngIf="mode === 1">
+        <div class="group1">
+            <img src="assets/icons/trajet auto.png" [routerLink]="['/demande', 'A', 'U']" class="positionimg">
+        </div> &nbsp;
+        <div class="group3">
+            <ion-text class="text">Ou</ion-text>
+        </div> &nbsp;
+        <div class="group2">
+            <img src="assets/icons/trajet moto.png" [routerLink]="['/demande', 'M', 'U']" class="positionimg"> <br>
+        </div>
+    </div>
+    <div class="group" *ngIf="mode === 2">
+        <div class="group1">
+            <img src="assets/icons/trajet auto.png" [routerLink]="['/demande', 'A', 'V']" class="positionimg">
+        </div> &nbsp;
+        <div class="group3">
+            <ion-text class="text">Ou</ion-text>
+        </div> &nbsp;
+        <div class="group2">
+            <img src="assets/icons/trajet moto.png" [routerLink]="['/demande', 'M', 'V']" class="positionimg"> <br>
+        </div>
+    </div>
+    <div class="group" *ngIf="mode === 3">
+        <div class="group1">
+            <img src="assets/icons/trajet auto.png" [routerLink]="['/demande-passager', 'A', 'U']" class="positionimg">
+        </div> &nbsp;
+        <div class="group3">
+            <ion-text class="text">Ou</ion-text>
+        </div> &nbsp;
+        <div class="group2">
+            <img src="assets/icons/trajet moto.png" [routerLink]="['/demande-passager', 'M', 'U']" class="positionimg">
+            <br>
+        </div>
+    </div>
+    <div class="group" *ngIf="mode === 4">
+        <div class="group1">
+            <img src="assets/icons/trajet auto.png" [routerLink]="['/demande-passager', 'A', 'V']" class="positionimg">
+        </div> &nbsp;
+        <div class="group3">
+            <ion-text class="text">Ou</ion-text>
+        </div> &nbsp;
+        <div class="group2">
+            <img src="assets/icons/trajet moto.png" [routerLink]="['/demande-passager', 'M', 'V']" class="positionimg">
+            <br>
+        </div>
+    </div>
+    <div class="group" *ngIf="mode === 5">
+        <div class="group1">
+            <img src="assets/icons/trajet auto.png" [routerLink]="['/annonce', 'A', 'U']" class="positionimg">
+        </div> &nbsp;
+        <div class="group3">
+            <ion-text class="text">Ou</ion-text>
+        </div> &nbsp;
+        <div class="group2">
+            <img src="assets/icons/trajet moto.png" [routerLink]="['/annonce', 'M', 'U']" class="positionimg"> <br>
+        </div>
+    </div>
+    <div class="group" *ngIf="mode === 6">
+        <div class="group1">
+            <img src="assets/icons/trajet auto.png" [routerLink]="['/annonce', 'A', 'V']" class="positionimg">
+        </div> &nbsp;
+        <div class="group3">
+            <ion-text class="text">Ou</ion-text>
+        </div> &nbsp;
+        <div class="group2">
+            <img src="assets/icons/trajet moto.png" [routerLink]="['/annonce', 'M', 'V']" class="positionimg"> <br>
+        </div>
+    </div>
+    <br>
+</ion-content>
+

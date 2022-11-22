@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>Recherche sur la carte</ion-title>
+        <ion-buttons slot="start" (click)="backSearch()">
+            <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-searchbar [(ngModel)]="place" (ionInput)="UpdateSearchResults()" placeholder="Rechercher un lieu"
+                   (ionClear)="ClearAutocomplete()"></ion-searchbar>
+    <ion-list [hidden]="autocompleteItems?.length === 0">
+        <ion-item *ngFor="let item of autocompleteItems" tappable (click)="SelectSearchResult(item)">
+            {{ item.description }}
+        </ion-item>
+    </ion-list>
+    <ion-row>
+    </ion-row>
+    <div class="map-wrapper" style="height: 100%;">
+        <div id="map_center">
+        </div>
+        <div #map id="map" style="height: 100%;"></div>
+    </div>
+</ion-content>

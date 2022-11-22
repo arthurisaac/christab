@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="node_modules/@capacitor/cli/assets/android-template/app/src/androidTest/java"/>
+	<classpathentry kind="src" path="node_modules/@capacitor/cli/assets/android-template/app/src/main/java"/>
+	<classpathentry kind="src" path="node_modules/@capacitor/cli/assets/android-template/app/src/test/java"/>
+	<classpathentry kind="src" path="node_modules/@capacitor/cli/assets/plugin-template/android/src/androidTest/java"/>
+	<classpathentry kind="src" path="node_modules/@capacitor/cli/assets/plugin-template/android/src/test/java"/>
+	<classpathentry kind="lib" path="node_modules/@capacitor/cli/assets/android-template/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="node_modules/@capacitor/cli/assets/plugin-template/android/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
